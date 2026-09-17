@@ -1,0 +1,13 @@
+# tool scratch
+.playwright-mcp/
+.impeccable/
+
+# secrets and local env
+.env
+.env.*
+.vercel/
+
+# dependencies and OS noise
+node_modules/
+__pycache__/
+.DS_Store

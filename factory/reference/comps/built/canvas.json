@@ -1,0 +1,165 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-09-17T22:57:48Z"
+ },
+ "title": "Fine Print \u2014 Lesson Flow",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "1 \u00b7 The study",
+   "is_interactive": true
+  },
+  "Open.dc.html": {
+   "x": 1520,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "2 \u00b7 The book opens",
+   "is_interactive": true
+  },
+  "Vocabulary.dc.html": {
+   "x": 3040,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "3 \u00b7 Three words first",
+   "is_interactive": true
+  },
+  "Read.dc.html": {
+   "x": 4560,
+   "y": 0,
+   "w": 1440,
+   "h": 900,
+   "title": "4 \u00b7 The timed read",
+   "is_interactive": true
+  },
+  "Close.dc.html": {
+   "x": 0,
+   "y": 1400,
+   "w": 1440,
+   "h": 900,
+   "title": "5 \u00b7 The book closes",
+   "is_interactive": true
+  },
+  "Lock.dc.html": {
+   "x": 1520,
+   "y": 1400,
+   "w": 1440,
+   "h": 900,
+   "title": "6 \u00b7 The word lock",
+   "is_interactive": true
+  },
+  "Search.dc.html": {
+   "x": 3040,
+   "y": 1400,
+   "w": 1440,
+   "h": 900,
+   "title": "7 \u00b7 Search the room",
+   "is_interactive": true
+  },
+  "Cite.dc.html": {
+   "x": 4560,
+   "y": 1400,
+   "w": 1440,
+   "h": 900,
+   "title": "8 \u00b7 Cite the line",
+   "is_interactive": true
+  },
+  "Reconstruct.dc.html": {
+   "x": 0,
+   "y": 2800,
+   "w": 1440,
+   "h": 900,
+   "title": "9 \u00b7 Reconstruct the case",
+   "is_interactive": true
+  },
+  "Statement.dc.html": {
+   "x": 1520,
+   "y": 2800,
+   "w": 1440,
+   "h": 900,
+   "title": "10 \u00b7 Set the words into the line",
+   "is_interactive": true
+  },
+  "Report.dc.html": {
+   "x": 3040,
+   "y": 2800,
+   "w": 1440,
+   "h": 900,
+   "title": "11 \u00b7 The case report",
+   "is_interactive": true
+  },
+  "Reread.dc.html": {
+   "x": 4560,
+   "y": 2800,
+   "w": 1440,
+   "h": 900,
+   "title": "12 \u00b7 Read it again, knowing",
+   "is_interactive": true
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "Open.dc.html",
+  "Vocabulary.dc.html",
+  "Read.dc.html",
+  "Close.dc.html",
+  "Lock.dc.html",
+  "Search.dc.html",
+  "Cite.dc.html",
+  "Reconstruct.dc.html",
+  "Statement.dc.html",
+  "Report.dc.html",
+  "Reread.dc.html"
+ ],
+ "notes": {
+  "r1": {
+   "x": 0,
+   "y": -320,
+   "text": "Take down a case, open it, learn the words, read it",
+   "kind": "title1",
+   "maxW": 6000,
+   "color": "orange"
+  },
+  "r2": {
+   "x": 0,
+   "y": 1080,
+   "text": "The book closes \u2014 three actions, from memory",
+   "kind": "title1",
+   "maxW": 6000,
+   "color": "orange"
+  },
+  "r3": {
+   "x": 0,
+   "y": 2480,
+   "text": "Write the conclusion, hear how you read, then read it again",
+   "kind": "title1",
+   "maxW": 6000,
+   "color": "orange"
+  },
+  "n1": {
+   "x": 6140,
+   "y": 40,
+   "w": 420,
+   "text": "Every word the reader reads is verbatim Saki, from Project Gutenberg #269. The answer options are things and people from the passage \u2014 never lettered A/B/C/D. Oxblood red is reserved for the reader's own evidence marks, so a red stroke always means \"I claimed this\".",
+   "color": "red"
+  },
+  "n2": {
+   "x": 6140,
+   "y": 1480,
+   "w": 420,
+   "text": "One continuous study, six depth layers, lit only by the desk lamp. Each frame is a camera position on that one room \u2014 which is what makes Search the Room work: the decoys are objects you already walked past.",
+   "color": "red"
+  }
+ },
+ "designSystems": []
+}
