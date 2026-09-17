@@ -1,0 +1,243 @@
+{
+  "schema": 1,
+  "id": "mini",
+  "title": "The Mini Fixture",
+  "author": "Fine Print test harness",
+  "source": { "gutenberg": 0, "url": "https://example.invalid/fixture" },
+  "difficulty": "first",
+  "lines": [
+    "Line one of this fixture, invented purely for the harness.",
+    "Line two of this fixture, invented purely for the harness.",
+    "Line three of this fixture, invented purely for the harness.",
+    "Line four of this fixture, invented purely for the harness.",
+    "Line five of this fixture, invented purely for the harness.",
+    "Line six of this fixture, invented purely for the harness.",
+    "Line seven of this fixture, invented purely for the harness.",
+    "Line eight of this fixture, invented purely for the harness.",
+    "Line nine of this fixture, invented purely for the harness.",
+    "Line ten of this fixture, invented purely for the harness.",
+    "Line eleven of this fixture, invented purely for the harness.",
+    "Line twelve of this fixture, invented purely for the harness."
+  ],
+  "paragraphStarts": [1, 4, 7, 10],
+  "excerpts": [
+    {
+      "id": "ex1",
+      "roman": "I",
+      "lines": [1, 6],
+      "vocabulary": ["v-alpha", "v-beta"],
+      "challenges": ["c1-lock-apply", "c1-lock-define", "c1-search", "c1-cite"]
+    },
+    {
+      "id": "ex2",
+      "roman": "II",
+      "lines": [7, 12],
+      "vocabulary": ["v-gamma", "v-delta"],
+      "challenges": ["c2-lock-apply", "c2-lock-define", "c2-search", "c2-cite"]
+    }
+  ],
+  "vocabulary": {
+    "v-alpha": { "word": "alpha", "line": 2, "gloss": "s-gloss-alpha" },
+    "v-beta": { "word": "beta", "line": 3, "gloss": "s-gloss-beta" },
+    "v-gamma": { "word": "gamma", "line": 8, "gloss": "s-gloss-gamma" },
+    "v-delta": { "word": "delta", "line": 9, "gloss": "s-gloss-delta" }
+  },
+  "people": {
+    "ada": { "name": "Ada", "role": "s-role-ada", "cameo": "ada" },
+    "bram": { "name": "Bram", "role": "s-role-bram", "cameo": "bram" },
+    "cora": { "name": "Cora", "role": "s-role-cora", "cameo": "cora" }
+  },
+  "objects": {
+    "o-lamp": { "label": "s-obj-lamp", "carriedBy": "ada" },
+    "o-key": { "label": "s-obj-key", "carriedBy": "bram" },
+    "o-ledger": { "label": "s-obj-ledger", "carriedBy": "cora" },
+    "o-glove": { "label": "s-obj-glove", "carriedBy": "ada" }
+  },
+  "challenges": {
+    "c1-lock-apply": {
+      "type": "lock", "stage": "apply", "skill": "vocabulary", "scored": true,
+      "vocabulary": "v-alpha", "prompt": "s-c1-lock-apply-prompt",
+      "choices": [
+        { "id": "a", "kind": "dial", "label": "s-c1-lock-apply-a" },
+        { "id": "b", "kind": "dial", "label": "s-c1-lock-apply-b" },
+        { "id": "c", "kind": "dial", "label": "s-c1-lock-apply-c" }
+      ],
+      "answer": ["a"], "evidence": 2,
+      "margin": { "b": "s-c1-lock-apply-margin-b" }
+    },
+    "c1-lock-define": {
+      "type": "lock", "stage": "define", "skill": "vocabulary", "scored": true,
+      "vocabulary": "v-beta", "prompt": "s-c1-lock-define-prompt",
+      "choices": [
+        { "id": "a", "kind": "dial", "label": "s-c1-lock-define-a" },
+        { "id": "b", "kind": "dial", "label": "s-c1-lock-define-b" },
+        { "id": "c", "kind": "dial", "label": "s-c1-lock-define-c" }
+      ],
+      "answer": ["b"], "evidence": 3,
+      "margin": { "a": "s-c1-lock-define-margin-a" }
+    },
+    "c1-search": {
+      "type": "search", "skill": "detail", "scored": true,
+      "prompt": "s-c1-search-prompt", "targets": 2,
+      "choices": [
+        { "id": "o-lamp", "kind": "object", "ref": "o-lamp" },
+        { "id": "o-key", "kind": "object", "ref": "o-key" },
+        { "id": "o-ledger", "kind": "object", "ref": "o-ledger" },
+        { "id": "o-glove", "kind": "object", "ref": "o-glove" }
+      ],
+      "answer": ["o-lamp", "o-key"], "evidence": 4
+    },
+    "c1-cite": {
+      "type": "cite", "skill": "evidence", "scored": true,
+      "prompt": "s-c1-cite-prompt", "proves": "c1-search",
+      "choices": [
+        { "id": "L2", "kind": "line", "line": 2 },
+        { "id": "L4", "kind": "line", "line": 4 },
+        { "id": "L5", "kind": "line", "line": 5 }
+      ],
+      "answer": ["L4"], "evidence": 4,
+      "margin": { "L5": "s-c1-cite-margin-L5" }
+    },
+    "c2-lock-apply": {
+      "type": "lock", "stage": "apply", "skill": "vocabulary", "scored": true,
+      "vocabulary": "v-gamma", "prompt": "s-c2-lock-apply-prompt",
+      "choices": [
+        { "id": "a", "kind": "dial", "label": "s-c2-lock-apply-a" },
+        { "id": "b", "kind": "dial", "label": "s-c2-lock-apply-b" },
+        { "id": "c", "kind": "dial", "label": "s-c2-lock-apply-c" }
+      ],
+      "answer": ["c"], "evidence": 8,
+      "margin": { "a": "s-c2-lock-apply-margin-a" }
+    },
+    "c2-lock-define": {
+      "type": "lock", "stage": "define", "skill": "vocabulary", "scored": true,
+      "vocabulary": "v-delta", "prompt": "s-c2-lock-define-prompt",
+      "choices": [
+        { "id": "a", "kind": "dial", "label": "s-c2-lock-define-a" },
+        { "id": "b", "kind": "dial", "label": "s-c2-lock-define-b" },
+        { "id": "c", "kind": "dial", "label": "s-c2-lock-define-c" }
+      ],
+      "answer": ["a"], "evidence": 9,
+      "margin": { "c": "s-c2-lock-define-margin-c" }
+    },
+    "c2-search": {
+      "type": "search", "skill": "detail", "scored": true,
+      "prompt": "s-c2-search-prompt", "targets": 2,
+      "choices": [
+        { "id": "o-lamp", "kind": "object", "ref": "o-lamp" },
+        { "id": "o-key", "kind": "object", "ref": "o-key" },
+        { "id": "o-ledger", "kind": "object", "ref": "o-ledger" },
+        { "id": "o-glove", "kind": "object", "ref": "o-glove" }
+      ],
+      "answer": ["o-ledger", "o-glove"], "evidence": 10
+    },
+    "c2-cite": {
+      "type": "cite", "skill": "evidence", "scored": true,
+      "prompt": "s-c2-cite-prompt", "proves": "c2-search",
+      "choices": [
+        { "id": "L8", "kind": "line", "line": 8 },
+        { "id": "L10", "kind": "line", "line": 10 },
+        { "id": "L11", "kind": "line", "line": 11 }
+      ],
+      "answer": ["L10"], "evidence": 10,
+      "margin": { "L11": "s-c2-cite-margin-L11" }
+    }
+  },
+  "finale": {
+    "reconstruct": {
+      "people": [
+        { "cameo": "ada", "prompt": "s-recon-who-1", "options": ["ada", "bram", "cora"], "answer": "ada" },
+        { "cameo": "bram", "prompt": "s-recon-who-2", "options": ["ada", "bram", "cora"], "answer": "bram" }
+      ],
+      "clues": [
+        { "id": "k1", "line": 2, "proving": true },
+        { "id": "k2", "line": 3, "proving": false },
+        { "id": "k3", "line": 4, "proving": true },
+        { "id": "k4", "line": 5, "proving": false },
+        { "id": "k5", "line": 8, "proving": true },
+        { "id": "k6", "line": 9, "proving": false },
+        { "id": "k7", "line": 10, "proving": true }
+      ],
+      "required": 4,
+      "culprit": { "prompt": "s-recon-culprit", "options": ["ada", "bram", "cora"], "answer": "cora" }
+    },
+    "statement": {
+      "template": "s-statement-template",
+      "slots": [
+        {
+          "id": "slot1",
+          "options": [
+            { "vocabulary": "v-alpha", "true": true },
+            { "vocabulary": "v-beta", "true": false }
+          ]
+        },
+        {
+          "id": "slot2",
+          "options": [
+            { "vocabulary": "v-gamma", "true": false },
+            { "vocabulary": "v-delta", "true": true }
+          ]
+        }
+      ]
+    }
+  },
+  "strings": {
+    "s-gloss-alpha": "Fixture gloss for the first invented word.",
+    "s-gloss-beta": "Fixture gloss for the second invented word.",
+    "s-gloss-gamma": "Fixture gloss for the third invented word.",
+    "s-gloss-delta": "Fixture gloss for the fourth invented word.",
+    "s-role-ada": "The first fixture person.",
+    "s-role-bram": "The second fixture person.",
+    "s-role-cora": "The third fixture person.",
+    "s-obj-lamp": "a fixture lamp",
+    "s-obj-key": "a fixture key",
+    "s-obj-ledger": "a fixture ledger",
+    "s-obj-glove": "a fixture glove",
+    "s-c1-lock-apply-prompt": "Fixture prompt: pick the applied sense.",
+    "s-c1-lock-apply-a": "Fixture dial A.",
+    "s-c1-lock-apply-b": "Fixture dial B.",
+    "s-c1-lock-apply-c": "Fixture dial C.",
+    "s-c1-lock-apply-margin-b": "Fixture margin note for dial B.",
+    "s-c1-lock-define-prompt": "Fixture prompt: pick the definition.",
+    "s-c1-lock-define-a": "Fixture definition A.",
+    "s-c1-lock-define-b": "Fixture definition B.",
+    "s-c1-lock-define-c": "Fixture definition C.",
+    "s-c1-lock-define-margin-a": "Fixture margin note for definition A.",
+    "s-c1-search-prompt": "Fixture prompt: find two objects.",
+    "s-c1-cite-prompt": "Fixture prompt: cite the line that proves it.",
+    "s-c1-cite-margin-L5": "Fixture margin note for the fifth line.",
+    "s-c2-lock-apply-prompt": "Fixture prompt: pick the applied sense again.",
+    "s-c2-lock-apply-a": "Fixture dial A, second excerpt.",
+    "s-c2-lock-apply-b": "Fixture dial B, second excerpt.",
+    "s-c2-lock-apply-c": "Fixture dial C, second excerpt.",
+    "s-c2-lock-apply-margin-a": "Fixture margin note for dial A, second excerpt.",
+    "s-c2-lock-define-prompt": "Fixture prompt: pick the definition again.",
+    "s-c2-lock-define-a": "Fixture definition A, second excerpt.",
+    "s-c2-lock-define-b": "Fixture definition B, second excerpt.",
+    "s-c2-lock-define-c": "Fixture definition C, second excerpt.",
+    "s-c2-lock-define-margin-c": "Fixture margin note for definition C, second excerpt.",
+    "s-c2-search-prompt": "Fixture prompt: find two more objects.",
+    "s-c2-cite-prompt": "Fixture prompt: cite the second proving line.",
+    "s-c2-cite-margin-L11": "Fixture margin note for the eleventh line.",
+    "s-recon-who-1": "Fixture prompt: who is the first person?",
+    "s-recon-who-2": "Fixture prompt: who is the second person?",
+    "s-recon-culprit": "Fixture prompt: who did it?",
+    "s-statement-template": "The fixture was {slot1} and the harness was {slot2}.",
+    "s-coach-vocab": "Fixture coaching note about vocabulary.",
+    "s-coach-detail": "Fixture coaching note about detail.",
+    "s-coach-inference": "Fixture coaching note about inference.",
+    "s-coach-evidence": "Fixture coaching note about evidence.",
+    "s-coach-clean": "Fixture coaching note for a clean run.",
+    "s-coach-generic": "Fixture generic coaching note."
+  },
+  "coach": {
+    "deterministic": {
+      "vocabulary": "s-coach-vocab",
+      "detail": "s-coach-detail",
+      "inference": "s-coach-inference",
+      "evidence": "s-coach-evidence",
+      "clean": "s-coach-clean"
+    },
+    "generic": "s-coach-generic"
+  }
+}
