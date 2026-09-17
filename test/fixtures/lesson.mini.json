@@ -150,13 +150,13 @@
         { "cameo": "bram", "prompt": "s-recon-who-2", "options": ["ada", "bram", "cora"], "answer": "bram" }
       ],
       "clues": [
-        { "id": "k1", "line": 2, "proving": true },
-        { "id": "k2", "line": 3, "proving": false },
-        { "id": "k3", "line": 4, "proving": true },
-        { "id": "k4", "line": 5, "proving": false },
-        { "id": "k5", "line": 8, "proving": true },
-        { "id": "k6", "line": 9, "proving": false },
-        { "id": "k7", "line": 10, "proving": true }
+        { "id": "k1", "line": 2, "proving": true, "speaker": "ada" },
+        { "id": "k2", "line": 3, "proving": false, "speaker": "narration" },
+        { "id": "k3", "line": 4, "proving": true, "speaker": "bram" },
+        { "id": "k4", "line": 5, "proving": false, "speaker": "narration" },
+        { "id": "k5", "line": 8, "proving": true, "speaker": "cora" },
+        { "id": "k6", "line": 9, "proving": false, "speaker": "narration" },
+        { "id": "k7", "line": 10, "proving": true, "speaker": "ada" }
       ],
       "required": 4,
       "culprit": { "prompt": "s-recon-culprit", "options": ["ada", "bram", "cora"], "answer": "cora" }
