@@ -43,7 +43,7 @@ public/lesson.open-window.json   the authored lesson (served statically)
 scripts/source.py                line numbering (exists; do not rewrite)
 scripts/validate_lesson.py       python3 scripts/validate_lesson.py public/lesson.open-window.json
 scripts/scan_sources.py          python3 scripts/scan_sources.py  (story-phrase scan over app sources)
-test/*.test.js                   node --test
+test/*.test.js                   node --test "test/*.test.js"   (a bare directory arg breaks on Node 22)
 package.json                     "type": "module"; scripts: test, validate, scan, check (all three), serve
 vercel.json                      static + functions config
 ```
@@ -181,7 +181,7 @@ export function wordsIn(excerptId)   // word count, for WPM
 ```js
 {
   version: 1,
-  lessonId: "open-window",
+  lessonId: null | "open-window",                          // null until START_CASE stamps lesson.id
   startedAt: 0 | ms,
   finishedAt: 0 | ms,
   route: { screen: "study", excerpt: 1 },
