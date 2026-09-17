@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Undecided for the production build — deferred to the project's Presearch phase (`factory/artifacts/`). This session's deliverable is **approval comps, not the shipping front end**: the user chose "pictures to approve, rebuild later," so comps are authored as self-contained static HTML/CSS frames for fidelity and are explicitly not the production codebase. No framework or scaffold exists in the repo yet.
+Decided in Presearch and locked in Decide (`factory/artifacts/LOCKED_DECISIONS.md`): vanilla HTML/CSS/JS, no framework, no bundler unless forced; Vercel static hosting plus exactly one serverless function (`api/coach.js`) that holds the Gemini key; `localStorage` for the single session; Python 3.9 validator offline. The comps in `factory/reference/comps/` are self-contained static frames authored as **approval pictures, not the shipping front end**, and their text is never a source for the app.
 
 ## Users
 
@@ -55,9 +55,9 @@ select a case → title reveal → learn the vocabulary → read the excerpt →
 
 **Hard constraints:** deadline Friday 18 Sep 2026, 23:59 CDT. Team of one. Nothing unreviewed is ever shown to a child. Assets must be CC0 or CC-BY with attribution recorded.
 
-**Pre-committed cut order:** witnesses stage → 3D avatar down to 2D → voice down to captions. **Never cut:** the reading step, the challenges, the finale solve stage, the content integrity guarantees.
+**Pre-committed cut order** (per `LOCKED_DECISIONS.md`): re-read screen → voice down to captions (already cut) → moving lamp down to a static lit state. **Never cut:** the reading step, the challenges, the finale solve stage, the content integrity guarantees, the Case Report.
 
-**Undecided product facts:** the exact comprehension bar (70% assumed, tune after a real playthrough); whether striking out a *correct* answer costs a mark; whether nudges cost marks or are merely limited; what the three difficulty bands concretely mean; the final pitch wording. Names "Fine Print" and "Inspector Inkwell" are working names, trademark unchecked.
+**Settled in the PRD (P0-7):** verdict bar 90/70; striking out a correct answer costs no mark; nudges cost no mark and are limited to two per case. **Still undecided:** coach tone (blocks the coach prompt); what the three difficulty bands concretely mean; the final pitch wording. Names "Fine Print" and "Inspector Inkwell" are working names, trademark unchecked.
 
 ## Brand Commitments
 

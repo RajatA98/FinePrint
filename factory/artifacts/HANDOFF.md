@@ -1,7 +1,7 @@
 # Fine Print — Handoff
 
-**Written:** Wed 16 Sep 2026, 22:22 CDT
-**Deadline:** Fri 18 Sep 2026, 23:59 CDT (~49 hours left at time of writing)
+**Written:** Wed 16 Sep 2026, 22:22 CDT. **Refreshed:** Thu 17 Sep 2026, 18:30 CDT
+**Deadline:** Fri 18 Sep 2026, 23:59 CDT (~29 hours left at refresh)
 **Working dir:** `/Users/rajatarora/Projects/FinePrint`
 **Phase reached:** 4 of 9 (Decide) complete. Decisions are LOCKED. Phase 5 (Plan) next, then build.
 
@@ -92,8 +92,10 @@ blocking.
 
 ### Git
 
-The repo has **zero commits**. Everything is on disk and survives a session change, but
-nothing is under version control yet.
+First commit made 17 Sep 18:30 CDT (`38d2e4b`): all four artifacts, the source text,
+`scripts/source.py`, the comp generator and built frames, `PRODUCT.md`. A `.gitignore`
+excludes `.playwright-mcp/`, `.impeccable/`, `.env*`, `.vercel/`, `node_modules/`.
+Commit at every phase boundary from here on.
 
 ---
 
@@ -200,7 +202,7 @@ The earlier eight-screen canvas at `SLRfvUG9pFVNCunaM85261` is superseded; local
 - **Palette:** mahogany `#3A2416`, brass `#C9A227`, gilt `#E0C478`, lamplight `#F5CF86`, aged paper `#EDE1C4`, ink `#2A2017`, oxblood `#6E2433` for evidence marks.
 - **Type:** Bodoni Moda (display, the Victorian title-page Didone), EB Garamond (reading), IM Fell English SC (letterpress labels). Deliberately not Inter, Fraunces, or Instrument Serif.
 - **The avatar** is a Victorian paper-cut silhouette cameo in a gilt oval. A real period form, reads as a character, and is the 2D fallback the spec already planned for. No pipe. Never called Sherlock Holmes.
-- **Source files** for the current comps: the generator in the session scratchpad at `scratchpad/gen/` (`world.py`, `source.py`, `objects.py`, `frames_a/b/c.py`, `build.py`). **Scratchpad is session-scoped and will not survive** — `source.py` in particular is worth copying into the repo, because it holds the line numbering, excerpt provenance and verbatim guarantees the lesson file's verification suite should reuse.
+- **Source files** for the current comps are in the repo at `factory/reference/comps/` (`world.py`, `source.py`, `objects.py`, `frames_a/b/c.py`, `build.py`, and `built/*.dc.html`). The canonical line-numbering module is `scripts/source.py` (relative path); the copy under `comps/` carries a hardcoded absolute path and is for regenerating comps only. The validator imports from `scripts/`.
 
 **Constraint worth knowing:** there is **no image generation tool in this environment**. Everything in the mockups is CSS and SVG. Painted art, textures, or a 3D avatar must be generated elsewhere and dropped in.
 
@@ -221,26 +223,16 @@ The earlier eight-screen canvas at `SLRfvUG9pFVNCunaM85261` is superseded; local
 
 ---
 
-## Open questions
+## Open questions (current as of 17 Sep 18:30)
 
-**For the PRD (product):**
-- Exact demo pitch line. Direction agreed: grounding over scale, not "any book in". Working claim: *Fine Print does not replace reading with AI. It uses AI to make a reader prove meaning from the actual text.*
-- Where the comprehension bar sits (70% is the assumption, tune after a real playthrough)
-- Whether ruling out a correct answer costs a mark; whether nudges cost marks or are merely limited
-- What the difficulty bands mean concretely (First / Longer / Difficult cases)
-- Naming: "Fine Print" and "Inspector Inkwell" are working names, trademark unchecked
-- A full personal read of "The Open Window" before the demo
+Everything tagged `[for Presearch]` is answered in `PRESEARCH.md`. The scoring questions
+(strike-out cost, nudge cost, the 90/70 bar) are settled in `PRD.md` P0-7. What remains:
 
-**Parked for Presearch (12 items, tagged `[for Presearch]` in PROBLEM_SUMMARY.md):**
-- How the lesson JSON is authored: directly against a schema with a standalone validator, or one collapsed offline generate script
-- LLM provider and model choice; no keys present
-- **The coach needs a live model call, so the app cannot be purely static.** A key cannot ship in browser code, so something server-side must hold it. This changes the deployment shape.
-- Whether a pre-computed coaching fallback is built as demo insurance
-- TTS provider and whether it returns word timings
-- Frontend framework and deployment target
-- Where session data lives given there are no accounts
-- Project Gutenberg terms for redistributing derived lesson content
-- Local toolchain gaps (Python 3.9, no uv)
+- **Coach tone — BLOCKING** for the coach prompt. How blunt Inspector Inkwell may be with a struggling reader.
+- Difficulty bands: what separates First / Longer / Difficult. Shelf labels only.
+- The pitch line. Submission copy only. Working: *Fine Print does not replace reading with AI. It uses AI to make a reader prove meaning from the actual text.*
+- Naming: "Fine Print" and "Inspector Inkwell" are working names, trademark unchecked. Low risk.
+- A full personal read of "The Open Window" and every item before the demo (build step 10).
 
 ---
 
@@ -258,7 +250,7 @@ It also recommended compressing the four-stage finale to three (**user chose to 
 
 1. **Does it feel like a game or a worksheet?** Not technical. Everything is downstream of this. The tell: a case board that only collects clues is decoration; one whose exact clues become the finale's input is the spine.
 2. **Lesson content quality.** One lesson, so a bad distractor is in the demo, not a log. Mitigations: mechanical verification of the lesson file, plus an hour of human read-through of all items.
-3. **Scope grew twice** after the deadline was known (four-stage finale kept, live coach added). Pre-committed cut order: **witnesses stage → 3D avatar to 2D → voice to captions.**
+3. **Scope grew, then was trimmed.** The finale is now two stages (PRD), voice is already cut to captions (Presearch). Pre-committed cut order per `LOCKED_DECISIONS.md`: **re-read → voice to captions (done) → moving lamp to static.**
 4. **The coach is a live call at the demo's emotional peak.** Only runtime external dependency.
 
 **Never cut:** the reading step, the mini-games, the final assembly stage, the content integrity guarantees.
