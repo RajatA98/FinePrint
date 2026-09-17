@@ -127,7 +127,7 @@ and must be re-renderable at any time (no hidden per-screen state).
   "finale": {
     "reconstruct": {
       "people": [ { "cameo": "vera", "prompt": "s-recon-who-1", "options": ["vera", "mrs-sappleton", "framton"], "answer": "vera" } ],
-      "clues":  [ { "id": "k1", "line": 42, "proving": true }, … ],       // seven, four proving; text is line(n)
+      "clues":  [ { "id": "k1", "line": 42, "proving": true, "speaker": "vera" }, … ],   // seven, four proving; text is line(n); speaker = "narration" | personId (the whose-words column)
       "required": 4,
       "culprit": { "prompt": "s-recon-culprit", "options": ["vera", "framton", "mrs-sappleton"], "answer": "vera" }
     },
