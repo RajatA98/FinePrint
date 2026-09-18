@@ -27,7 +27,8 @@ import {
   pinsLeft,
   citedEvidence,
   blanksLeft,
-  openBlank
+  openBlank,
+  cameoFigure
 } from "../src/screens/challenge-view.js";
 
 // ------------------------------------------------------------------ selection
@@ -411,4 +412,32 @@ test("the blank the reader is filling is the first one still empty", () => {
   assert.equal(openBlank(slots, {}, "slot3"), "slot3");
   assert.equal(openBlank(slots, {}, "nonsense"), "slot1");
   assert.equal(openBlank([], {}, null), null);
+});
+
+// ---------------------------------------------------------------- the cameos
+
+test("each person in the house gets the silhouette that belongs to them", () => {
+  assert.equal(cameoFigure("vera"), "girl");
+  assert.equal(cameoFigure("mrs-sappleton"), "woman");
+  assert.equal(cameoFigure("sister"), "woman");
+  assert.equal(cameoFigure("mr-sappleton"), "man");
+  assert.equal(cameoFigure("framton"), "man");
+  assert.equal(cameoFigure("ronnie"), "man");
+  assert.equal(cameoFigure("second-brother"), "man");
+  assert.equal(cameoFigure("cyclist"), "man");
+});
+
+test("a cameo key the lesson does not name falls back to the guide", () => {
+  assert.equal(cameoFigure("nobody"), "guide");
+  assert.equal(cameoFigure(undefined), "guide");
+  assert.equal(cameoFigure(null), "guide");
+  assert.equal(cameoFigure(""), "guide");
+});
+
+test("only the three cuts are ever asked for by a portrait", () => {
+  const asked = new Set(
+    ["vera", "mrs-sappleton", "sister", "mr-sappleton", "framton", "ronnie", "second-brother", "cyclist"]
+      .map(cameoFigure)
+  );
+  assert.deepEqual([...asked].sort(), ["girl", "man", "woman"]);
 });

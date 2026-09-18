@@ -32,7 +32,8 @@ import {
   nudgeStatus,
   citedLines,
   dialAngles,
-  isAttempted
+  isAttempted,
+  cameoFigure
 } from "./challenge-view.js";
 import {
   selectionOf,
@@ -482,7 +483,10 @@ function chooserStage(challenge, { lesson, hands }, className) {
       choiceSlot(choice, hands, {
         kind: choice.kind,
         content: isPortrait
-          ? [cameo(), el("span", { class: "choice__label", text: quote(lesson.people[choice.ref].role) })]
+          ? [
+              cameo(cameoFigure(lesson.people[choice.ref].cameo)),
+              el("span", { class: "choice__label", text: quote(lesson.people[choice.ref].role) })
+            ]
           : [tagMark(), el("span", { class: "choice__label", text: quote(lesson.objects[choice.ref].label) })]
       })
     );

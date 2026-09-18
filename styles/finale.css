@@ -701,7 +701,7 @@
 
 .statement-desk {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 17rem);
   gap: clamp(1.2rem, 2.8vw, 2.2rem);
   align-items: start;
 }
@@ -794,40 +794,54 @@
 
 /* -------------------------------------------------------- the case of type */
 
+/* A compositor's case, not a panel of options: a shallow tray with a lip, and
+ * the words lying in it as loose slugs of type, each one only as wide as the
+ * word cast on it.
+ */
 .words {
-  padding: clamp(0.95rem, 2.2vw, 1.4rem) clamp(1rem, 2.2vw, 1.4rem) clamp(1.1rem, 2.4vw, 1.5rem);
-  border: 1px solid var(--hairline);
+  padding: clamp(0.8rem, 1.8vw, 1.1rem) clamp(0.9rem, 2vw, 1.2rem) clamp(0.9rem, 2vw, 1.2rem);
   border-radius: 2px;
-  background: rgba(12, 8, 5, 0.34);
+  background: rgba(12, 8, 5, 0.3);
+  box-shadow:
+    inset 0 2px 5px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(201, 162, 39, 0.22);
 }
 
 .words__title {
-  margin: 0;
+  margin: 0 0 0.7rem;
 }
 
 .words__title .label {
-  color: rgba(224, 196, 120, 0.72);
-  font-size: 0.74rem;
+  color: rgba(224, 196, 120, 0.68);
+  font-size: 0.7rem;
 }
 
+/* the caption under the case, not an instruction above it */
 .words__note {
-  margin: 0.4rem 0 0.95rem;
-  font-size: 0.88rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.76rem;
   font-style: italic;
-  color: rgba(237, 225, 196, 0.6);
+  line-height: 1.45;
+  color: rgba(237, 225, 196, 0.42);
 }
 
 .words__tiles {
-  display: grid;
-  gap: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5rem 0.55rem;
+}
+
+.words__slot {
+  flex: 0 0 auto;
 }
 
 /* A slug of type, set face up: it presses down into the line when it is used. */
 .tile {
-  display: block;
-  width: 100%;
-  padding: 0.55rem 0.95rem;
-  text-align: left;
+  display: inline-block;
+  width: auto;
+  padding: 0.45rem 0.8rem;
+  text-align: center;
   border-radius: 1px;
   font-family: var(--font-label);
   font-size: 1.02rem;
@@ -1149,22 +1163,26 @@
   gap: 0 clamp(1.2rem, 2.6vw, 2rem);
 }
 
+/* Whose words a line is, said under the line rather than beside it. A role can
+ * be a long phrase, and set in a margin it wrapped four deep and pulled the two
+ * columns of the list out of step with each other; under the line every entry
+ * is the same shape.
+ */
 .cited-list .cited {
-  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr);
 }
 
-/* Whose words a line is, in the margin of the entry. A role can be a long
- * phrase, so it wraps and is held to a margin's width: it must never crowd the
- * line itself down to one letter a row.
- */
 .cited__whose {
-  max-width: 16ch;
+  grid-column: 2;
   font-family: var(--font-label);
   font-size: 0.68rem;
   letter-spacing: 0.05em;
   line-height: 1.4;
   color: var(--ink-mid);
-  text-align: right;
+}
+
+.cited__whose:empty {
+  display: none;
 }
 
 /* -------------------------------------------------------------- the skills */
@@ -1399,17 +1417,6 @@
   .cited-list,
   .board__cited {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  /* too narrow for a margin: whose words it is goes under the line instead */
-  .cited-list .cited {
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-
-  .cited-list .cited__whose {
-    grid-column: 2;
-    max-width: none;
-    text-align: left;
   }
 }
 

@@ -273,3 +273,28 @@ export function openBlank(slots, chosen, pointedAt) {
   const empty = all.find((slot) => !(chosen ?? {})[slot.id]);
   return (empty ?? all[0])?.id ?? null;
 }
+
+/* -------------------------------------------------------------- the cameos */
+
+/**
+ * Which silhouette a portrait wears. The lesson gives each person a `cameo`
+ * key; the gilt ovals come in three cuts plus the guide, and this is the
+ * only place that decides which key wears which. It is a drawing decision, not
+ * a scoring one: getting it wrong would make a portrait unrecognisable, never
+ * wrong. Anyone the lesson has not placed falls back to the guide, so a portrait
+ * is never an empty oval.
+ */
+const FIGURE_OF_CAMEO = {
+  vera: "girl",
+  "mrs-sappleton": "woman",
+  sister: "woman",
+  "mr-sappleton": "man",
+  framton: "man",
+  ronnie: "man",
+  "second-brother": "man",
+  cyclist: "man"
+};
+
+export function cameoFigure(cameoKey) {
+  return FIGURE_OF_CAMEO[cameoKey] ?? "guide";
+}

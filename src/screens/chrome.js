@@ -157,8 +157,20 @@ export function prefersReducedMotion() {
   }
 }
 
-// The guide, as a paper-cut silhouette in a gilt oval: a homburg, never a
-// deerstalker, and never a pipe. Path data only — he says nothing here.
+/* ------------------------------------------------------------- the cameos */
+/*
+ * Paper-cut silhouettes in gilt ovals. The guide has his homburg — never a
+ * deerstalker, and never a pipe. The other three are the story's own people, and
+ * they are the reason this file holds four silhouettes instead of one: a naming
+ * task whose portraits are identical has no subject to name. They are told
+ * apart the way a Victorian bust is, by the hair and the shoulder line — a
+ * bobbed girl, a woman with her hair up in a knot, a man in a collar.
+ *
+ * All four share the same viewBox and the same `translate(0,6)` wrapper, so the
+ * oval, its gilt rim and every size in the stylesheet are unchanged. Path data
+ * only: a cameo says nothing.
+ */
+
 const CAMEO_PATHS =
   '<path d="M22 40 C22 28, 32 21, 45 21 C58 21, 66 28, 66 38 L70 40 ' +
   'C72 41, 72 44, 69 44 L20 44 C17 44, 17 41, 22 40 Z"/>' +
@@ -166,8 +178,54 @@ const CAMEO_PATHS =
   'L36 81 C36 85, 40 88, 45 89 L45 96 C36 98, 26 103, 22 112 L68 112 ' +
   'C66 100, 58 93, 52 90 C55 83, 56 72, 55 63 C54 52, 48 44, 40 43 Z"/>';
 
-export function cameo() {
+// One profile under three heads of hair, so the three read as one household.
+const HEAD_PATH =
+  '<path d="M56 30 C63 33, 67 42, 66 51 C65 59, 61 66, 55 69 ' +
+  'C50 72, 43 72, 39 69 C36 67, 35 65, 35 63 C34 61, 33 60, 33 58 ' +
+  'C33 56, 30 55, 28 53 C30 51, 33 50, 34 48 ' +
+  'C34 43, 36 36, 42 32 C46 29, 52 28, 56 30 Z"/>';
+
+const FIGURE_PATHS = {
+  // bobbed hair to the shoulder, narrow shoulders, a high collar
+  girl:
+    '<path d="M36 41 C35 28, 45 20, 56 22 C68 24, 74 36, 73 51 ' +
+    'C72 62, 69 73, 65 89 L55 89 C59 73, 61 57, 59 47 ' +
+    'C57 38, 50 34, 43 37 C40 38, 37 40, 36 41 Z"/>' +
+    HEAD_PATH +
+    '<path d="M39 64 L53 64 C53 71, 54 76, 57 79 ' +
+    'C63 82, 67 92, 68 112 L22 112 C23 92, 27 82, 33 79 ' +
+    'C36 76, 39 71, 39 64 Z"/>',
+
+  // hair swept up into a knot at the back, a wider shoulder line
+  woman:
+    '<circle cx="71" cy="33" r="11"/>' +
+    '<path d="M36 45 C34 32, 43 22, 55 23 C66 24, 73 34, 71 46 ' +
+    'C70 52, 68 56, 66 59 L57 55 C60 47, 59 39, 55 35 ' +
+    'C50 30, 42 33, 38 40 C37 42, 36 44, 36 45 Z"/>' +
+    HEAD_PATH +
+    '<path d="M39 64 L53 64 C53 71, 54 77, 57 80 ' +
+    'C66 84, 72 94, 73 112 L17 112 C18 94, 24 84, 33 80 ' +
+    'C36 77, 39 71, 39 64 Z"/>',
+
+  // short hair, broad shoulders, and a collar open at the throat
+  man:
+    '<path d="M36 46 C34 34, 43 27, 53 28 C64 29, 70 37, 69 48 ' +
+    'C68 53, 67 56, 66 59 C65 49, 61 41, 54 38 ' +
+    'C47 35, 40 39, 37 46 C37 47, 36 48, 36 46 Z"/>' +
+    HEAD_PATH +
+    '<path d="M40 63 L52 63 C52 70, 53 75, 55 78 L45 92 L35 78 ' +
+    'C38 75, 40 70, 40 63 Z"/>' +
+    '<path d="M30 83 L45 97 L60 83 C71 87, 78 97, 79 112 L11 112 ' +
+    'C12 97, 19 87, 30 83 Z"/>'
+};
+
+/**
+ * cameo(figure) — the oval. An unknown figure, or none asked for, is the guide,
+ * so a portrait can never come out empty.
+ */
+export function cameo(figure) {
   const oval = el("span", { class: "cameo", "aria-hidden": "true" });
-  oval.innerHTML = `<svg viewBox="0 0 90 118" focusable="false"><g transform="translate(0,6)">${CAMEO_PATHS}</g></svg>`;
+  const paths = FIGURE_PATHS[figure] ?? CAMEO_PATHS;
+  oval.innerHTML = `<svg viewBox="0 0 90 118" focusable="false"><g transform="translate(0,6)">${paths}</g></svg>`;
   return oval;
 }

@@ -132,7 +132,7 @@ function wordTray(ctx, { slots, active, chosen, signed }) {
       tile.disabled = true;
       set.append(el("li", { class: "words__slot" }, [tile]));
     }
-    tray.append(el("p", { class: "words__note", text: UI.wordsSet }), set);
+    tray.append(set, el("p", { class: "words__note", text: UI.wordsSet }));
     return tray;
   }
 
@@ -158,7 +158,7 @@ function wordTray(ctx, { slots, active, chosen, signed }) {
     tiles.append(el("li", { class: "words__slot" }, [tile]));
   }
 
-  tray.append(el("p", { class: "words__note", text: UI.chooseBlank }), tiles);
+  tray.append(tiles, el("p", { class: "words__note", text: UI.chooseBlank }));
   return tray;
 }
 

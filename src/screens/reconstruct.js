@@ -17,19 +17,26 @@
 // their thread round the accused — and the board never borrows it.
 
 import { quote, line } from "../lesson.js";
-import { UI } from "../ui-strings.js";
+import { UI, SCREEN_LABEL } from "../ui-strings.js";
 import { el, button, label, cameo, screenShell, nextButton, closedBookMark } from "./chrome.js";
 import { attempted } from "./challenge.js";
-import { citedLines, finaleOutcome, pinsLeft, openBlank } from "./challenge-view.js";
+import {
+  citedLines,
+  finaleOutcome,
+  pinsLeft,
+  openBlank,
+  cameoFigure
+} from "./challenge-view.js";
 
 const ITEM = "finale-reconstruct";
 
-// The portrait the reader is naming, and how many attempts had been made when
-// the board was last drawn. Neither is scoring state and neither is persisted:
-// the board reopens on the first portrait still without a plate, and the refused
-// seal shakes once, on the draw that follows the press. A board that is merely
-// reopened at a refusal — a reload, or coming back to it — does not shake: the
-// board moves when the reader's hand moves, and not otherwise.
+// The portrait the reader is naming, and how many times THIS board had been
+// sealed when it was last drawn. Neither is scoring state and neither is
+// persisted: the board reopens on the first portrait still without a plate, and
+// the refused seal shakes once, on the draw that follows the press. A board
+// merely reopened at a refusal — a reload, or Back from the statement — does not
+// shake: the board moves when the reader presses the seal, and not otherwise,
+// which is why this counts presses of the seal and not attempts on the case.
 let pointedAt = null;
 let drawnAfter = null;
 
@@ -43,11 +50,17 @@ export function render(root, ctx) {
   const sealed = outcome === "solved";
   const redraw = () => render(root, ctx);
 
-  const tried = state.attempts.length;
+  const tried = state.attempts.filter((attempt) => attempt.challengeId === ITEM).length;
   const justPressed = drawnAfter !== null && tried > drawnAfter;
   drawnAfter = tried;
 
+  // The board is the page, and a page has a name. It is said once, for a screen
+  // reader and for the document outline; on screen the chrome already carries it
+  // and the board itself is the title.
   const section = screenShell(root, ctx, { heading: null, mark: closedBookMark() });
+  section.append(
+    el("h1", { class: "visually-hidden", text: SCREEN_LABEL.reconstruct })
+  );
 
   const board = el("div", {
     class: "board",
@@ -105,7 +118,10 @@ function namingRegion(ctx, { prompts, sealed, redraw }) {
       }
     );
     pick.disabled = sealed;
-    pick.append(cameo(), namePlate(personId ? lesson.people[personId].name : null));
+    pick.append(
+      cameo(cameoFigure(prompt.cameo)),
+      namePlate(personId ? lesson.people[personId].name : null)
+    );
 
     row.append(
       el(
@@ -267,7 +283,9 @@ function culpritRegion(ctx, { culprit, sealed }) {
     });
     pick.disabled = sealed;
     pick.append(
-      el("span", { class: "suspect__ring" }, [cameo()]),
+      el("span", { class: "suspect__ring" }, [
+        cameo(cameoFigure(lesson.people[personId].cameo))
+      ]),
       el("span", { class: "suspect__role", text: quote(lesson.people[personId].role) })
     );
     row.append(

@@ -52,10 +52,14 @@ export function render(root, ctx) {
 
 /* ------------------------------------------------------------- the verdict */
 
-/** The verdict, stamped: the one loud thing on the page. */
+/**
+ * The verdict, stamped: the one loud thing on the page, and the page's heading.
+ * The word the reader came for is the title of the file it is stamped on, so it
+ * is an h1 rather than a paragraph that merely looks like one.
+ */
 function verdictStamp(standing) {
   return el("div", { class: "verdict", dataset: { verdict: standing } }, [
-    el("p", { class: "verdict__word", text: quote(`s-verdict-${standing}`) })
+    el("h1", { class: "verdict__word", text: quote(`s-verdict-${standing}`) })
   ]);
 }
 
@@ -206,8 +210,18 @@ function paceLine(ctx) {
  * out there is a quiet line saying he is writing — never a spinner — and if no
  * answer comes back the lesson's own note simply appears in its place.
  */
+/**
+ * Whether the coach has answered. The source is the thing to read, not the
+ * message: a deterministic note always has a source, and a live answer that
+ * came back empty must not leave the reader watching Inkwell write for ever.
+ * Both the card and the request guard ask this same question.
+ */
+function coachAnswered(state) {
+  return state.coach.source !== null;
+}
+
 function coachBlock(state) {
-  const answered = state.coach.source !== null;
+  const answered = coachAnswered(state);
   const block = el("section", { class: "coach", dataset: { state: answered ? "written" : "writing" } }, [
     el("span", { class: "coach__cameo" }, [cameo()])
   ]);
@@ -241,7 +255,7 @@ function showSource() {
 
 function askCoach(ctx) {
   const { state, lesson, dispatch } = ctx;
-  if (asking || state.coach.message !== null) {
+  if (asking || coachAnswered(state)) {
     return;
   }
   asking = true;
