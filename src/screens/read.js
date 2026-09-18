@@ -12,7 +12,7 @@ import {
   currentExcerpt,
   prefersReducedMotion
 } from "./chrome.js";
-import { readPhase, OPENING, READING, RESUME, CLOSING } from "./read-phase.js";
+import { readPhase, canCloseBook, OPENING, READING, RESUME, CLOSING } from "./read-phase.js";
 import { markBegun, hasBegun, markClosing, isClosing, clearClosing } from "./read-session.js";
 
 const OPEN_MS = 1200;
@@ -52,10 +52,15 @@ export function render(root, ctx) {
   section.append(page);
 
   if (phase !== RESUME) {
+    // While an overlay is up, the page beneath stays on screen (that is the
+    // point of the fade) but must not be reachable: inert takes the nav out of
+    // the tab order so nobody can close a book that has not opened yet.
+    const sealed = phase === OPENING || phase === CLOSING;
     section.append(
-      el("nav", { class: "onward" }, [
+      el("nav", { class: "onward", inert: sealed }, [
         button(UI.closeBook, () => closeBook(ctx, excerpt, index, reducedMotion), {
-          class: "close-book"
+          class: "close-book",
+          tabindex: sealed ? "-1" : false
         })
       ])
     );
@@ -139,6 +144,11 @@ function titleCard(ctx, excerpt) {
 }
 
 function closeBook(ctx, excerpt, index, reducedMotion) {
+  // The second half of the guard above: inert keeps the control out of reach,
+  // this keeps a stray activation from writing an endedAt before any startedAt.
+  if (!canCloseBook(ctx.state.reading?.[excerpt.id])) {
+    return;
+  }
   if (reducedMotion) {
     ctx.dispatch({ type: "READ_END", excerptId: excerpt.id, at: Date.now() });
     ctx.navigate({ screen: "lock", excerpt: index });

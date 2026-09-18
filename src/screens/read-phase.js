@@ -49,3 +49,16 @@ export function readPhase({
   }
   return DONE;
 }
+
+/**
+ * The book cannot close before it has opened. Without this the title card's
+ * "Close the book" — still in the DOM under the overlay, and reachable by Tab —
+ * could stop a clock that has not started, and the card's own READ_START would
+ * then land after READ_END, leaving endedAt < startedAt and this excerpt's pace
+ * wrong for the rest of the case.
+ *
+ * @param {{startedAt?: number}} [reading] state.reading[excerptId]
+ */
+export function canCloseBook(reading) {
+  return (Number(reading?.startedAt) || 0) > 0;
+}

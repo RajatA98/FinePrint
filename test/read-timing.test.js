@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 
 import {
   readPhase,
+  canCloseBook,
   OPENING,
   READING,
   RESUME,
@@ -78,6 +79,44 @@ test("a full read of one excerpt yields a words-per-minute figure", () => {
   assert.equal(measured.perExcerpt[0].excerptId, "ex1");
   assert.ok(measured.perExcerpt[0].wpm > 0);
   assert.ok(measured.overallWpm > 0);
+});
+
+test("the book cannot close before it has opened", () => {
+  assert.equal(canCloseBook(undefined), false);
+  assert.equal(canCloseBook({}), false);
+  assert.equal(canCloseBook({ startedAt: 0 }), false);
+  assert.equal(canCloseBook({ startedAt: 1000 }), true);
+  assert.equal(canCloseBook({ startedAt: 1000, endedAt: 4000 }), true);
+});
+
+test("a close during the title card cannot invert the clock", () => {
+  // The exact sequence the guard exists for: Close the book is reachable under
+  // the overlay, is activated first, and the card's READ_START lands after it.
+  const reduce = createReducer(lesson);
+  let state = initialState();
+
+  if (canCloseBook(state.reading.ex1)) {
+    state = reduce(state, { type: "READ_END", excerptId: "ex1", at: 1000 });
+  }
+  state = reduce(state, { type: "READ_START", excerptId: "ex1", at: 2000 });
+  state = reduce(state, { type: "READ_END", excerptId: "ex1", at: 5000 });
+
+  assert.equal(state.reading.ex1.startedAt, 2000);
+  assert.equal(state.reading.ex1.endedAt, 5000);
+  assert.ok(state.reading.ex1.endedAt > state.reading.ex1.startedAt);
+  assert.equal(pace(state, lesson).perExcerpt.length, 1); // the excerpt still has a pace
+});
+
+test("without the guard that sequence would strand the excerpt", () => {
+  // Proves the test above is testing something: the same clicks, unguarded.
+  const reduce = createReducer(lesson);
+  let state = initialState();
+  state = reduce(state, { type: "READ_END", excerptId: "ex1", at: 1000 });
+  state = reduce(state, { type: "READ_START", excerptId: "ex1", at: 2000 });
+  state = reduce(state, { type: "READ_END", excerptId: "ex1", at: 5000 });
+
+  assert.ok(state.reading.ex1.endedAt < state.reading.ex1.startedAt);
+  assert.equal(pace(state, lesson).perExcerpt.length, 0); // pace silently lost
 });
 
 test("resuming never restarts the clock: startedAt is written once", () => {

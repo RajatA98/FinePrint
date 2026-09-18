@@ -1,4 +1,11 @@
-// Two marks that belong to the browser session, not to the case.
+// Two marks that belong to this page load, not to the case.
+//
+// These module-level Sets are the ONE deliberate exception to "every screen
+// renders from state alone": they are page-load-scoped markers, never persisted
+// and never written to the store, and their whole job is to tell live reading
+// apart from a reload mid-read. Re-rendering a screen twice in one tab gives
+// the same screen; a reload is meant to forget them. The controller ruled this
+// acceptable.
 //
 // The persisted state cannot tell "I am reading this right now" from "I opened
 // this excerpt, then refreshed the tab": both look like a startedAt with no
