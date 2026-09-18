@@ -29,8 +29,53 @@ export const UI = {
   pace: "Words per minute",
   evidenceReview: "Evidence review",
   coachNote: "Coaching note",
-  coachSource: "Source"
+  coachSource: "Source",
+
+  /* the challenges */
+  turnTheKey: "Turn the key",
+  reportTheFind: "Report the find",
+  citeThisLine: "Cite this line",
+  ruleOut: "Rule this one out",
+  bringBack: "Bring this one back",
+  ruledOut: "Ruled out",
+  askInkwell: "Ask Inkwell",
+  reread: "Reread the page",
+  backToChallenge: "Back to the challenge",
+  boxOpens: "The box opens.",
+  boxHolds: "The box holds shut.",
+  notThisOne: "Not this one. The page is open at the line that settles it.",
+  theClaim: "The claim you are proving",
+  caseNotes: "The case notes",
+  caseNotesEmpty: "Nothing written in yet.",
+  progressLabel: "Excerpt progress",
+  lockPositions: "Lock positions",
+
+  /* the reopened page */
+  pageReread: "The page, as you read it",
+  pageRewind: "The page, reopened",
+  pageNudge: "The page, with the region lit",
+  pageNothingScored: "Nothing on this page is scored or timed.",
+
+  /* counted things */
+  findCount(targets) {
+    return `Find ${NUMBER_WORD[targets] ?? targets}`;
+  },
+  chosenCount(chosen, targets) {
+    return `${chosen} of ${targets} chosen`;
+  },
+  nudgeCount(used, max) {
+    return `${used} of ${max} used`;
+  },
+  fromLine(n) {
+    return `From line ${n}`;
+  },
+  lineNumber(n) {
+    return `Line ${n}`;
+  }
 };
+
+/** Counts a reader meets in a sentence read better as words than as digits. */
+const NUMBER_WORD = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five" };
 
 /** Difficulty bands, the only thing a spine says about a case besides its number. */
 export const BAND = {

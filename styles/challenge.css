@@ -1,0 +1,987 @@
+/* Fine Print — the three challenges.
+ *
+ * The stage, the palette shades and the shared chrome live in styles/app.css;
+ * the open page and its numbered lines live in styles/read.css and are reused
+ * here on purpose, so that the page the reader is shown after a wrong answer is
+ * visibly the same page they read.
+ *
+ * Three things are built here and nothing else is decorated: the strongbox and
+ * its brass dial, the things laid out on the desk, and the open page with the
+ * reader's own marks on it. Oxblood appears in exactly three places — the
+ * underline under a line the reader has chosen, the rule through a choice they
+ * have struck out, and the entries in the case notes. It is the reader's ink and
+ * the interface never borrows it.
+ */
+
+:root {
+  --brass-face: #b8952a;
+  --brass-high: #e6cf87;
+  --brass-low: #6d5411;
+  --lit-region: rgba(245, 207, 134, 0.2);
+  --lit-line: rgba(245, 207, 134, 0.48);
+}
+
+/* ------------------------------------------------------------ the desk */
+
+.screen--lock,
+.screen--search,
+.screen--cite {
+  gap: var(--step);
+}
+
+/* the things on the desk sit in the lamp pool, not up against the chrome */
+.screen--search {
+  justify-content: center;
+  padding-bottom: clamp(1.5rem, 5vw, 4rem);
+}
+
+.work {
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+}
+
+.work .challenge {
+  margin: 0;
+  padding: 0;
+  border-top: 0;
+}
+
+.challenge__ask {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: clamp(1rem, 2.4vw, 1.7rem);
+}
+
+.challenge__ask .prompt {
+  margin: 0;
+  max-width: 44ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.3vw, 1.85rem);
+  line-height: 1.22;
+  letter-spacing: 0.005em;
+  color: var(--paper);
+}
+
+/* the word lock says the word in the heading, so its question is quieter */
+.screen--lock .challenge__ask .prompt {
+  max-width: 52ch;
+  font-family: var(--font-read);
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.5;
+  color: rgba(237, 225, 196, 0.86);
+}
+
+.screen--lock .screen-heading {
+  font-size: clamp(2.1rem, 4.6vw, 3.4rem);
+  line-height: 1.05;
+  color: var(--paper);
+}
+
+.claim {
+  max-width: 54ch;
+  padding: 0.55rem 0 0.55rem 0.85rem;
+  border-left: 2px solid var(--hairline);
+}
+
+.claim__label {
+  display: block;
+  color: rgba(224, 196, 120, 0.72);
+}
+
+.claim__text {
+  margin: 0.2rem 0 0;
+  font-size: 0.96rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.72);
+}
+
+.count {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.count .label {
+  color: var(--gilt);
+}
+
+.count__made {
+  font-size: 0.86rem;
+  color: rgba(237, 225, 196, 0.55);
+}
+
+/* ------------------------------------------------------- a single choice */
+
+.choice-slot {
+  position: relative;
+  margin: 0;
+  list-style: none;
+}
+
+ul.plates li,
+ul.objects li,
+ul.portraits li {
+  margin: 0;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  padding: 0.85rem 2.4rem 0.85rem 0.95rem;
+  text-align: left;
+  border-radius: 2px;
+  font-family: var(--font-read);
+  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: linear-gradient(162deg, var(--paper) 0%, var(--paper-warm) 58%, var(--paper-mid) 100%);
+  border: 1px solid rgba(58, 36, 22, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 10px 22px rgba(0, 0, 0, 0.45);
+  transition:
+    transform 0.2s cubic-bezier(0.2, 0.7, 0.3, 1),
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.choice:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: rgba(201, 162, 39, 0.75);
+  transform: translateY(-2px);
+}
+
+/* Chosen: the thing lifts off the desk and takes a brass edge. */
+.choice-slot[data-selected="true"] .choice,
+.choice[aria-pressed="true"] {
+  color: var(--ink);
+  background: linear-gradient(162deg, #f3e8cd 0%, var(--paper-warm) 62%, var(--paper-mid) 100%);
+  border-color: var(--brass);
+  transform: translateY(-5px);
+  box-shadow:
+    inset 0 0 0 1px var(--gilt-dim),
+    0 0 0 2px var(--brass),
+    0 18px 32px rgba(0, 0, 0, 0.55);
+}
+
+/* Ruled out: the reader's own pen through it. Free, reversible, never scored. */
+.choice-slot[data-struck="true"] .choice {
+  opacity: 0.58;
+  transform: none;
+  box-shadow: none;
+  cursor: default;
+}
+
+.choice-slot[data-struck="true"] .choice__label,
+.choice-slot[data-struck="true"] .line-text {
+  text-decoration: line-through;
+  text-decoration-color: var(--oxblood);
+  text-decoration-thickness: 2px;
+}
+
+.choice-slot[data-full="true"] .choice {
+  opacity: 0.78;
+}
+
+/* An open box is settled, not disabled: what the reader chose stays bright and
+ * the rest steps back rather than greying out like a broken control.
+ */
+.challenge[data-state="open"] .choice:disabled {
+  opacity: 0.6;
+}
+
+.challenge[data-state="open"] .choice-slot[data-selected="true"] .choice:disabled {
+  opacity: 1;
+}
+
+.strike[hidden] {
+  display: none;
+}
+
+.choice__label {
+  flex: 1 1 auto;
+}
+
+.strike {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  opacity: 0.32;
+  transition: opacity 0.18s ease;
+}
+
+.strike:hover,
+.strike:focus-visible {
+  opacity: 1;
+  background: none;
+}
+
+.choice-slot[data-struck="true"] .strike {
+  opacity: 1;
+}
+
+.strike__mark svg {
+  display: block;
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: none;
+  stroke: var(--oxblood);
+  stroke-width: 2.1;
+  stroke-linecap: round;
+}
+
+.choice-slot[data-struck="true"] .strike__mark svg {
+  stroke-width: 2.6;
+}
+
+/* ---------------------------------------------------------- the word lock */
+
+.lock {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .lock {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  }
+}
+
+.strongbox {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 1.1rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  background: linear-gradient(150deg, rgba(76, 50, 32, 0.72), rgba(28, 18, 10, 0.92));
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.55);
+}
+
+/* the gilt corner brackets of a strongbox lid */
+.strongbox::before,
+.strongbox::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--gilt-dim);
+}
+
+.strongbox::before {
+  top: 9px;
+  left: 9px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.strongbox::after {
+  right: 9px;
+  bottom: 9px;
+  border-top: 0;
+  border-left: 0;
+}
+
+.strongbox__lock svg {
+  display: block;
+  width: clamp(34px, 4vw, 44px);
+  height: auto;
+  fill: none;
+  stroke: var(--brass);
+  stroke-width: 2.2;
+}
+
+.strongbox__case {
+  fill: rgba(201, 162, 39, 0.1);
+}
+
+.strongbox__keyway {
+  fill: var(--brass);
+  stroke: none;
+}
+
+.challenge[data-state="open"] .strongbox__shackle {
+  transform: translate(9px, -4px) rotate(14deg);
+  transform-origin: 11px 20px;
+  transition: transform 0.5s cubic-bezier(0.3, 0.8, 0.3, 1);
+}
+
+.strongbox__slip {
+  width: 100%;
+  max-width: 46ch;
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  color: var(--ink);
+  background: linear-gradient(168deg, var(--paper) 0%, var(--paper-warm) 62%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 12px 26px rgba(0, 0, 0, 0.5);
+  transform: rotate(-0.5deg);
+}
+
+.strongbox__from {
+  margin: 0 0 0.5rem;
+}
+
+.strongbox__from .label {
+  color: var(--brass-ink);
+  font-size: 0.7rem;
+}
+
+.strongbox__quote {
+  margin: 0;
+  font-size: clamp(1.02rem, 1.4vw, 1.16rem);
+  line-height: 1.55;
+}
+
+/* the box refuses to open: one short shake, and the page comes back */
+.challenge[data-state="refused"] .strongbox {
+  animation: refuse 0.42s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes refuse {
+  0%, 100% { transform: translateX(0); }
+  18% { transform: translateX(-7px); }
+  38% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  82% { transform: translateX(2px); }
+}
+
+/* --------------------------------------------------------------- the dial */
+
+.dial {
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.1rem, 2.4vw, 1.8rem);
+}
+
+.dial__face {
+  display: block;
+  width: clamp(158px, 20vw, 226px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  /* the brass is the plate itself, lit from the same corner as the room */
+  background: radial-gradient(
+    circle at 34% 26%,
+    var(--brass-high) 0%,
+    var(--brass-face) 46%,
+    var(--brass-low) 100%
+  );
+  box-shadow:
+    inset 0 0 26px rgba(40, 28, 4, 0.5),
+    0 0 0 1px rgba(40, 28, 4, 0.7),
+    0 16px 34px rgba(0, 0, 0, 0.55);
+}
+
+.dial__face svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.dial__plate {
+  fill: none;
+  stroke: rgba(40, 28, 4, 0.45);
+  stroke-width: 1.5;
+}
+
+.dial__groove {
+  fill: none;
+  stroke: rgba(109, 84, 17, 0.55);
+  stroke-width: 1.5;
+}
+
+.dial__detent {
+  fill: rgba(109, 84, 17, 0.42);
+  stroke: rgba(230, 207, 135, 0.5);
+  stroke-width: 1.5;
+  transition: fill 0.25s ease, stroke 0.25s ease;
+}
+
+.dial__detent[data-set="true"] {
+  fill: var(--lamplight);
+  stroke: var(--paper);
+}
+
+.dial__pointer {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  transition: transform 0.55s cubic-bezier(0.34, 0.1, 0.2, 1);
+}
+
+.dial__pointer path {
+  fill: var(--mahogany-dark);
+}
+
+.dial__face[data-set="true"] .dial__pointer path {
+  fill: var(--oxblood);
+}
+
+.dial__hub {
+  fill: var(--mahogany-dark);
+  stroke: var(--brass-high);
+  stroke-width: 1.5;
+}
+
+.dial__keyway {
+  fill: var(--brass-high);
+}
+
+.plates {
+  display: grid;
+  gap: 0.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 620px) {
+  .plates {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.dial__mark svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  overflow: visible;
+}
+
+.dial__mark-ring {
+  fill: none;
+  stroke: var(--brass-ink);
+  stroke-width: 1.4;
+}
+
+.dial__mark-arm {
+  stroke: var(--brass-ink);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.choice-slot[data-selected="true"] .dial__mark-ring,
+.choice-slot[data-selected="true"] .dial__mark-arm {
+  stroke: var(--oxblood);
+}
+
+.plates .choice {
+  align-items: flex-start;
+}
+
+.plates .dial__mark {
+  margin-top: 0.15rem;
+}
+
+/* -------------------------------------------------- the things on the desk */
+
+.objects,
+.portraits {
+  display: grid;
+  gap: clamp(0.8rem, 1.8vw, 1.3rem);
+  margin: 0;
+  padding: 0;
+}
+
+.objects {
+  grid-template-columns: repeat(auto-fit, minmax(214px, 1fr));
+}
+
+.portraits {
+  grid-template-columns: repeat(auto-fit, minmax(176px, 1fr));
+}
+
+/* laid down by hand, not printed on a grid */
+.objects .choice-slot:nth-child(odd) { transform: rotate(-0.5deg); }
+.objects .choice-slot:nth-child(even) { transform: rotate(0.45deg); }
+.objects .choice-slot:nth-child(3n) { transform: rotate(0.3deg) translateY(3px); }
+
+.objects .choice {
+  align-items: flex-start;
+  min-height: 100%;
+}
+
+.object__tag svg {
+  display: block;
+  width: 1.4rem;
+  height: auto;
+  margin-top: 0.15rem;
+}
+
+.object__tag-body {
+  fill: rgba(201, 162, 39, 0.16);
+  stroke: var(--brass-ink);
+  stroke-width: 1.4;
+}
+
+.object__tag-eye {
+  fill: var(--brass-ink);
+}
+
+.choice-slot[data-selected="true"] .object__tag-body {
+  fill: rgba(201, 162, 39, 0.35);
+}
+
+.portraits .choice {
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 1.1rem 1rem 1.2rem;
+  text-align: center;
+}
+
+.portraits .choice__label {
+  flex: 0 0 auto;
+  font-size: 0.98rem;
+}
+
+/* ------------------------------------------------------------ citing a line */
+
+.citation {
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+  align-items: start;
+}
+
+@media (min-width: 1040px) {
+  .citation {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  }
+}
+
+.page--cite,
+.page--panel {
+  margin: 0;
+  max-width: none;
+}
+
+.page--cite .page-head,
+.page--panel .page-head {
+  margin-bottom: clamp(0.8rem, 1.8vw, 1.2rem);
+}
+
+.page-head h2.page-head__excerpt {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.9vw, 1.45rem);
+  letter-spacing: 0.01em;
+}
+
+.line--slip {
+  display: block;
+}
+
+.line--slip .choice {
+  display: grid;
+  grid-template-columns: 3ch 1fr;
+  gap: 0.9rem;
+  align-items: start;
+  padding: 0.12rem 2rem 0.12rem 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.line--slip .choice:hover:not(:disabled) {
+  transform: none;
+  background: rgba(201, 162, 39, 0.12);
+}
+
+/* A candidate line looks markable before it is marked: a faint ruled underline
+ * the reader's own pen can go over. Ink, not oxblood, until they choose it.
+ */
+.line--slip .line-text {
+  border-bottom: 1px dotted rgba(58, 36, 22, 0.42);
+  transition: border-color 0.2s ease;
+}
+
+.line--slip .choice:hover:not(:disabled) .line-text {
+  border-bottom-color: var(--brass-ink);
+}
+
+/* The reader's mark: an oxblood underline under the line they stand behind. */
+.line--slip[data-selected="true"] .choice,
+.line--slip .choice[aria-pressed="true"] {
+  background: none;
+  transform: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.line--slip[data-selected="true"] .line-text {
+  border-bottom: 2px solid var(--oxblood);
+}
+
+.line--slip[data-selected="true"] .line-number {
+  color: var(--oxblood);
+}
+
+/* once it is cited, the lines the reader passed over stop offering themselves */
+.challenge[data-state="open"] .line--slip:not([data-selected="true"]) .line-text {
+  border-bottom-color: transparent;
+}
+
+.line--slip .strike {
+  top: 0;
+  right: 0;
+}
+
+.line--slip[data-struck="true"] .choice {
+  opacity: 0.55;
+}
+
+/* ------------------------------------------------------------- case notes */
+
+.notes {
+  min-height: 15rem;
+  padding: clamp(1.1rem, 2.4vw, 1.6rem) clamp(1rem, 2.2vw, 1.5rem);
+  color: var(--ink);
+  background: linear-gradient(168deg, var(--paper-warm) 0%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+@media (min-width: 1040px) {
+  .notes {
+    position: sticky;
+    top: clamp(1rem, 2.5vw, 2rem);
+  }
+}
+
+.notes h2.notes__title {
+  margin: 0 0 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
+  letter-spacing: 0.01em;
+  color: var(--ink);
+}
+
+.notes__empty {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+.notes__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notes__entry {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem;
+  align-items: baseline;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(58, 36, 22, 0.18);
+}
+
+.notes__entry .notes__line {
+  color: var(--oxblood);
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.notes__text {
+  font-style: italic;
+  color: var(--oxblood);
+  overflow-wrap: anywhere;
+}
+
+/* ------------------------------------------------------- a settled challenge */
+
+.settled {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  border-left: 3px solid var(--brass);
+  background: linear-gradient(90deg, rgba(76, 50, 32, 0.45), rgba(28, 18, 10, 0.2));
+}
+
+.settled__seal {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, var(--brass-high), var(--brass-low));
+  box-shadow: 0 0 12px rgba(245, 207, 134, 0.45);
+}
+
+.settled__body {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.settled__note {
+  margin: 0;
+}
+
+.settled__note .label {
+  color: var(--gilt);
+  font-size: 0.7rem;
+}
+
+.settled__choice {
+  margin: 0;
+  font-size: 0.98rem;
+  color: rgba(237, 225, 196, 0.8);
+}
+
+/* ------------------------------------------------------------- page tools */
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem 1.4rem;
+  margin-top: clamp(1.2rem, 2.6vw, 2rem);
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.tool {
+  background: none;
+  border-color: rgba(201, 162, 39, 0.28);
+}
+
+.tools__ask {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.tools__count .label {
+  color: rgba(237, 225, 196, 0.5);
+  font-size: 0.7rem;
+}
+
+.challenge__act {
+  margin-top: clamp(1.1rem, 2.4vw, 1.7rem);
+}
+
+/* the key is turned at the dial, not across the room from it */
+@media (min-width: 900px) {
+  .screen--lock .challenge__act {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.submit {
+  color: var(--lamplight);
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  border-color: var(--brass);
+  padding: 0.7rem 1.6rem;
+}
+
+.submit:disabled {
+  color: rgba(237, 225, 196, 0.5);
+  border-color: rgba(201, 162, 39, 0.24);
+}
+
+.onward .next[data-weight="secondary"] {
+  background: none;
+  border-color: rgba(201, 162, 39, 0.22);
+  color: rgba(237, 225, 196, 0.62);
+}
+
+.onward .next[data-weight="primary"] {
+  color: var(--lamplight);
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  border-color: var(--brass);
+}
+
+/* ------------------------------------------------------ the page, reopened */
+
+.page-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: clamp(0.9rem, 3vw, 2.4rem) clamp(0.9rem, 3vw, 2.4rem) 0;
+  overflow: auto;
+  background: rgba(12, 8, 5, 0.88);
+  /* the beat before it arrives is the beat the box has to refuse in */
+  animation: page-return 0.5s cubic-bezier(0.2, 0.75, 0.3, 1) 0.34s both;
+}
+
+.page-panel[data-mode="reread"],
+.page-panel[data-mode="nudge"] {
+  animation-delay: 0s;
+}
+
+.page-panel:focus {
+  outline: none;
+}
+
+.page-panel .page {
+  width: 100%;
+  max-width: calc(var(--measure) + 8ch);
+  /* room under the last line for the control that rides over it */
+  padding-bottom: clamp(3.4rem, 6vw, 4.6rem);
+}
+
+.page-panel__foot {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1.2rem;
+  width: 100%;
+  max-width: calc(var(--measure) + 10ch);
+  margin: 0;
+  /* the way out rides over the page, so it needs its own bit of dark */
+  padding: 1.6rem clamp(0.6rem, 2vw, 1.4rem) 0.9rem;
+  background: linear-gradient(180deg, rgba(12, 8, 5, 0) 0%, rgba(12, 8, 5, 0.94) 46%);
+}
+
+.page-panel__note {
+  margin: 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.5);
+}
+
+.page-close {
+  color: var(--lamplight);
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  border-color: var(--brass);
+}
+
+@keyframes page-return {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* the lamp on the page: a region for a nudge, a single line for a rewind */
+.page--panel .line[data-lit="region"] {
+  background: var(--lit-region);
+  box-shadow: -0.7rem 0 0 var(--lit-region), 0.7rem 0 0 var(--lit-region);
+}
+
+.page--panel .line[data-lit="line"] {
+  background: var(--lit-line);
+  box-shadow:
+    -0.7rem 0 0 var(--lit-line),
+    0.7rem 0 0 var(--lit-line),
+    0 0 26px rgba(245, 207, 134, 0.5);
+}
+
+.page--panel .line[data-lit="line"] .line-number {
+  color: var(--oxblood);
+}
+
+.page--panel .line[data-mark="refused"] .line-text {
+  text-decoration: line-through;
+  text-decoration-color: var(--oxblood);
+  text-decoration-thickness: 2px;
+}
+
+.margin-note {
+  max-width: 44ch;
+  margin: 0.35rem 0 0.7rem calc(3ch + 1.9rem);
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--oxblood);
+  font-family: var(--font-label);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--ink-mid);
+}
+
+/* ------------------------------------------------- the ten excerpts, in order */
+
+.progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.progress__mark {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(237, 225, 196, 0.26);
+  transition: color 0.3s ease;
+}
+
+.progress__mark[data-state="done"] {
+  color: rgba(201, 162, 39, 0.6);
+}
+
+.progress__mark[data-state="current"] {
+  color: var(--lamplight);
+  text-shadow: 0 0 12px rgba(245, 207, 134, 0.55);
+}
+
+/* ------------------------------------------------------------ narrower */
+
+@media (max-width: 640px) {
+  .choice {
+    padding-right: 2.2rem;
+  }
+
+  .objects {
+    grid-template-columns: 1fr;
+  }
+
+  .objects .choice-slot {
+    transform: none;
+  }
+
+  .line--slip .choice {
+    grid-template-columns: 2.5ch 1fr;
+    gap: 0.5rem;
+  }
+
+  .margin-note {
+    margin-left: calc(2.5ch + 1.2rem);
+  }
+
+  .strongbox__slip {
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------- reduced motion */
+/* app.css flattens durations; the delay has to go too, or the page that comes
+ * back after a wrong answer sits invisible for a third of a second.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .page-panel {
+    animation-delay: 0s !important;
+  }
+}

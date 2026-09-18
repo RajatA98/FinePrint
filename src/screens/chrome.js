@@ -2,7 +2,10 @@
 // heading block. Screens build DOM through here so the markup stays consistent.
 
 import { UI, SCREEN_LABEL } from "../ui-strings.js";
+import { hasExcerpt } from "../router.js";
 import { forgetReadSession } from "./read-session.js";
+import { forgetChallengeSession } from "./challenge-session.js";
+import { progressMarks } from "./challenge-view.js";
 
 export function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
@@ -15,7 +18,13 @@ export function el(tag, attrs = {}, children = []) {
     } else if (key === "text") {
       node.textContent = String(value);
     } else if (key === "dataset") {
-      Object.assign(node.dataset, value);
+      // An absent data attribute is absent, not the string "null": CSS reads
+      // these as state, and [data-lit] must not match a line that is unlit.
+      for (const [name, item] of Object.entries(value)) {
+        if (item !== null && item !== undefined && item !== false) {
+          node.dataset[name] = String(item);
+        }
+      }
     } else if (key === "onclick" || key === "onchange") {
       node.addEventListener(key.slice(2), value);
     } else if (value === true) {
@@ -57,10 +66,12 @@ export function screenShell(root, ctx, { heading, label: screenName } = {}) {
   const header = el("header", { class: "chrome" }, [
     el("p", { class: "wordmark", text: UI.wordmark }),
     el("p", { class: "chrome-label", text: screenName ?? SCREEN_LABEL[screen] ?? "" }),
+    hasExcerpt(screen) ? progressStrip(ctx, screen) : null,
     button(
       UI.startOver,
       () => {
         forgetReadSession();
+        forgetChallengeSession();
         ctx.dispatch({ type: "START_OVER" });
         ctx.navigate({ screen: "study", excerpt: 1 });
       },
@@ -73,6 +84,27 @@ export function screenShell(root, ctx, { heading, label: screenName } = {}) {
   }
   root.append(header, section);
   return section;
+}
+
+/**
+ * Where the reader is in the ten excerpts, as roman numerals with the current
+ * one lit. It appears on the excerpt-scoped screens only, and it is a sign, not
+ * a control: no numeral is clickable, because the case is read in order.
+ */
+function progressStrip(ctx, screen) {
+  const { index } = currentExcerpt(ctx);
+  const strip = el("ol", { class: "progress", "aria-label": UI.progressLabel });
+  for (const mark of progressMarks(ctx.lesson.excerpts ?? [], index)) {
+    strip.append(
+      el("li", {
+        class: "progress__mark",
+        dataset: { state: mark.state, screen },
+        text: mark.roman,
+        "aria-current": mark.state === "current" ? "step" : false
+      })
+    );
+  }
+  return strip;
 }
 
 /** The forward control. Screens decide when it exists; it is never a dead end. */
