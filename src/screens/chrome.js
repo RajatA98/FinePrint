@@ -145,7 +145,8 @@ export function currentExcerpt(ctx) {
   const excerpts = ctx.lesson.excerpts ?? [];
   const asked = Number.isInteger(ctx.state.route.excerpt) ? ctx.state.route.excerpt : 1;
   const index = Math.min(Math.max(asked, 1), excerpts.length || 1);
-  return { index, excerpt: excerpts[index - 1], count: excerpts.length };
+  const last = excerpts[excerpts.length - 1];
+  return { index, excerpt: excerpts[index - 1], count: excerpts.length, lastRoman: last?.roman ?? String(excerpts.length) };
 }
 
 /** Honour the system setting; every transition in the app checks this first. */

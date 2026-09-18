@@ -20,7 +20,7 @@ const CLOSE_MS = 1000;
 const SETTLE_GRACE = 400; // if animationend never fires, the flow still moves on
 
 export function render(root, ctx) {
-  const { index, excerpt, count } = currentExcerpt(ctx);
+  const { index, excerpt, count, lastRoman } = currentExcerpt(ctx);
   const { state, dispatch } = ctx;
   const reading = state.reading?.[excerpt.id];
   const reducedMotion = prefersReducedMotion();
@@ -35,7 +35,7 @@ export function render(root, ctx) {
 
   const section = screenShell(root, ctx, { heading: null });
   const page = el("article", { class: "page", dataset: { phase } }, [
-    runningHead(ctx, excerpt, count)
+    runningHead(ctx, excerpt, lastRoman)
   ]);
 
   if (phase === RESUME) {
@@ -74,12 +74,12 @@ export function render(root, ctx) {
   }
 }
 
-function runningHead(ctx, excerpt, count) {
+function runningHead(ctx, excerpt, lastRoman) {
   const [first, last] = excerpt.lines ?? [];
   return el("header", { class: "page-head" }, [
     el("h1", {
       class: "page-head__excerpt",
-      text: `${UI.excerpt} ${excerpt.roman} ${UI.of} ${count}`
+      text: `${UI.excerpt} ${excerpt.roman} ${UI.of} ${lastRoman}`
     }),
     el("div", { class: "page-head__meta" }, [
       el("p", { class: "page-head__book" }, [label(ctx.lesson.title)]),

@@ -7,9 +7,9 @@ import { UI } from "../ui-strings.js";
 import { el, label, screenShell, nextButton, currentExcerpt } from "./chrome.js";
 
 export function render(root, ctx) {
-  const { index, excerpt, count } = currentExcerpt(ctx);
+  const { index, excerpt, count, lastRoman } = currentExcerpt(ctx);
   const section = screenShell(root, ctx, {
-    heading: `${UI.excerpt} ${excerpt.roman} ${UI.of} ${count}`
+    heading: `${UI.excerpt} ${excerpt.roman} ${UI.of} ${lastRoman}`
   });
   section.append(el("p", { class: "screen-note", text: UI.nothingScored }));
 
