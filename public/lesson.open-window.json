@@ -1361,37 +1361,49 @@
       "skill": "detail",
       "scored": true,
       "prompt": "s-c5-search-prompt",
-      "targets": 1,
+      "targets": 3,
       "choices": [
         {
-          "id": "o-carpets",
-          "kind": "object",
-          "ref": "o-carpets"
+          "id": "mr-sappleton",
+          "kind": "portrait",
+          "ref": "mr-sappleton"
         },
         {
-          "id": "o-window",
-          "kind": "object",
-          "ref": "o-window"
+          "id": "ronnie",
+          "kind": "portrait",
+          "ref": "ronnie"
         },
         {
-          "id": "o-marshes",
-          "kind": "object",
-          "ref": "o-marshes"
+          "id": "second-brother",
+          "kind": "portrait",
+          "ref": "second-brother"
         },
         {
-          "id": "o-lawn",
-          "kind": "object",
-          "ref": "o-lawn"
+          "id": "vera",
+          "kind": "portrait",
+          "ref": "vera"
+        },
+        {
+          "id": "framton",
+          "kind": "portrait",
+          "ref": "framton"
+        },
+        {
+          "id": "sister",
+          "kind": "portrait",
+          "ref": "sister"
         }
       ],
       "answer": [
-        "o-carpets"
+        "mr-sappleton",
+        "ronnie",
+        "second-brother"
       ],
-      "evidence": 74,
+      "evidence": 71,
       "margin": {
-        "o-window": "s-c5-search-margin-o-window",
-        "o-marshes": "s-c5-search-margin-o-marshes",
-        "o-lawn": "s-c5-search-margin-o-lawn"
+        "vera": "s-c5-search-margin-vera",
+        "framton": "s-c5-search-margin-framton",
+        "sister": "s-c5-search-margin-sister"
       }
     },
     "c5-cite": {
@@ -1417,6 +1429,11 @@
           "line": 70
         },
         {
+          "id": "L71",
+          "kind": "line",
+          "line": 71
+        },
+        {
           "id": "L72",
           "kind": "line",
           "line": 72
@@ -1428,14 +1445,15 @@
         }
       ],
       "answer": [
-        "L74"
+        "L71"
       ],
-      "evidence": 74,
+      "evidence": 71,
       "margin": {
         "L66": "s-c5-cite-margin-L66",
         "L68": "s-c5-cite-margin-L68",
         "L70": "s-c5-cite-margin-L70",
-        "L72": "s-c5-cite-margin-L72"
+        "L72": "s-c5-cite-margin-L72",
+        "L74": "s-c5-cite-margin-L74"
       }
     },
     "c6-lock-apply": {
@@ -2288,15 +2306,15 @@
       "clues": [
         {
           "id": "k1",
-          "line": 24,
+          "line": 25,
           "proving": false,
           "speaker": "framton"
         },
         {
           "id": "k2",
-          "line": 39,
+          "line": 33,
           "proving": false,
-          "speaker": "vera"
+          "speaker": "narration"
         },
         {
           "id": "k3",
@@ -2306,21 +2324,21 @@
         },
         {
           "id": "k4",
-          "line": 105,
-          "proving": true,
+          "line": 82,
+          "proving": false,
           "speaker": "narration"
         },
         {
           "id": "k5",
-          "line": 120,
-          "proving": false,
-          "speaker": "mr-sappleton"
+          "line": 106,
+          "proving": true,
+          "speaker": "narration"
         },
         {
           "id": "k6",
-          "line": 126,
+          "line": 119,
           "proving": true,
-          "speaker": "vera"
+          "speaker": "mr-sappleton"
         },
         {
           "id": "k7",
@@ -2397,9 +2415,9 @@
     "s-role-framton": "the caller sent to the country for his nerves",
     "s-role-vera": "the niece of the house, fifteen years old",
     "s-role-mrs-sappleton": "the lady of the house, who keeps the window open",
-    "s-role-mr-sappleton": "her husband, who comes home from the marshes",
+    "s-role-mr-sappleton": "the master of the house",
     "s-role-ronnie": "her young brother, who sings the same song to tease her",
-    "s-role-second-brother": "the second young brother in the shooting party",
+    "s-role-second-brother": "the other young brother of the house",
     "s-role-sister": "the caller's sister, who sent him with letters",
     "s-role-cyclist": "the rider who swerves off the road",
     "s-obj-letters": "a bundle of letters",
@@ -2557,15 +2575,16 @@
     "s-c5-lock-define-d": "Exactly, with nothing left out.",
     "s-c5-lock-define-margin-d": "That meaning belongs to sentences about copying or quoting.",
     "s-c5-lock-define-prompt": "Choose the meaning of directly that fits line 72.",
-    "s-c5-search-margin-o-window": "The window is how they come in, not what the mud lands on.",
-    "s-c5-search-margin-o-marshes": "The marshes are where the mud came from.",
-    "s-c5-search-margin-o-lawn": "The grass is what they cross on the way to the house.",
-    "s-c5-search-prompt": "The book is closed. The lady of the house says the shooting party will spoil something when they come in. What?",
-    "s-c5-cite-margin-L66": "This line brings the lady of the house into the room; her worry about the floor comes later.",
+    "s-c5-search-margin-vera": "She is in the room as her aunt speaks, so she is not one of the people still outdoors.",
+    "s-c5-search-margin-framton": "He is the guest being spoken to, not one of the party expected from outdoors.",
+    "s-c5-search-margin-sister": "She is talked about a great deal and has never once been in this house.",
+    "s-c5-search-prompt": "The book is closed. The lady of the house explains who the open window is waiting for. Pick the three people she says are still to come in.",
+    "s-c5-cite-margin-L66": "This line brings the lady of the house into the room, and names nobody who is still outside.",
     "s-c5-cite-margin-L68": "This line asks whether her niece has been entertaining the guest.",
     "s-c5-cite-margin-L70": "This line is her hope that her guest does not mind the window being open.",
-    "s-c5-cite-margin-L72": "This line says how the men come in, not what they spoil.",
-    "s-c5-cite-prompt": "Open the page. Which line says what the mess will land on?",
+    "s-c5-cite-margin-L72": "This line says how soon they come and which way they use, and names nobody.",
+    "s-c5-cite-margin-L74": "This line says what the mud will land on, not who is bringing it in.",
+    "s-c5-cite-prompt": "Open the page. Which line says who she is expecting?",
     "s-gloss-ghastly": "Horrible; frightful in a way that makes you feel ill.",
     "s-gloss-coincidence": "Two things happening at the same time by chance, with no plan behind it.",
     "s-gloss-delusion": "A belief somebody holds firmly that is not true.",
@@ -2688,7 +2707,7 @@
     "s-c10-lock-apply-c": "It describes the dogs in the tale she is about to tell.",
     "s-c10-lock-apply-margin-c": "The dogs get their own words a line or two later. This one names a feeling, and the feeling is his.",
     "s-c10-lock-apply-d": "It names what the men found waiting when they came home.",
-    "s-c10-lock-apply-margin-d": "The men are indoors and their day is over. The word belongs to her explanation of the guest.",
+    "s-c10-lock-apply-margin-d": "The men are home and their day is over. The word belongs to her explanation of the guest.",
     "s-c10-lock-apply-prompt": "Line 127 puts the word horror inside what the girl says about the guest. What is it doing there?",
     "s-c10-lock-define-a": "A strong dread of something.",
     "s-c10-lock-define-b": "A dreadful sight.",
