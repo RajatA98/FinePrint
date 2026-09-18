@@ -1518,25 +1518,20 @@
     },
     "c6-search": {
       "type": "search",
-      "skill": "detail",
+      "skill": "inference",
       "scored": true,
       "prompt": "s-c6-search-prompt",
       "targets": 2,
       "choices": [
         {
-          "id": "o-birds",
+          "id": "o-window",
           "kind": "object",
-          "ref": "o-birds"
+          "ref": "o-window"
         },
         {
-          "id": "o-duck",
+          "id": "o-lawn",
           "kind": "object",
-          "ref": "o-duck"
-        },
-        {
-          "id": "o-carpets",
-          "kind": "object",
-          "ref": "o-carpets"
+          "ref": "o-lawn"
         },
         {
           "id": "o-marshes",
@@ -1544,20 +1539,25 @@
           "ref": "o-marshes"
         },
         {
-          "id": "o-window",
+          "id": "o-carpets",
           "kind": "object",
-          "ref": "o-window"
+          "ref": "o-carpets"
+        },
+        {
+          "id": "o-birds",
+          "kind": "object",
+          "ref": "o-birds"
         }
       ],
       "answer": [
-        "o-birds",
-        "o-duck"
+        "o-window",
+        "o-lawn"
       ],
-      "evidence": 77,
+      "evidence": 82,
       "margin": {
-        "o-carpets": "s-c6-search-margin-o-carpets",
         "o-marshes": "s-c6-search-margin-o-marshes",
-        "o-window": "s-c6-search-margin-o-window"
+        "o-carpets": "s-c6-search-margin-o-carpets",
+        "o-birds": "s-c6-search-margin-o-birds"
       }
     },
     "c6-cite": {
@@ -1578,9 +1578,9 @@
           "line": 80
         },
         {
-          "id": "L83",
+          "id": "L82",
           "kind": "line",
-          "line": 83
+          "line": 82
         },
         {
           "id": "L86",
@@ -1594,12 +1594,12 @@
         }
       ],
       "answer": [
-        "L77"
+        "L82"
       ],
-      "evidence": 77,
+      "evidence": 82,
       "margin": {
+        "L77": "s-c6-cite-margin-L77",
         "L80": "s-c6-cite-margin-L80",
-        "L83": "s-c6-cite-margin-L83",
         "L86": "s-c6-cite-margin-L86",
         "L90": "s-c6-cite-margin-L90"
       }
@@ -2164,40 +2164,40 @@
     },
     "c10-search": {
       "type": "search",
-      "skill": "detail",
+      "skill": "inference",
       "scored": true,
       "prompt": "s-c10-search-prompt",
       "targets": 1,
       "choices": [
         {
-          "id": "o-spaniel",
-          "kind": "object",
-          "ref": "o-spaniel"
+          "id": "vera",
+          "kind": "portrait",
+          "ref": "vera"
         },
         {
-          "id": "o-pariah-dogs",
-          "kind": "object",
-          "ref": "o-pariah-dogs"
+          "id": "mrs-sappleton",
+          "kind": "portrait",
+          "ref": "mrs-sappleton"
         },
         {
-          "id": "o-birds",
-          "kind": "object",
-          "ref": "o-birds"
+          "id": "mr-sappleton",
+          "kind": "portrait",
+          "ref": "mr-sappleton"
         },
         {
-          "id": "o-duck",
-          "kind": "object",
-          "ref": "o-duck"
+          "id": "framton",
+          "kind": "portrait",
+          "ref": "framton"
         }
       ],
       "answer": [
-        "o-spaniel"
+        "vera"
       ],
-      "evidence": 126,
+      "evidence": 132,
       "margin": {
-        "o-pariah-dogs": "s-c10-search-margin-o-pariah-dogs",
-        "o-birds": "s-c10-search-margin-o-birds",
-        "o-duck": "s-c10-search-margin-o-duck"
+        "mrs-sappleton": "s-c10-search-margin-mrs-sappleton",
+        "mr-sappleton": "s-c10-search-margin-mr-sappleton",
+        "framton": "s-c10-search-margin-framton"
       }
     },
     "c10-cite": {
@@ -2234,14 +2234,14 @@
         }
       ],
       "answer": [
-        "L126"
+        "L132"
       ],
-      "evidence": 126,
+      "evidence": 132,
       "margin": {
+        "L126": "s-c10-cite-margin-L126",
         "L128": "s-c10-cite-margin-L128",
         "L130": "s-c10-cite-margin-L130",
-        "L131": "s-c10-cite-margin-L131",
-        "L132": "s-c10-cite-margin-L132"
+        "L131": "s-c10-cite-margin-L131"
       }
     }
   },
@@ -2579,15 +2579,15 @@
     "s-c6-lock-define-d": "A formal introduction to a stranger.",
     "s-c6-lock-define-margin-d": "The word has nothing to do with being introduced to anybody.",
     "s-c6-lock-define-prompt": "Choose the meaning of delusion that fits line 90.",
-    "s-c6-search-margin-o-carpets": "The carpets came up in her first speech, not in this cheerful run of talk.",
-    "s-c6-search-margin-o-marshes": "The marshes came up in that same first speech.",
-    "s-c6-search-margin-o-window": "Her eyes go to the window. Her talk does not.",
-    "s-c6-search-prompt": "The book is closed. Besides the shooting, the lady of the house chattered cheerfully about two things. Pick both.",
+    "s-c6-search-margin-o-marshes": "That is where the men have been all day, and it is nowhere she could see from her chair.",
+    "s-c6-search-margin-o-carpets": "The carpets are on her mind when she talks. They are not what her eyes are on.",
+    "s-c6-search-margin-o-birds": "The birds are a subject of her chatter, not a thing in front of her.",
+    "s-c6-search-prompt": "The book is closed. The lady of the house took in only part of what her guest was telling her. From the way the page describes her, pick the two things she was really watching.",
+    "s-c6-cite-margin-L77": "This line lists what she was saying, which tells you nothing about where she was looking.",
     "s-c6-cite-margin-L80": "This line is the guest's effort to steer the talk somewhere less grim.",
-    "s-c6-cite-margin-L83": "This line follows her eyes, not her voice.",
     "s-c6-cite-margin-L86": "This line is the guest's own announcement about his doctors.",
-    "s-c6-cite-margin-L90": "This line describes the belief he labours under, and names no subject of hers.",
-    "s-c6-cite-prompt": "Open the page. Which line names both of those subjects?",
+    "s-c6-cite-margin-L90": "This line describes the belief he labours under, and says nothing of her attention.",
+    "s-c6-cite-prompt": "Open the page. Which line shows that she was only half attending to her guest?",
     "s-gloss-alert": "Wide awake and watching closely.",
     "s-gloss-comprehension": "Understanding; taking in what something means.",
     "s-gloss-dazed": "Stunned, unable to take in what is in front of you.",
@@ -2691,15 +2691,15 @@
     "s-c10-lock-define-d": "A polite apology made in a hurry.",
     "s-c10-lock-define-margin-d": "She offers no apology. She offers a tale.",
     "s-c10-lock-define-prompt": "Choose the meaning of romance that fits that last line.",
-    "s-c10-search-margin-o-pariah-dogs": "Those strays belong to the past she invents for him, not to this lawn.",
-    "s-c10-search-margin-o-birds": "The birds came from her aunt's chatter about the season.",
-    "s-c10-search-margin-o-duck": "The duck came from that same chatter.",
-    "s-c10-search-prompt": "The book is closed. The girl gives the company a reason for the guest's sudden flight. Which creature does she blame?",
-    "s-c10-cite-margin-L128": "This line belongs to the past she invents for him, far away from this house.",
-    "s-c10-cite-margin-L130": "These creatures are part of that invented past, not the animal on the lawn.",
-    "s-c10-cite-margin-L131": "This line closes her tale with a general remark about nerve.",
-    "s-c10-cite-margin-L132": "This line is the narrator's verdict on her habit, and it names no creature.",
-    "s-c10-cite-prompt": "Open the page. Which line names the creature she blames?",
+    "s-c10-search-margin-mrs-sappleton": "She takes this tale as it comes, the same way she takes everything said under her own roof.",
+    "s-c10-search-margin-mr-sappleton": "He has just walked in from a day out of doors and has heard none of what went before.",
+    "s-c10-search-margin-framton": "He is out on the road by now, and he is the one the tale is about.",
+    "s-c10-search-prompt": "The book is closed. The tale about the dogs is told to a room that believes it. One person there knew it was made up as it was spoken. Which of them?",
+    "s-c10-cite-margin-L126": "This line is the explanation itself. A claim is not proof of its own truth.",
+    "s-c10-cite-margin-L128": "This line is a piece of the past she hands him, and it neither backs her up nor gives her away.",
+    "s-c10-cite-margin-L130": "These creatures belong to that same invented past.",
+    "s-c10-cite-margin-L131": "This line closes the tale with a general remark about nerve.",
+    "s-c10-cite-prompt": "Open the page. Which line tells you that what was just said was invented on the spot?",
     "s-recon-who-1": "This portrait kept the caller company until her aunt came down, and told him what the window was for. Name her.",
     "s-recon-who-2": "This portrait came in late with apologies, talked cheerfully about shooting, and watched the grass over her guest's shoulder. Name her.",
     "s-recon-who-3": "This portrait walked in out of the dusk with a coat over his shoulders and asked who had just rushed off. Name him.",
