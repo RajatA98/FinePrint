@@ -1,0 +1,2659 @@
+{
+  "schema": 1,
+  "id": "open-window",
+  "title": "The Open Window",
+  "author": "Saki (H. H. Munro)",
+  "source": {
+    "gutenberg": 269,
+    "url": "https://www.gutenberg.org/ebooks/269"
+  },
+  "difficulty": "first",
+  "lines": [
+    "“My aunt will be down presently, Mr. Nuttel,” said a very",
+    "self-possessed young lady of fifteen; “in the meantime you",
+    "must try and put up with me.”",
+    "Framton Nuttel endeavoured to say the correct something",
+    "which should duly flatter the niece of the moment without",
+    "unduly discounting the aunt that was to come. Privately he",
+    "doubted more than ever whether these formal visits on a",
+    "succession of total strangers would do much towards",
+    "helping the nerve cure which he was supposed to be",
+    "undergoing.",
+    "“I know how it will be,” his sister had said when he was",
+    "preparing to migrate to this rural retreat; “you will bury",
+    "yourself down there and not speak to a living soul, and",
+    "your nerves will be worse than ever from moping. I shall",
+    "just give you letters of introduction to all the people I",
+    "know there. Some of them, as far as I can remember, were",
+    "quite nice.”",
+    "Framton wondered whether Mrs. Sappleton, the lady to whom",
+    "he was presenting one of the letters of introduction, came",
+    "into the nice division.",
+    "“Do you know many of the people round here?” asked the",
+    "niece, when she judged that they had had sufficient silent",
+    "communion.",
+    "“Hardly a soul,” said Framton. “My sister was staying",
+    "here, at the rectory, you know, some four years ago, and",
+    "she gave me letters of introduction to some of the people",
+    "here.”",
+    "He made the last statement in a tone of distinct regret.",
+    "“Then you know practically nothing about my aunt?” pursued",
+    "the self-possessed young lady.",
+    "“Only her name and address,” admitted the caller. He was",
+    "wondering whether Mrs. Sappleton was in the married or",
+    "widowed state. An undefinable something about the room",
+    "seemed to suggest masculine habitation.",
+    "“Her great tragedy happened just three years ago,” said",
+    "the child; “that would be since your sister’s time.”",
+    "“Her tragedy?” asked Framton; somehow in this restful",
+    "country spot tragedies seemed out of place.",
+    "“You may wonder why we keep that window wide open on an",
+    "October afternoon,” said the niece, indicating a large",
+    "French window that opened on to a lawn.",
+    "“It is quite warm for the time of the year,” said Framton;",
+    "“but has that window got anything to do with the tragedy?”",
+    "“Out through that window, three years ago to a day, her",
+    "husband and her two young brothers went off for their",
+    "day’s shooting. They never came back. In crossing the moor",
+    "to their favourite snipe-shooting ground they were all",
+    "three engulfed in a treacherous piece of bog. It had been",
+    "that dreadful wet summer, you know, and places that were",
+    "safe in other years gave way suddenly without warning.",
+    "Their bodies were never recovered. That was the dreadful",
+    "part of it.” Here the child’s voice lost its",
+    "self-possessed note and became falteringly human. “Poor",
+    "aunt always thinks that they will come back some day, they",
+    "and the little brown spaniel that was lost with them, and",
+    "walk in at that window just as they used to do. That is",
+    "why the window is kept open every evening till it is quite",
+    "dusk. Poor dear aunt, she has often told me how they went",
+    "out, her husband with his white waterproof coat over his",
+    "arm, and Ronnie, her youngest brother, singing 'Bertie,",
+    "why do you bound?' as he always did to tease her, because",
+    "she said it got on her nerves. Do you know, sometimes on",
+    "still, quiet evenings like this, I almost get a creepy",
+    "feeling that they will all walk in through that window—”",
+    "She broke off with a little shudder. It was a relief to",
+    "Framton when the aunt bustled into the room with a whirl",
+    "of apologies for being late in making her appearance.",
+    "“I hope Vera has been amusing you?” she said.",
+    "“She has been very interesting,” said Framton.",
+    "“I hope you don’t mind the open window,” said Mrs.",
+    "Sappleton briskly; “my husband and brothers will be home",
+    "directly from shooting, and they always come in this way.",
+    "They’ve been out for snipe in the marshes to-day, so",
+    "they’ll make a fine mess over my poor carpets. So like you",
+    "men-folk, isn’t it?”",
+    "She rattled on cheerfully about the shooting and the",
+    "scarcity of birds, and the prospects for duck in the",
+    "winter. To Framton it was all purely horrible. He made a",
+    "desperate but only partially successful effort to turn the",
+    "talk on to a less ghastly topic; he was conscious that his",
+    "hostess was giving him only a fragment of her attention,",
+    "and her eyes were constantly straying past him to the open",
+    "window and the lawn beyond. It was certainly an",
+    "unfortunate coincidence that he should have paid his visit",
+    "on this tragic anniversary.",
+    "“The doctors agree in ordering me complete rest, an",
+    "absence of mental excitement, and avoidance of anything in",
+    "the nature of violent physical exercise,” announced",
+    "Framton, who laboured under the tolerably widespread",
+    "delusion that total strangers and chance acquaintances are",
+    "hungry for the least detail of one’s ailments and",
+    "infirmities, their cause and cure. “On the matter of diet",
+    "they are not so much in agreement,” he continued.",
+    "“No?” said Mrs. Sappleton, in a voice which only replaced",
+    "a yawn at the last moment. Then she suddenly brightened",
+    "into alert attention—but not to what Framton was saying.",
+    "“Here they are at last!” she cried. “Just in time for tea,",
+    "and don’t they look as if they were muddy up to the eyes!”",
+    "Framton shivered slightly and turned towards the niece",
+    "with a look intended to convey sympathetic comprehension.",
+    "The child was staring out through the open window with",
+    "dazed horror in her eyes. In a chill shock of nameless",
+    "fear Framton swung round in his seat and looked in the",
+    "same direction.",
+    "In the deepening twilight three figures were walking",
+    "across the lawn towards the window; they all carried guns",
+    "under their arms, and one of them was additionally",
+    "burdened with a white coat hung over his shoulders. A",
+    "tired brown spaniel kept close at their heels. Noiselessly",
+    "they neared the house, and then a hoarse young voice",
+    "chanted out of the dusk: “I said, Bertie, why do you",
+    "bound?”",
+    "Framton grabbed wildly at his stick and hat; the",
+    "hall-door, the gravel-drive, and the front gate were",
+    "dimly-noted stages in his headlong retreat. A cyclist",
+    "coming along the road had to run into the hedge to avoid",
+    "an imminent collision.",
+    "“Here we are, my dear,” said the bearer of the white",
+    "mackintosh, coming in through the window; “fairly muddy,",
+    "but most of it’s dry. Who was that who bolted out as we",
+    "came up?”",
+    "“A most extraordinary man, a Mr. Nuttel,” said Mrs.",
+    "Sappleton; “could only talk about his illnesses, and",
+    "dashed off without a word of good-bye or apology when you",
+    "arrived. One would think he had seen a ghost.”",
+    "“I expect it was the spaniel,” said the niece calmly; “he",
+    "told me he had a horror of dogs. He was once hunted into a",
+    "cemetery somewhere on the banks of the Ganges by a pack of",
+    "pariah dogs, and had to spend the night in a newly dug",
+    "grave with the creatures snarling and grinning and foaming",
+    "just above him. Enough to make anyone lose their nerve.”",
+    "Romance at short notice was her speciality."
+  ],
+  "paragraphStarts": [
+    1,
+    4,
+    11,
+    18,
+    21,
+    24,
+    28,
+    29,
+    31,
+    35,
+    37,
+    39,
+    42,
+    44,
+    65,
+    68,
+    69,
+    70,
+    76,
+    86,
+    94,
+    97,
+    99,
+    105,
+    113,
+    118,
+    122,
+    126,
+    132
+  ],
+  "excerpts": [
+    {
+      "id": "ex1",
+      "roman": "I",
+      "lines": [
+        1,
+        17
+      ],
+      "vocabulary": [
+        "v-self-possessed",
+        "v-endeavoured",
+        "v-migrate"
+      ],
+      "challenges": [
+        "c1-lock-apply",
+        "c1-lock-define",
+        "c1-search",
+        "c1-cite"
+      ]
+    },
+    {
+      "id": "ex2",
+      "roman": "II",
+      "lines": [
+        18,
+        27
+      ],
+      "vocabulary": [
+        "v-division",
+        "v-communion",
+        "v-rectory"
+      ],
+      "challenges": [
+        "c2-lock-apply",
+        "c2-lock-define",
+        "c2-search",
+        "c2-cite"
+      ]
+    },
+    {
+      "id": "ex3",
+      "roman": "III",
+      "lines": [
+        28,
+        43
+      ],
+      "vocabulary": [
+        "v-pursued",
+        "v-habitation",
+        "v-tragedy"
+      ],
+      "challenges": [
+        "c3-lock-apply",
+        "c3-lock-define",
+        "c3-search",
+        "c3-cite"
+      ]
+    },
+    {
+      "id": "ex4",
+      "roman": "IV",
+      "lines": [
+        44,
+        64
+      ],
+      "vocabulary": [
+        "v-treacherous",
+        "v-engulfed",
+        "v-dusk"
+      ],
+      "challenges": [
+        "c4-lock-apply",
+        "c4-lock-define",
+        "c4-search",
+        "c4-cite"
+      ]
+    },
+    {
+      "id": "ex5",
+      "roman": "V",
+      "lines": [
+        65,
+        75
+      ],
+      "vocabulary": [
+        "v-bustled",
+        "v-briskly",
+        "v-directly"
+      ],
+      "challenges": [
+        "c5-lock-apply",
+        "c5-lock-define",
+        "c5-search",
+        "c5-cite"
+      ]
+    },
+    {
+      "id": "ex6",
+      "roman": "VI",
+      "lines": [
+        76,
+        93
+      ],
+      "vocabulary": [
+        "v-ghastly",
+        "v-coincidence",
+        "v-delusion"
+      ],
+      "challenges": [
+        "c6-lock-apply",
+        "c6-lock-define",
+        "c6-search",
+        "c6-cite"
+      ]
+    },
+    {
+      "id": "ex7",
+      "roman": "VII",
+      "lines": [
+        94,
+        104
+      ],
+      "vocabulary": [
+        "v-alert",
+        "v-comprehension",
+        "v-dazed"
+      ],
+      "challenges": [
+        "c7-lock-apply",
+        "c7-lock-define",
+        "c7-search",
+        "c7-cite"
+      ]
+    },
+    {
+      "id": "ex8",
+      "roman": "VIII",
+      "lines": [
+        105,
+        117
+      ],
+      "vocabulary": [
+        "v-twilight",
+        "v-burdened",
+        "v-imminent"
+      ],
+      "challenges": [
+        "c8-lock-apply",
+        "c8-lock-define",
+        "c8-search",
+        "c8-cite"
+      ]
+    },
+    {
+      "id": "ex9",
+      "roman": "IX",
+      "lines": [
+        118,
+        125
+      ],
+      "vocabulary": [
+        "v-mackintosh",
+        "v-bolted",
+        "v-extraordinary"
+      ],
+      "challenges": [
+        "c9-lock-apply",
+        "c9-lock-define",
+        "c9-search",
+        "c9-cite"
+      ]
+    },
+    {
+      "id": "ex10",
+      "roman": "X",
+      "lines": [
+        126,
+        132
+      ],
+      "vocabulary": [
+        "v-horror",
+        "v-pariah",
+        "v-romance"
+      ],
+      "challenges": [
+        "c10-lock-apply",
+        "c10-lock-define",
+        "c10-search",
+        "c10-cite"
+      ]
+    }
+  ],
+  "vocabulary": {
+    "v-self-possessed": {
+      "word": "self-possessed",
+      "line": 2,
+      "gloss": "s-gloss-self-possessed"
+    },
+    "v-endeavoured": {
+      "word": "endeavoured",
+      "line": 4,
+      "gloss": "s-gloss-endeavoured"
+    },
+    "v-migrate": {
+      "word": "migrate",
+      "line": 12,
+      "gloss": "s-gloss-migrate"
+    },
+    "v-division": {
+      "word": "division",
+      "line": 20,
+      "gloss": "s-gloss-division"
+    },
+    "v-communion": {
+      "word": "communion",
+      "line": 23,
+      "gloss": "s-gloss-communion"
+    },
+    "v-rectory": {
+      "word": "rectory",
+      "line": 25,
+      "gloss": "s-gloss-rectory"
+    },
+    "v-pursued": {
+      "word": "pursued",
+      "line": 29,
+      "gloss": "s-gloss-pursued"
+    },
+    "v-habitation": {
+      "word": "habitation",
+      "line": 34,
+      "gloss": "s-gloss-habitation"
+    },
+    "v-tragedy": {
+      "word": "tragedy",
+      "line": 35,
+      "gloss": "s-gloss-tragedy"
+    },
+    "v-treacherous": {
+      "word": "treacherous",
+      "line": 48,
+      "gloss": "s-gloss-treacherous"
+    },
+    "v-engulfed": {
+      "word": "engulfed",
+      "line": 48,
+      "gloss": "s-gloss-engulfed"
+    },
+    "v-dusk": {
+      "word": "dusk",
+      "line": 58,
+      "gloss": "s-gloss-dusk"
+    },
+    "v-bustled": {
+      "word": "bustled",
+      "line": 66,
+      "gloss": "s-gloss-bustled"
+    },
+    "v-briskly": {
+      "word": "briskly",
+      "line": 71,
+      "gloss": "s-gloss-briskly"
+    },
+    "v-directly": {
+      "word": "directly",
+      "line": 72,
+      "gloss": "s-gloss-directly"
+    },
+    "v-ghastly": {
+      "word": "ghastly",
+      "line": 80,
+      "gloss": "s-gloss-ghastly"
+    },
+    "v-coincidence": {
+      "word": "coincidence",
+      "line": 83,
+      "gloss": "s-gloss-coincidence"
+    },
+    "v-delusion": {
+      "word": "delusion",
+      "line": 90,
+      "gloss": "s-gloss-delusion"
+    },
+    "v-alert": {
+      "word": "alert",
+      "line": 96,
+      "gloss": "s-gloss-alert"
+    },
+    "v-comprehension": {
+      "word": "comprehension",
+      "line": 100,
+      "gloss": "s-gloss-comprehension"
+    },
+    "v-dazed": {
+      "word": "dazed",
+      "line": 102,
+      "gloss": "s-gloss-dazed"
+    },
+    "v-twilight": {
+      "word": "twilight",
+      "line": 105,
+      "gloss": "s-gloss-twilight"
+    },
+    "v-burdened": {
+      "word": "burdened",
+      "line": 108,
+      "gloss": "s-gloss-burdened"
+    },
+    "v-imminent": {
+      "word": "imminent",
+      "line": 117,
+      "gloss": "s-gloss-imminent"
+    },
+    "v-mackintosh": {
+      "word": "mackintosh",
+      "line": 119,
+      "gloss": "s-gloss-mackintosh"
+    },
+    "v-bolted": {
+      "word": "bolted",
+      "line": 120,
+      "gloss": "s-gloss-bolted"
+    },
+    "v-extraordinary": {
+      "word": "extraordinary",
+      "line": 122,
+      "gloss": "s-gloss-extraordinary"
+    },
+    "v-horror": {
+      "word": "horror",
+      "line": 127,
+      "gloss": "s-gloss-horror"
+    },
+    "v-pariah": {
+      "word": "pariah",
+      "line": 129,
+      "gloss": "s-gloss-pariah"
+    },
+    "v-romance": {
+      "word": "romance",
+      "line": 132,
+      "gloss": "s-gloss-romance"
+    }
+  },
+  "people": {
+    "framton": {
+      "name": "Framton Nuttel",
+      "role": "s-role-framton",
+      "cameo": "framton"
+    },
+    "vera": {
+      "name": "Vera",
+      "role": "s-role-vera",
+      "cameo": "vera"
+    },
+    "mrs-sappleton": {
+      "name": "Mrs. Sappleton",
+      "role": "s-role-mrs-sappleton",
+      "cameo": "mrs-sappleton"
+    },
+    "mr-sappleton": {
+      "name": "Mr. Sappleton",
+      "role": "s-role-mr-sappleton",
+      "cameo": "mr-sappleton"
+    },
+    "ronnie": {
+      "name": "Ronnie",
+      "role": "s-role-ronnie",
+      "cameo": "ronnie"
+    },
+    "second-brother": {
+      "name": "The other brother",
+      "role": "s-role-second-brother",
+      "cameo": "second-brother"
+    },
+    "sister": {
+      "name": "Framton's sister",
+      "role": "s-role-sister",
+      "cameo": "sister"
+    },
+    "cyclist": {
+      "name": "The cyclist",
+      "role": "s-role-cyclist",
+      "cameo": "cyclist"
+    }
+  },
+  "objects": {
+    "o-letters": {
+      "label": "s-obj-letters",
+      "carriedBy": "framton"
+    },
+    "o-rectory": {
+      "label": "s-obj-rectory"
+    },
+    "o-room": {
+      "label": "s-obj-room"
+    },
+    "o-window": {
+      "label": "s-obj-window"
+    },
+    "o-lawn": {
+      "label": "s-obj-lawn"
+    },
+    "o-moor": {
+      "label": "s-obj-moor"
+    },
+    "o-bog": {
+      "label": "s-obj-bog"
+    },
+    "o-spaniel": {
+      "label": "s-obj-spaniel"
+    },
+    "o-white-coat": {
+      "label": "s-obj-white-coat",
+      "carriedBy": "mr-sappleton"
+    },
+    "o-guns": {
+      "label": "s-obj-guns"
+    },
+    "o-carpets": {
+      "label": "s-obj-carpets"
+    },
+    "o-marshes": {
+      "label": "s-obj-marshes"
+    },
+    "o-birds": {
+      "label": "s-obj-birds"
+    },
+    "o-duck": {
+      "label": "s-obj-duck"
+    },
+    "o-tea": {
+      "label": "s-obj-tea"
+    },
+    "o-stick": {
+      "label": "s-obj-stick",
+      "carriedBy": "framton"
+    },
+    "o-hat": {
+      "label": "s-obj-hat",
+      "carriedBy": "framton"
+    },
+    "o-hall-door": {
+      "label": "s-obj-hall-door"
+    },
+    "o-gravel-drive": {
+      "label": "s-obj-gravel-drive"
+    },
+    "o-front-gate": {
+      "label": "s-obj-front-gate"
+    },
+    "o-hedge": {
+      "label": "s-obj-hedge"
+    },
+    "o-cemetery": {
+      "label": "s-obj-cemetery"
+    },
+    "o-grave": {
+      "label": "s-obj-grave"
+    },
+    "o-pariah-dogs": {
+      "label": "s-obj-pariah-dogs"
+    }
+  },
+  "challenges": {
+    "c1-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-self-possessed",
+      "prompt": "s-c1-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c1-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c1-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c1-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c1-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 2,
+      "margin": {
+        "b": "s-c1-lock-apply-margin-b",
+        "c": "s-c1-lock-apply-margin-c",
+        "d": "s-c1-lock-apply-margin-d"
+      }
+    },
+    "c1-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-self-possessed",
+      "prompt": "s-c1-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c1-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c1-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c1-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c1-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 2,
+      "margin": {
+        "b": "s-c1-lock-define-margin-b",
+        "c": "s-c1-lock-define-margin-c",
+        "d": "s-c1-lock-define-margin-d"
+      }
+    },
+    "c1-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c1-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-letters",
+          "kind": "object",
+          "ref": "o-letters"
+        },
+        {
+          "id": "o-window",
+          "kind": "object",
+          "ref": "o-window"
+        },
+        {
+          "id": "o-spaniel",
+          "kind": "object",
+          "ref": "o-spaniel"
+        },
+        {
+          "id": "o-carpets",
+          "kind": "object",
+          "ref": "o-carpets"
+        }
+      ],
+      "answer": [
+        "o-letters"
+      ],
+      "evidence": 15
+    },
+    "c1-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c1-cite-prompt",
+      "proves": "c1-search",
+      "choices": [
+        {
+          "id": "L4",
+          "kind": "line",
+          "line": 4
+        },
+        {
+          "id": "L9",
+          "kind": "line",
+          "line": 9
+        },
+        {
+          "id": "L11",
+          "kind": "line",
+          "line": 11
+        },
+        {
+          "id": "L12",
+          "kind": "line",
+          "line": 12
+        },
+        {
+          "id": "L15",
+          "kind": "line",
+          "line": 15
+        }
+      ],
+      "answer": [
+        "L15"
+      ],
+      "evidence": 15,
+      "margin": {
+        "L4": "s-c1-cite-margin-L4",
+        "L9": "s-c1-cite-margin-L9",
+        "L11": "s-c1-cite-margin-L11",
+        "L12": "s-c1-cite-margin-L12"
+      }
+    },
+    "c2-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-division",
+      "prompt": "s-c2-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c2-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c2-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c2-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c2-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 20,
+      "margin": {
+        "b": "s-c2-lock-apply-margin-b",
+        "c": "s-c2-lock-apply-margin-c",
+        "d": "s-c2-lock-apply-margin-d"
+      }
+    },
+    "c2-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-division",
+      "prompt": "s-c2-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c2-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c2-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c2-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c2-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 20,
+      "margin": {
+        "b": "s-c2-lock-define-margin-b",
+        "c": "s-c2-lock-define-margin-c",
+        "d": "s-c2-lock-define-margin-d"
+      }
+    },
+    "c2-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c2-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-rectory",
+          "kind": "object",
+          "ref": "o-rectory"
+        },
+        {
+          "id": "o-letters",
+          "kind": "object",
+          "ref": "o-letters"
+        },
+        {
+          "id": "o-room",
+          "kind": "object",
+          "ref": "o-room"
+        },
+        {
+          "id": "o-marshes",
+          "kind": "object",
+          "ref": "o-marshes"
+        }
+      ],
+      "answer": [
+        "o-rectory"
+      ],
+      "evidence": 25
+    },
+    "c2-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c2-cite-prompt",
+      "proves": "c2-search",
+      "choices": [
+        {
+          "id": "L18",
+          "kind": "line",
+          "line": 18
+        },
+        {
+          "id": "L19",
+          "kind": "line",
+          "line": 19
+        },
+        {
+          "id": "L22",
+          "kind": "line",
+          "line": 22
+        },
+        {
+          "id": "L24",
+          "kind": "line",
+          "line": 24
+        },
+        {
+          "id": "L25",
+          "kind": "line",
+          "line": 25
+        }
+      ],
+      "answer": [
+        "L25"
+      ],
+      "evidence": 25,
+      "margin": {
+        "L18": "s-c2-cite-margin-L18",
+        "L19": "s-c2-cite-margin-L19",
+        "L22": "s-c2-cite-margin-L22",
+        "L24": "s-c2-cite-margin-L24"
+      }
+    },
+    "c3-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-pursued",
+      "prompt": "s-c3-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c3-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c3-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c3-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c3-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 29,
+      "margin": {
+        "b": "s-c3-lock-apply-margin-b",
+        "c": "s-c3-lock-apply-margin-c",
+        "d": "s-c3-lock-apply-margin-d"
+      }
+    },
+    "c3-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-pursued",
+      "prompt": "s-c3-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c3-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c3-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c3-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c3-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 29,
+      "margin": {
+        "b": "s-c3-lock-define-margin-b",
+        "c": "s-c3-lock-define-margin-c",
+        "d": "s-c3-lock-define-margin-d"
+      }
+    },
+    "c3-search": {
+      "type": "search",
+      "skill": "inference",
+      "scored": true,
+      "prompt": "s-c3-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-room",
+          "kind": "object",
+          "ref": "o-room"
+        },
+        {
+          "id": "o-window",
+          "kind": "object",
+          "ref": "o-window"
+        },
+        {
+          "id": "o-letters",
+          "kind": "object",
+          "ref": "o-letters"
+        },
+        {
+          "id": "o-rectory",
+          "kind": "object",
+          "ref": "o-rectory"
+        }
+      ],
+      "answer": [
+        "o-room"
+      ],
+      "evidence": 33
+    },
+    "c3-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c3-cite-prompt",
+      "proves": "c3-search",
+      "choices": [
+        {
+          "id": "L28",
+          "kind": "line",
+          "line": 28
+        },
+        {
+          "id": "L31",
+          "kind": "line",
+          "line": 31
+        },
+        {
+          "id": "L33",
+          "kind": "line",
+          "line": 33
+        },
+        {
+          "id": "L37",
+          "kind": "line",
+          "line": 37
+        },
+        {
+          "id": "L41",
+          "kind": "line",
+          "line": 41
+        }
+      ],
+      "answer": [
+        "L33"
+      ],
+      "evidence": 33,
+      "margin": {
+        "L28": "s-c3-cite-margin-L28",
+        "L31": "s-c3-cite-margin-L31",
+        "L37": "s-c3-cite-margin-L37",
+        "L41": "s-c3-cite-margin-L41"
+      }
+    },
+    "c4-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-treacherous",
+      "prompt": "s-c4-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c4-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c4-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c4-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c4-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 48,
+      "margin": {
+        "b": "s-c4-lock-apply-margin-b",
+        "c": "s-c4-lock-apply-margin-c",
+        "d": "s-c4-lock-apply-margin-d"
+      }
+    },
+    "c4-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-treacherous",
+      "prompt": "s-c4-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c4-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c4-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c4-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c4-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 48,
+      "margin": {
+        "b": "s-c4-lock-define-margin-b",
+        "c": "s-c4-lock-define-margin-c",
+        "d": "s-c4-lock-define-margin-d"
+      }
+    },
+    "c4-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c4-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-white-coat",
+          "kind": "object",
+          "ref": "o-white-coat"
+        },
+        {
+          "id": "o-guns",
+          "kind": "object",
+          "ref": "o-guns"
+        },
+        {
+          "id": "o-spaniel",
+          "kind": "object",
+          "ref": "o-spaniel"
+        },
+        {
+          "id": "o-letters",
+          "kind": "object",
+          "ref": "o-letters"
+        }
+      ],
+      "answer": [
+        "o-white-coat"
+      ],
+      "evidence": 59
+    },
+    "c4-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c4-cite-prompt",
+      "proves": "c4-search",
+      "choices": [
+        {
+          "id": "L46",
+          "kind": "line",
+          "line": 46
+        },
+        {
+          "id": "L51",
+          "kind": "line",
+          "line": 51
+        },
+        {
+          "id": "L55",
+          "kind": "line",
+          "line": 55
+        },
+        {
+          "id": "L59",
+          "kind": "line",
+          "line": 59
+        },
+        {
+          "id": "L63",
+          "kind": "line",
+          "line": 63
+        }
+      ],
+      "answer": [
+        "L59"
+      ],
+      "evidence": 59,
+      "margin": {
+        "L46": "s-c4-cite-margin-L46",
+        "L51": "s-c4-cite-margin-L51",
+        "L55": "s-c4-cite-margin-L55",
+        "L63": "s-c4-cite-margin-L63"
+      }
+    },
+    "c5-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-directly",
+      "prompt": "s-c5-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c5-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c5-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c5-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c5-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 72,
+      "margin": {
+        "b": "s-c5-lock-apply-margin-b",
+        "c": "s-c5-lock-apply-margin-c",
+        "d": "s-c5-lock-apply-margin-d"
+      }
+    },
+    "c5-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-directly",
+      "prompt": "s-c5-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c5-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c5-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c5-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c5-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 72,
+      "margin": {
+        "b": "s-c5-lock-define-margin-b",
+        "c": "s-c5-lock-define-margin-c",
+        "d": "s-c5-lock-define-margin-d"
+      }
+    },
+    "c5-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c5-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-carpets",
+          "kind": "object",
+          "ref": "o-carpets"
+        },
+        {
+          "id": "o-window",
+          "kind": "object",
+          "ref": "o-window"
+        },
+        {
+          "id": "o-marshes",
+          "kind": "object",
+          "ref": "o-marshes"
+        },
+        {
+          "id": "o-lawn",
+          "kind": "object",
+          "ref": "o-lawn"
+        }
+      ],
+      "answer": [
+        "o-carpets"
+      ],
+      "evidence": 74
+    },
+    "c5-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c5-cite-prompt",
+      "proves": "c5-search",
+      "choices": [
+        {
+          "id": "L66",
+          "kind": "line",
+          "line": 66
+        },
+        {
+          "id": "L68",
+          "kind": "line",
+          "line": 68
+        },
+        {
+          "id": "L70",
+          "kind": "line",
+          "line": 70
+        },
+        {
+          "id": "L72",
+          "kind": "line",
+          "line": 72
+        },
+        {
+          "id": "L74",
+          "kind": "line",
+          "line": 74
+        }
+      ],
+      "answer": [
+        "L74"
+      ],
+      "evidence": 74,
+      "margin": {
+        "L66": "s-c5-cite-margin-L66",
+        "L68": "s-c5-cite-margin-L68",
+        "L70": "s-c5-cite-margin-L70",
+        "L72": "s-c5-cite-margin-L72"
+      }
+    },
+    "c6-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-delusion",
+      "prompt": "s-c6-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c6-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c6-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c6-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c6-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 90,
+      "margin": {
+        "b": "s-c6-lock-apply-margin-b",
+        "c": "s-c6-lock-apply-margin-c",
+        "d": "s-c6-lock-apply-margin-d"
+      }
+    },
+    "c6-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-delusion",
+      "prompt": "s-c6-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c6-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c6-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c6-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c6-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 90,
+      "margin": {
+        "b": "s-c6-lock-define-margin-b",
+        "c": "s-c6-lock-define-margin-c",
+        "d": "s-c6-lock-define-margin-d"
+      }
+    },
+    "c6-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c6-search-prompt",
+      "targets": 2,
+      "choices": [
+        {
+          "id": "o-birds",
+          "kind": "object",
+          "ref": "o-birds"
+        },
+        {
+          "id": "o-duck",
+          "kind": "object",
+          "ref": "o-duck"
+        },
+        {
+          "id": "o-carpets",
+          "kind": "object",
+          "ref": "o-carpets"
+        },
+        {
+          "id": "o-marshes",
+          "kind": "object",
+          "ref": "o-marshes"
+        },
+        {
+          "id": "o-window",
+          "kind": "object",
+          "ref": "o-window"
+        }
+      ],
+      "answer": [
+        "o-birds",
+        "o-duck"
+      ],
+      "evidence": 77
+    },
+    "c6-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c6-cite-prompt",
+      "proves": "c6-search",
+      "choices": [
+        {
+          "id": "L77",
+          "kind": "line",
+          "line": 77
+        },
+        {
+          "id": "L80",
+          "kind": "line",
+          "line": 80
+        },
+        {
+          "id": "L83",
+          "kind": "line",
+          "line": 83
+        },
+        {
+          "id": "L86",
+          "kind": "line",
+          "line": 86
+        },
+        {
+          "id": "L90",
+          "kind": "line",
+          "line": 90
+        }
+      ],
+      "answer": [
+        "L77"
+      ],
+      "evidence": 77,
+      "margin": {
+        "L80": "s-c6-cite-margin-L80",
+        "L83": "s-c6-cite-margin-L83",
+        "L86": "s-c6-cite-margin-L86",
+        "L90": "s-c6-cite-margin-L90"
+      }
+    },
+    "c7-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-dazed",
+      "prompt": "s-c7-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c7-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c7-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c7-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c7-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 102,
+      "margin": {
+        "b": "s-c7-lock-apply-margin-b",
+        "c": "s-c7-lock-apply-margin-c",
+        "d": "s-c7-lock-apply-margin-d"
+      }
+    },
+    "c7-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-dazed",
+      "prompt": "s-c7-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c7-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c7-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c7-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c7-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 102,
+      "margin": {
+        "b": "s-c7-lock-define-margin-b",
+        "c": "s-c7-lock-define-margin-c",
+        "d": "s-c7-lock-define-margin-d"
+      }
+    },
+    "c7-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c7-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-tea",
+          "kind": "object",
+          "ref": "o-tea"
+        },
+        {
+          "id": "o-carpets",
+          "kind": "object",
+          "ref": "o-carpets"
+        },
+        {
+          "id": "o-duck",
+          "kind": "object",
+          "ref": "o-duck"
+        },
+        {
+          "id": "o-window",
+          "kind": "object",
+          "ref": "o-window"
+        }
+      ],
+      "answer": [
+        "o-tea"
+      ],
+      "evidence": 97
+    },
+    "c7-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c7-cite-prompt",
+      "proves": "c7-search",
+      "choices": [
+        {
+          "id": "L94",
+          "kind": "line",
+          "line": 94
+        },
+        {
+          "id": "L97",
+          "kind": "line",
+          "line": 97
+        },
+        {
+          "id": "L99",
+          "kind": "line",
+          "line": 99
+        },
+        {
+          "id": "L101",
+          "kind": "line",
+          "line": 101
+        },
+        {
+          "id": "L102",
+          "kind": "line",
+          "line": 102
+        }
+      ],
+      "answer": [
+        "L97"
+      ],
+      "evidence": 97,
+      "margin": {
+        "L94": "s-c7-cite-margin-L94",
+        "L99": "s-c7-cite-margin-L99",
+        "L101": "s-c7-cite-margin-L101",
+        "L102": "s-c7-cite-margin-L102"
+      }
+    },
+    "c8-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-imminent",
+      "prompt": "s-c8-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c8-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c8-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c8-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c8-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 117,
+      "margin": {
+        "b": "s-c8-lock-apply-margin-b",
+        "c": "s-c8-lock-apply-margin-c",
+        "d": "s-c8-lock-apply-margin-d"
+      }
+    },
+    "c8-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-imminent",
+      "prompt": "s-c8-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c8-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c8-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c8-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c8-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 117,
+      "margin": {
+        "b": "s-c8-lock-define-margin-b",
+        "c": "s-c8-lock-define-margin-c",
+        "d": "s-c8-lock-define-margin-d"
+      }
+    },
+    "c8-search": {
+      "type": "search",
+      "skill": "detail",
+      "scored": true,
+      "prompt": "s-c8-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-guns",
+          "kind": "object",
+          "ref": "o-guns"
+        },
+        {
+          "id": "o-white-coat",
+          "kind": "object",
+          "ref": "o-white-coat"
+        },
+        {
+          "id": "o-spaniel",
+          "kind": "object",
+          "ref": "o-spaniel"
+        },
+        {
+          "id": "o-stick",
+          "kind": "object",
+          "ref": "o-stick"
+        }
+      ],
+      "answer": [
+        "o-guns"
+      ],
+      "evidence": 106
+    },
+    "c8-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c8-cite-prompt",
+      "proves": "c8-search",
+      "choices": [
+        {
+          "id": "L105",
+          "kind": "line",
+          "line": 105
+        },
+        {
+          "id": "L106",
+          "kind": "line",
+          "line": 106
+        },
+        {
+          "id": "L109",
+          "kind": "line",
+          "line": 109
+        },
+        {
+          "id": "L113",
+          "kind": "line",
+          "line": 113
+        },
+        {
+          "id": "L116",
+          "kind": "line",
+          "line": 116
+        }
+      ],
+      "answer": [
+        "L106"
+      ],
+      "evidence": 106,
+      "margin": {
+        "L105": "s-c8-cite-margin-L105",
+        "L109": "s-c8-cite-margin-L109",
+        "L113": "s-c8-cite-margin-L113",
+        "L116": "s-c8-cite-margin-L116"
+      }
+    },
+    "c9-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-bolted",
+      "prompt": "s-c9-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c9-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c9-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c9-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c9-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 120,
+      "margin": {
+        "b": "s-c9-lock-apply-margin-b",
+        "c": "s-c9-lock-apply-margin-c",
+        "d": "s-c9-lock-apply-margin-d"
+      }
+    },
+    "c9-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-bolted",
+      "prompt": "s-c9-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c9-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c9-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c9-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c9-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 120,
+      "margin": {
+        "b": "s-c9-lock-define-margin-b",
+        "c": "s-c9-lock-define-margin-c",
+        "d": "s-c9-lock-define-margin-d"
+      }
+    },
+    "c9-search": {
+      "type": "search",
+      "skill": "inference",
+      "scored": true,
+      "prompt": "s-c9-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-window",
+          "kind": "object",
+          "ref": "o-window"
+        },
+        {
+          "id": "o-hall-door",
+          "kind": "object",
+          "ref": "o-hall-door"
+        },
+        {
+          "id": "o-front-gate",
+          "kind": "object",
+          "ref": "o-front-gate"
+        },
+        {
+          "id": "o-gravel-drive",
+          "kind": "object",
+          "ref": "o-gravel-drive"
+        }
+      ],
+      "answer": [
+        "o-window"
+      ],
+      "evidence": 119
+    },
+    "c9-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c9-cite-prompt",
+      "proves": "c9-search",
+      "choices": [
+        {
+          "id": "L118",
+          "kind": "line",
+          "line": 118
+        },
+        {
+          "id": "L119",
+          "kind": "line",
+          "line": 119
+        },
+        {
+          "id": "L122",
+          "kind": "line",
+          "line": 122
+        },
+        {
+          "id": "L124",
+          "kind": "line",
+          "line": 124
+        },
+        {
+          "id": "L125",
+          "kind": "line",
+          "line": 125
+        }
+      ],
+      "answer": [
+        "L119"
+      ],
+      "evidence": 119,
+      "margin": {
+        "L118": "s-c9-cite-margin-L118",
+        "L122": "s-c9-cite-margin-L122",
+        "L124": "s-c9-cite-margin-L124",
+        "L125": "s-c9-cite-margin-L125"
+      }
+    },
+    "c10-lock-apply": {
+      "type": "lock",
+      "stage": "apply",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-romance",
+      "prompt": "s-c10-lock-apply-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c10-lock-apply-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c10-lock-apply-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c10-lock-apply-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c10-lock-apply-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 132,
+      "margin": {
+        "b": "s-c10-lock-apply-margin-b",
+        "c": "s-c10-lock-apply-margin-c",
+        "d": "s-c10-lock-apply-margin-d"
+      }
+    },
+    "c10-lock-define": {
+      "type": "lock",
+      "stage": "define",
+      "skill": "vocabulary",
+      "scored": true,
+      "vocabulary": "v-romance",
+      "prompt": "s-c10-lock-define-prompt",
+      "choices": [
+        {
+          "id": "a",
+          "kind": "dial",
+          "label": "s-c10-lock-define-a"
+        },
+        {
+          "id": "b",
+          "kind": "dial",
+          "label": "s-c10-lock-define-b"
+        },
+        {
+          "id": "c",
+          "kind": "dial",
+          "label": "s-c10-lock-define-c"
+        },
+        {
+          "id": "d",
+          "kind": "dial",
+          "label": "s-c10-lock-define-d"
+        }
+      ],
+      "answer": [
+        "a"
+      ],
+      "evidence": 132,
+      "margin": {
+        "b": "s-c10-lock-define-margin-b",
+        "c": "s-c10-lock-define-margin-c",
+        "d": "s-c10-lock-define-margin-d"
+      }
+    },
+    "c10-search": {
+      "type": "search",
+      "skill": "inference",
+      "scored": true,
+      "prompt": "s-c10-search-prompt",
+      "targets": 1,
+      "choices": [
+        {
+          "id": "o-spaniel",
+          "kind": "object",
+          "ref": "o-spaniel"
+        },
+        {
+          "id": "o-pariah-dogs",
+          "kind": "object",
+          "ref": "o-pariah-dogs"
+        },
+        {
+          "id": "o-birds",
+          "kind": "object",
+          "ref": "o-birds"
+        },
+        {
+          "id": "o-duck",
+          "kind": "object",
+          "ref": "o-duck"
+        }
+      ],
+      "answer": [
+        "o-spaniel"
+      ],
+      "evidence": 126
+    },
+    "c10-cite": {
+      "type": "cite",
+      "skill": "evidence",
+      "scored": true,
+      "prompt": "s-c10-cite-prompt",
+      "proves": "c10-search",
+      "choices": [
+        {
+          "id": "L126",
+          "kind": "line",
+          "line": 126
+        },
+        {
+          "id": "L128",
+          "kind": "line",
+          "line": 128
+        },
+        {
+          "id": "L130",
+          "kind": "line",
+          "line": 130
+        },
+        {
+          "id": "L131",
+          "kind": "line",
+          "line": 131
+        },
+        {
+          "id": "L132",
+          "kind": "line",
+          "line": 132
+        }
+      ],
+      "answer": [
+        "L126"
+      ],
+      "evidence": 126,
+      "margin": {
+        "L128": "s-c10-cite-margin-L128",
+        "L130": "s-c10-cite-margin-L130",
+        "L131": "s-c10-cite-margin-L131",
+        "L132": "s-c10-cite-margin-L132"
+      }
+    }
+  },
+  "finale": {
+    "reconstruct": {
+      "people": [
+        {
+          "cameo": "vera",
+          "prompt": "s-recon-who-1",
+          "options": [
+            "vera",
+            "mrs-sappleton",
+            "sister"
+          ],
+          "answer": "vera"
+        },
+        {
+          "cameo": "mrs-sappleton",
+          "prompt": "s-recon-who-2",
+          "options": [
+            "mrs-sappleton",
+            "vera",
+            "sister"
+          ],
+          "answer": "mrs-sappleton"
+        },
+        {
+          "cameo": "mr-sappleton",
+          "prompt": "s-recon-who-3",
+          "options": [
+            "mr-sappleton",
+            "ronnie",
+            "framton"
+          ],
+          "answer": "mr-sappleton"
+        }
+      ],
+      "clues": [
+        {
+          "id": "k1",
+          "line": 24,
+          "proving": false,
+          "speaker": "framton"
+        },
+        {
+          "id": "k2",
+          "line": 39,
+          "proving": false,
+          "speaker": "vera"
+        },
+        {
+          "id": "k3",
+          "line": 71,
+          "proving": true,
+          "speaker": "mrs-sappleton"
+        },
+        {
+          "id": "k4",
+          "line": 105,
+          "proving": true,
+          "speaker": "narration"
+        },
+        {
+          "id": "k5",
+          "line": 113,
+          "proving": false,
+          "speaker": "narration"
+        },
+        {
+          "id": "k6",
+          "line": 126,
+          "proving": true,
+          "speaker": "vera"
+        },
+        {
+          "id": "k7",
+          "line": 132,
+          "proving": true,
+          "speaker": "narration"
+        }
+      ],
+      "required": 4,
+      "culprit": {
+        "prompt": "s-recon-culprit",
+        "options": [
+          "vera",
+          "mrs-sappleton",
+          "framton"
+        ],
+        "answer": "vera"
+      }
+    },
+    "statement": {
+      "template": "s-statement-template",
+      "slots": [
+        {
+          "id": "slot1",
+          "options": [
+            {
+              "vocabulary": "v-self-possessed",
+              "true": true
+            },
+            {
+              "vocabulary": "v-ghastly",
+              "true": false
+            },
+            {
+              "vocabulary": "v-dazed",
+              "true": false
+            }
+          ]
+        },
+        {
+          "id": "slot2",
+          "options": [
+            {
+              "vocabulary": "v-burdened",
+              "true": true
+            },
+            {
+              "vocabulary": "v-engulfed",
+              "true": false
+            },
+            {
+              "vocabulary": "v-bolted",
+              "true": false
+            }
+          ]
+        },
+        {
+          "id": "slot3",
+          "options": [
+            {
+              "vocabulary": "v-romance",
+              "true": true
+            },
+            {
+              "vocabulary": "v-delusion",
+              "true": false
+            },
+            {
+              "vocabulary": "v-tragedy",
+              "true": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "strings": {
+    "s-role-framton": "the caller sent to the country for his nerves",
+    "s-role-vera": "the niece of the house, fifteen years old",
+    "s-role-mrs-sappleton": "the lady of the house, who keeps the window open",
+    "s-role-mr-sappleton": "her husband, who comes home from the marshes",
+    "s-role-ronnie": "her young brother, who sings the same song to tease her",
+    "s-role-second-brother": "the second young brother in the shooting party",
+    "s-role-sister": "the caller's sister, who sent him with letters",
+    "s-role-cyclist": "the rider who swerves off the road",
+    "s-obj-letters": "the letters the caller's sister gave him",
+    "s-obj-rectory": "the rectory where his sister once stayed",
+    "s-obj-room": "the parlour where the caller waits",
+    "s-obj-window": "the tall window standing open to the grass",
+    "s-obj-lawn": "the stretch of grass outside that window",
+    "s-obj-moor": "the open moor the shooting party crossed",
+    "s-obj-bog": "the patch of soft ground that gave way",
+    "s-obj-spaniel": "a small brown spaniel",
+    "s-obj-white-coat": "a white coat carried over an arm",
+    "s-obj-guns": "the guns the three men carry",
+    "s-obj-carpets": "the carpets the lady of the house frets over",
+    "s-obj-marshes": "the marshes where the men shoot",
+    "s-obj-birds": "the birds that were scarce that season",
+    "s-obj-duck": "the duck expected in the winter",
+    "s-obj-tea": "the tea waiting for the shooting party",
+    "s-obj-stick": "the caller's walking stick",
+    "s-obj-hat": "the caller's hat",
+    "s-obj-hall-door": "the hall door the caller goes out by",
+    "s-obj-gravel-drive": "the gravel drive beyond that door",
+    "s-obj-front-gate": "the front gate at the end of the drive",
+    "s-obj-hedge": "the hedge the rider swerves into",
+    "s-obj-cemetery": "a graveyard beside a far-off river",
+    "s-obj-grave": "a freshly dug grave from her second tale",
+    "s-obj-pariah-dogs": "a pack of stray dogs from her second tale",
+    "s-gloss-self-possessed": "Calm and steady in yourself, even in front of a stranger.",
+    "s-gloss-endeavoured": "Tried; made an effort to do something. British spelling of endeavored.",
+    "s-gloss-migrate": "To move from one place to another and settle there, the way birds move with the seasons.",
+    "s-c1-lock-apply-a": "It describes the manner of the young lady who is speaking.",
+    "s-c1-lock-apply-b": "It describes the caller who is being kept waiting.",
+    "s-c1-lock-apply-margin-b": "The word sits beside the girl of fifteen who speaks first. The caller is the person she is speaking to, not the person being described.",
+    "s-c1-lock-apply-c": "It describes the aunt who has not come downstairs yet.",
+    "s-c1-lock-apply-margin-c": "The aunt is only mentioned here as someone still to arrive; nothing in the sentence describes her manner.",
+    "s-c1-lock-apply-d": "It tells you how long the two have been waiting.",
+    "s-c1-lock-apply-margin-d": "It is an adjective attached to a person, not a measure of time.",
+    "s-c1-lock-apply-prompt": "Line 2 hangs the word self-possessed on somebody. What work is the word doing in that sentence?",
+    "s-c1-lock-define-a": "Calm and in control of yourself.",
+    "s-c1-lock-define-b": "Owning a great deal of property.",
+    "s-c1-lock-define-margin-b": "The possessed part is about having hold of yourself, not about owning things.",
+    "s-c1-lock-define-c": "Unwilling to share what you have.",
+    "s-c1-lock-define-margin-c": "Nothing in the sentence is about sharing; the word describes how she carries herself.",
+    "s-c1-lock-define-d": "Nervous and easily startled.",
+    "s-c1-lock-define-margin-d": "That is the opposite of the steadiness the sentence gives her.",
+    "s-c1-lock-define-prompt": "Choose the meaning of self-possessed that fits the girl in line 2.",
+    "s-c1-search-prompt": "The book is closed. His sister promised to hand him something before he left for the country. Which of these was it?",
+    "s-c1-cite-margin-L4": "This line is his effort to say the polite thing to the girl; nothing changes hands in it.",
+    "s-c1-cite-margin-L9": "This line names the treatment his visits were meant to help, not anything handed to him.",
+    "s-c1-cite-margin-L11": "This line opens his sister's speech with a prediction about him, not with an offer.",
+    "s-c1-cite-margin-L12": "This line says where he was going, not what he would be given.",
+    "s-c1-cite-prompt": "Open the page. Which line says what his sister would give him?",
+    "s-gloss-division": "A group that people or things have been sorted into; one part of a larger set.",
+    "s-gloss-communion": "Time spent together sharing something. Here, what the two of them share is a silence.",
+    "s-gloss-rectory": "The house a country parish gives its clergyman to live in.",
+    "s-c2-lock-apply-a": "It names a group his sister sorted people into, and he wonders whether his hostess belongs to it.",
+    "s-c2-lock-apply-b": "It names a quarrel between his sister and the people here.",
+    "s-c2-lock-apply-margin-b": "A division can be a split between people, but nothing here is being broken apart; his sister was sorting people into groups.",
+    "s-c2-lock-apply-c": "It names a sum he is working out in his head.",
+    "s-c2-lock-apply-margin-c": "No numbers are involved. He is placing a person in a category.",
+    "s-c2-lock-apply-d": "It names the part of the house he has been shown into.",
+    "s-c2-lock-apply-margin-d": "The word belongs to his sister's way of describing people, not to rooms.",
+    "s-c2-lock-apply-prompt": "Line 20 ends a question the caller is asking himself. What work is the word division doing in it?",
+    "s-c2-lock-define-a": "A set that things have been sorted into.",
+    "s-c2-lock-define-b": "Splitting a number by arithmetic.",
+    "s-c2-lock-define-margin-b": "That is the school meaning. Here a person is being placed in a category.",
+    "s-c2-lock-define-c": "A disagreement that separates two sides.",
+    "s-c2-lock-define-margin-c": "That meaning is real, but nobody in this sentence is quarrelling.",
+    "s-c2-lock-define-d": "A wall built between two rooms.",
+    "s-c2-lock-define-margin-d": "Nothing physical is being divided in this sentence.",
+    "s-c2-lock-define-prompt": "Choose the meaning of division that fits line 20.",
+    "s-c2-search-prompt": "The book is closed. The caller says his sister stayed near here four years ago. Which place did he name?",
+    "s-c2-cite-margin-L18": "This line names the lady of the house he has come to see, and no house of his sister's.",
+    "s-c2-cite-margin-L19": "This line is about the letter he is presenting today, not about where his sister lodged.",
+    "s-c2-cite-margin-L22": "This line is the girl's question about the neighbours, and it names nobody's house.",
+    "s-c2-cite-margin-L24": "This line has him mention where his sister lodged, then stops before the house is named.",
+    "s-c2-cite-prompt": "Open the page. Which line names the place his sister stayed in?",
+    "s-gloss-pursued": "Kept going with something. Here, kept the questions coming.",
+    "s-gloss-habitation": "Somebody living in a place; the sign that a place is lived in.",
+    "s-gloss-tragedy": "A terrible event, especially one that ends in death.",
+    "s-c3-lock-apply-a": "That the girl keeps the conversation going with another question.",
+    "s-c3-lock-apply-b": "That the girl chases the caller across the room.",
+    "s-c3-lock-apply-margin-b": "Nobody moves in this scene. The word is attached to what she says, not to how she walks.",
+    "s-c3-lock-apply-c": "That the caller is following the girl's story closely.",
+    "s-c3-lock-apply-margin-c": "The word belongs to whoever asked the question, and the question is hers.",
+    "s-c3-lock-apply-d": "That the aunt has come downstairs at last.",
+    "s-c3-lock-apply-margin-d": "The aunt is still upstairs here. This line belongs to the girl.",
+    "s-c3-lock-apply-prompt": "Line 29 ends with the word pursued. What is it telling you?",
+    "s-c3-lock-define-a": "Went on with it; followed it up.",
+    "s-c3-lock-define-b": "Ran after somebody to catch them.",
+    "s-c3-lock-define-margin-b": "That is the usual meaning, but the thing being carried on here is a conversation.",
+    "s-c3-lock-define-c": "Dropped the subject.",
+    "s-c3-lock-define-margin-c": "She is doing the opposite: pressing for more.",
+    "s-c3-lock-define-d": "Agreed with what had just been said.",
+    "s-c3-lock-define-margin-d": "Her line is a question, not an agreement.",
+    "s-c3-lock-define-prompt": "Choose the meaning of pursued that fits line 29.",
+    "s-c3-search-prompt": "The book is closed. Something made the caller suspect that a man lived in this house. Which of these gave him the idea?",
+    "s-c3-cite-margin-L28": "This line describes the tone of his answer, and points at nothing in the house.",
+    "s-c3-cite-margin-L31": "This line is what he admits he knows about her: a name and an address.",
+    "s-c3-cite-margin-L37": "This line is his question about the tragedy; nothing in it concerns a husband.",
+    "s-c3-cite-margin-L41": "This line describes the window and what lies beyond it, which is not what set him wondering.",
+    "s-c3-cite-prompt": "Open the page. Which line points at the thing that set him wondering?",
+    "s-gloss-treacherous": "Dangerous in a way that does not show; likely to give way without warning.",
+    "s-gloss-engulfed": "Swallowed up completely by something that closes over you.",
+    "s-gloss-dusk": "The dim light at the end of the day, after sunset and before dark.",
+    "s-c4-lock-apply-a": "It warns that the ground looked safe and was not.",
+    "s-c4-lock-apply-b": "It says the ground belonged to somebody who betrayed the men.",
+    "s-c4-lock-apply-margin-b": "People can be treacherous in that sense, but here the word is attached to a patch of ground.",
+    "s-c4-lock-apply-c": "It says the danger could be seen from a long way off.",
+    "s-c4-lock-apply-margin-c": "The whole point of the word is that the danger did not show.",
+    "s-c4-lock-apply-d": "It says the ground was steep.",
+    "s-c4-lock-apply-margin-d": "The danger in her account is soft ground that swallows, not a slope.",
+    "s-c4-lock-apply-prompt": "In line 48 the girl calls a piece of ground treacherous. What is that word doing?",
+    "s-c4-lock-define-a": "Dangerous in a way that is hidden.",
+    "s-c4-lock-define-b": "Disloyal to a friend.",
+    "s-c4-lock-define-margin-b": "That meaning is used about people, and this is a place.",
+    "s-c4-lock-define-c": "Impossible to reach.",
+    "s-c4-lock-define-margin-c": "The men walked straight onto it, so it was not out of reach.",
+    "s-c4-lock-define-d": "Soaked by a rainy summer.",
+    "s-c4-lock-define-margin-d": "The wet summer is given as the cause in the next sentence; it is not what the word means.",
+    "s-c4-lock-define-prompt": "Choose the meaning of treacherous that fits line 48.",
+    "s-c4-search-prompt": "The book is closed. In the girl's account, her aunt's husband went out that morning carrying one thing over his arm. Which?",
+    "s-c4-cite-margin-L46": "This line starts her account of the morning they went out; nothing is carried in it.",
+    "s-c4-cite-margin-L51": "This line closes her account of the search; nothing is being carried in it.",
+    "s-c4-cite-margin-L55": "This line names the dog that went missing with the party, not anything over an arm.",
+    "s-c4-cite-margin-L63": "This line is her feeling about still evenings, not a detail of that morning.",
+    "s-c4-cite-prompt": "Open the page. Which line says what he carried?",
+    "s-gloss-bustled": "Came in quickly and busily, making a small stir.",
+    "s-gloss-briskly": "In a quick, lively, businesslike way.",
+    "s-gloss-directly": "Very soon; in a short while. An older British use of the word.",
+    "s-c5-lock-apply-a": "When she expects them: very soon.",
+    "s-c5-lock-apply-b": "Which path they will take across the grounds.",
+    "s-c5-lock-apply-margin-b": "The word measures time here. The way they come in is said separately in the same sentence.",
+    "s-c5-lock-apply-c": "That she is speaking straight to her guest without pausing.",
+    "s-c5-lock-apply-margin-c": "It describes the arrival she expects, not her manner of speaking.",
+    "s-c5-lock-apply-d": "That somebody has been sent to fetch them.",
+    "s-c5-lock-apply-margin-d": "Nobody has been sent. She is saying when she expects them by herself.",
+    "s-c5-lock-apply-prompt": "Line 72 uses the word directly inside the hostess's speech. What does that word tell you there?",
+    "s-c5-lock-define-a": "In a very short time.",
+    "s-c5-lock-define-b": "In a straight line, without turning.",
+    "s-c5-lock-define-margin-b": "That is the everyday meaning now, and it does not fit a sentence about when people arrive.",
+    "s-c5-lock-define-c": "Without anyone's help.",
+    "s-c5-lock-define-margin-c": "Nothing in the sentence is about doing something alone.",
+    "s-c5-lock-define-d": "Exactly, with nothing left out.",
+    "s-c5-lock-define-margin-d": "That meaning belongs to sentences about copying or quoting.",
+    "s-c5-lock-define-prompt": "Choose the meaning of directly that fits line 72.",
+    "s-c5-search-prompt": "The book is closed. The lady of the house says the shooting party will spoil something when they come in. What?",
+    "s-c5-cite-margin-L66": "This line brings the lady of the house into the room; her worry about the floor comes later.",
+    "s-c5-cite-margin-L68": "This line asks whether her niece has been entertaining the guest.",
+    "s-c5-cite-margin-L70": "This line is her hope that her guest does not mind the window being open.",
+    "s-c5-cite-margin-L72": "This line says how the men come in, not what they spoil.",
+    "s-c5-cite-prompt": "Open the page. Which line says what the mess will land on?",
+    "s-gloss-ghastly": "Horrible; frightful in a way that makes you feel ill.",
+    "s-gloss-coincidence": "Two things happening at the same time by chance, with no plan behind it.",
+    "s-gloss-delusion": "A belief somebody holds firmly that is not true.",
+    "s-c6-lock-apply-a": "It names the untrue belief he holds: that strangers want to hear about his health.",
+    "s-c6-lock-apply-b": "It names an illness his doctors have given a name to.",
+    "s-c6-lock-apply-margin-b": "The sentence is about what he believes, not about anything a doctor found in him.",
+    "s-c6-lock-apply-c": "It names a trick the household is playing on him.",
+    "s-c6-lock-apply-margin-c": "A delusion is held by the person himself. Nobody has handed him this one.",
+    "s-c6-lock-apply-d": "It names the subject he is trying to turn the talk to.",
+    "s-c6-lock-apply-margin-d": "He does the opposite: he brings his own health up.",
+    "s-c6-lock-apply-prompt": "Line 90 says the caller laboured under a delusion. What is the word doing there?",
+    "s-c6-lock-define-a": "A firm belief that is not true.",
+    "s-c6-lock-define-b": "A clever trick played on purpose.",
+    "s-c6-lock-define-margin-b": "A trick is something done to you. A delusion is something you hold yourself.",
+    "s-c6-lock-define-c": "A short spell of illness.",
+    "s-c6-lock-define-margin-c": "Illness is the subject of his talk, not the meaning of this word.",
+    "s-c6-lock-define-d": "A formal introduction to a stranger.",
+    "s-c6-lock-define-margin-d": "The word has nothing to do with being introduced to anybody.",
+    "s-c6-lock-define-prompt": "Choose the meaning of delusion that fits line 90.",
+    "s-c6-search-prompt": "The book is closed. Besides the shooting, the lady of the house chattered cheerfully about two things. Pick both.",
+    "s-c6-cite-margin-L80": "This line is the guest's effort to steer the talk somewhere less grim.",
+    "s-c6-cite-margin-L83": "This line follows her eyes, not her voice.",
+    "s-c6-cite-margin-L86": "This line is the guest's own announcement about his doctors.",
+    "s-c6-cite-margin-L90": "This line describes the belief he labours under, and names no subject of hers.",
+    "s-c6-cite-prompt": "Open the page. Which line names both of those subjects?",
+    "s-gloss-alert": "Wide awake and watching closely.",
+    "s-gloss-comprehension": "Understanding; taking in what something means.",
+    "s-gloss-dazed": "Stunned, unable to take in what is in front of you.",
+    "s-c7-lock-apply-a": "The girl's, and it says she looks stunned by what she sees.",
+    "s-c7-lock-apply-b": "The caller's, and it says he cannot follow his hostess.",
+    "s-c7-lock-apply-margin-b": "The caller turns towards the girl a moment earlier. The stunned look is on her face, and he has not looked out yet.",
+    "s-c7-lock-apply-c": "The aunt's, and it says she is tired of the conversation.",
+    "s-c7-lock-apply-margin-c": "The aunt's boredom is two lines above, and this word is attached to the child.",
+    "s-c7-lock-apply-d": "Nobody's; it describes the light outside the window.",
+    "s-c7-lock-apply-margin-d": "Light can dazzle, but this word is placed in a person's eyes.",
+    "s-c7-lock-apply-prompt": "Line 102 puts the word dazed in somebody's eyes. Whose, and what does it say about them?",
+    "s-c7-lock-define-a": "Stunned, as if you cannot take in what you see.",
+    "s-c7-lock-define-b": "Brightly lit.",
+    "s-c7-lock-define-margin-b": "That is dazzling. A dazed person is the one who cannot take things in.",
+    "s-c7-lock-define-c": "Bored and half asleep.",
+    "s-c7-lock-define-margin-c": "The yawn in this excerpt belongs to the aunt, and it is not what this word means.",
+    "s-c7-lock-define-d": "Delighted.",
+    "s-c7-lock-define-margin-d": "The line pairs the word with horror, which is the opposite of delight.",
+    "s-c7-lock-define-prompt": "Choose the meaning of dazed that fits line 102.",
+    "s-c7-search-prompt": "The book is closed. The lady of the house calls out that the men have arrived. What does she say they are just in time for?",
+    "s-c7-cite-margin-L94": "This line is her bored reply, just before she brightens.",
+    "s-c7-cite-margin-L99": "This line turns the guest towards the girl; the cry has already gone by.",
+    "s-c7-cite-margin-L101": "This line watches the child at the window and gives none of the aunt's words.",
+    "s-c7-cite-margin-L102": "This line is the look in the child's eyes, which is not the aunt announcing anything.",
+    "s-c7-cite-prompt": "Open the page. Which line has her saying it?",
+    "s-gloss-twilight": "The faint light left after the sun has gone down.",
+    "s-gloss-burdened": "Loaded with something to carry.",
+    "s-gloss-imminent": "About to happen at any moment.",
+    "s-c8-lock-apply-a": "It says the crash was a second away from happening.",
+    "s-c8-lock-apply-b": "It says the crash happened.",
+    "s-c8-lock-apply-margin-b": "The rider turns into the hedge to keep it from happening. The word only says how close it came.",
+    "s-c8-lock-apply-c": "It says the crash would have been serious.",
+    "s-c8-lock-apply-margin-c": "The word is about timing, not about how bad the damage would be.",
+    "s-c8-lock-apply-d": "It says the rider was well known on that road.",
+    "s-c8-lock-apply-margin-d": "That would be eminent, a different word that sounds almost the same.",
+    "s-c8-lock-apply-prompt": "Line 117 calls a collision imminent. What is the word doing?",
+    "s-c8-lock-define-a": "About to happen at any second.",
+    "s-c8-lock-define-b": "Famous and respected.",
+    "s-c8-lock-define-margin-b": "That is eminent. The two words sound close and mean different things.",
+    "s-c8-lock-define-c": "Impossible to avoid.",
+    "s-c8-lock-define-margin-c": "The rider does avoid it, so this cannot be the meaning.",
+    "s-c8-lock-define-d": "Happening slowly.",
+    "s-c8-lock-define-margin-d": "The word points at how near the moment was, and it was very near.",
+    "s-c8-lock-define-prompt": "Choose the meaning of imminent that fits line 117.",
+    "s-c8-search-prompt": "The book is closed. Three figures crossed the lawn. Pick the one thing every one of them was carrying.",
+    "s-c8-cite-margin-L105": "This line sets the light and counts the figures, and names nothing in their hands.",
+    "s-c8-cite-margin-L109": "This line follows the dog at their heels, and a dog is not carried.",
+    "s-c8-cite-margin-L113": "This line is the guest snatching up his own things as he goes.",
+    "s-c8-cite-margin-L116": "This line belongs to the rider on the road, well after the lawn.",
+    "s-c8-cite-prompt": "Open the page. Which line says what all three carried?",
+    "s-gloss-mackintosh": "A raincoat. The word comes from the man who invented the waterproof cloth.",
+    "s-gloss-bolted": "Ran off suddenly, the way a startled horse does.",
+    "s-gloss-extraordinary": "Very unusual; far outside what you would expect.",
+    "s-c9-lock-apply-a": "It describes the guest, and says he rushed out of the house.",
+    "s-c9-lock-apply-b": "It describes somebody fastening the window shut.",
+    "s-c9-lock-apply-margin-b": "A bolt can fasten a door, but this word is about a person who left in a hurry.",
+    "s-c9-lock-apply-c": "It describes the dog running ahead of the men.",
+    "s-c9-lock-apply-margin-c": "The dog keeps at their heels, and the question is about a person.",
+    "s-c9-lock-apply-d": "It describes the lady of the house rising to greet them.",
+    "s-c9-lock-apply-margin-d": "She is still in her chair, and she answers the question rather than being its subject.",
+    "s-c9-lock-apply-prompt": "The man at the window asks who bolted as they came up. What is that word doing in line 120?",
+    "s-c9-lock-define-a": "Left suddenly and fast.",
+    "s-c9-lock-define-b": "Locked something shut.",
+    "s-c9-lock-define-margin-b": "A real meaning of the word, but nothing is being locked in this sentence.",
+    "s-c9-lock-define-c": "Ate in a great hurry.",
+    "s-c9-lock-define-margin-c": "Another real meaning, and another the sentence gives no room for.",
+    "s-c9-lock-define-d": "Stood still in surprise.",
+    "s-c9-lock-define-margin-d": "The man is asking about somebody who went, not somebody who stayed.",
+    "s-c9-lock-define-prompt": "Choose the meaning of bolted that fits line 120.",
+    "s-c9-search-prompt": "The book is closed. The man with the coat came into the room by the way the household always used. Which way was it?",
+    "s-c9-cite-margin-L118": "This line names him by what he is carrying and stops before the way he came.",
+    "s-c9-cite-margin-L122": "This line is the hostess naming the guest who left.",
+    "s-c9-cite-margin-L124": "This line is her account of how he left, not of how anyone arrived.",
+    "s-c9-cite-margin-L125": "This line is her joke about a ghost, and describes no doorway.",
+    "s-c9-cite-prompt": "Open the page. Which line says how he came in?",
+    "s-gloss-horror": "A strong fear or dread of something.",
+    "s-gloss-pariah": "An outcast; a stray animal or person that others keep away from.",
+    "s-gloss-romance": "Here, an invented tale told as though it were true. An older meaning of the word.",
+    "s-c10-lock-apply-a": "It names what the girl can produce on demand: a tale made up on the spot.",
+    "s-c10-lock-apply-b": "It says the girl has fallen in love.",
+    "s-c10-lock-apply-margin-b": "That is the word's usual meaning today. This sentence is about the tales she tells.",
+    "s-c10-lock-apply-c": "It names a book somebody in the house was reading.",
+    "s-c10-lock-apply-margin-c": "No book appears anywhere in the scene; the sentence sums up a habit of hers.",
+    "s-c10-lock-apply-d": "It promises that her account of the dogs was true.",
+    "s-c10-lock-apply-margin-d": "The line is the narrator's verdict on her inventing, not a guarantee of anything she said.",
+    "s-c10-lock-apply-prompt": "The last line of the case is the narrator's verdict on the girl. What is the word romance doing in it?",
+    "s-c10-lock-define-a": "A made-up tale told as though it happened.",
+    "s-c10-lock-define-b": "A love affair.",
+    "s-c10-lock-define-margin-b": "The modern meaning, and nothing in this story turns on love.",
+    "s-c10-lock-define-c": "A true report of events.",
+    "s-c10-lock-define-margin-c": "The point of the line is that what she produces is invented.",
+    "s-c10-lock-define-d": "A polite apology made in a hurry.",
+    "s-c10-lock-define-margin-d": "She offers no apology. She offers a tale.",
+    "s-c10-lock-define-prompt": "Choose the meaning of romance that fits that last line.",
+    "s-c10-search-prompt": "The book is closed. The girl gives the company a reason for the guest's sudden flight. Which creature does she blame?",
+    "s-c10-cite-margin-L128": "This line belongs to the past she invents for him, far away from this house.",
+    "s-c10-cite-margin-L130": "These creatures are part of that invented past, not the animal on the lawn.",
+    "s-c10-cite-margin-L131": "This line closes her tale with a general remark about nerve.",
+    "s-c10-cite-margin-L132": "This line is the narrator's verdict on her habit, and it names no creature.",
+    "s-c10-cite-prompt": "Open the page. Which line names the creature she blames?",
+    "s-recon-who-1": "This portrait kept the caller company until her aunt came down, and told him what the window was for. Name her.",
+    "s-recon-who-2": "This portrait came in late with apologies, talked cheerfully about shooting, and watched the grass over her guest's shoulder. Name her.",
+    "s-recon-who-3": "This portrait walked in out of the dusk with a coat over his shoulders and asked who had just rushed off. Name him.",
+    "s-recon-culprit": "Four lines, taken together, show what really happened in that parlour. Who made it happen?",
+    "s-statement-template": "The girl began her account of the soft ground in a {slot1} voice, the three men came back over the grass with one of them {slot2} under a white coat, and her tale about the dog was one more {slot3} she produced on the spot.",
+    "s-coach-vocabulary": "Vocabulary is the thread to pick up next. The glossed words were doing real work in their sentences, and one or two slipped past you. On your next case, try this before you read: say each glossed word aloud inside a sentence of your own. Then, as you read, put a finger on the line where it turns up. One word, one line. That pairing is what makes a meaning stay.",
+    "s-coach-detail": "Detail is the thread to pick up next. You had the shape of each scene; it was the small things, and who was holding them, that slipped. On your next case, try this: before the book closes, name three things in the room out loud and say who touched each one. Thirty seconds of that gives your memory something solid to hold.",
+    "s-coach-inference": "Inference is the thread to pick up next. That is the reading you do between the lines: what a small detail tells you that the page never states outright. On your next case, try this: each time somebody says something odd, stop and ask what they must believe for it to make sense. Answer yourself in six words, then read on.",
+    "s-coach-evidence": "Evidence is the thread to pick up next. You knew the answers; pinning each one to a single line is the part to sharpen. On your next case, try this: the moment you settle on an answer, hunt for the one line you would show a doubter. If two lines seem to do the job, take the one that stands on its own.",
+    "s-coach-clean": "That was a clean run: vocabulary, detail, inference and evidence all held. On your next case, raise the bar yourself. Read each page once, then answer without reopening it. You already know how to find the line that proves a thing; the next step is trusting your first reading enough to point straight at it.",
+    "s-coach-generic": "Good work carrying the case to the end. Vocabulary, detail, inference and evidence each had a turn tonight. On your next case, try one small habit: at the end of every page, say one sentence out loud about what changed, and name the line that told you so. Ten seconds a page, and all four skills sharpen together.",
+    "s-study-intro": "The file is thin, Detective. One afternoon call in the country, one household, one visitor who left in a great hurry. Read each page under the lamp, let the book close, and answer from memory.",
+    "s-open-title-card": "The Case of the Open Window",
+    "s-close-book": "The book is shut. What you carry now is what you remember.",
+    "s-report-intro": "The file is complete, Detective. Here is where the evidence stands.",
+    "s-report-coach-boundary": "Your coach was never shown the story. They see your record only: which skills held, which slipped, and how long you spent on each page.",
+    "s-attribution": "Story text: \"The Open Window\" by Saki, Project Gutenberg ebook #269. This educational demo is not affiliated with or endorsed by Project Gutenberg.",
+    "s-verdict-master": "Master Detective",
+    "s-verdict-closed": "Case Closed",
+    "s-verdict-review": "Case Solved — Evidence Review",
+    "s-verdict-reopened": "Case Reopened"
+  },
+  "coach": {
+    "deterministic": {
+      "vocabulary": "s-coach-vocabulary",
+      "detail": "s-coach-detail",
+      "inference": "s-coach-inference",
+      "evidence": "s-coach-evidence",
+      "clean": "s-coach-clean"
+    },
+    "generic": "s-coach-generic"
+  }
+}
