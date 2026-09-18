@@ -1,11 +1,36 @@
 # Fine Print — Handoff
 
-**Written:** Wed 16 Sep 2026, 22:22 CDT. **Refreshed:** Thu 17 Sep 2026, 18:30 CDT
-**Deadline:** Fri 18 Sep 2026, 23:59 CDT (~29 hours left at refresh)
-**Working dir:** `/Users/rajatarora/Projects/FinePrint`
-**Phase reached:** 4 of 9 (Decide) complete. Decisions are LOCKED. Phase 5 (Plan) next, then build.
+**Written:** Wed 16 Sep 2026, 22:22 CDT. **Refreshed:** Thu 17 Sep 2026, 22:00 CDT
+**Deadline:** Fri 18 Sep 2026, 23:59 CDT (~26 hours left at refresh). Target submission 18:00 CDT.
+**Working dir:** `/Users/rajatarora/Projects/FinePrint` — GitHub `RajatA98/FinePrint`, Vercel project `fineprint`
+**Phase reached:** 6 of 9 (Implement) — all six build phases complete and reviewed; final whole-branch review in progress at time of writing. Next: 7 Review, 8 Test-QA (the human read-through), 9 Ship (video + submit).
 
 ---
+
+## START HERE (refreshed 17 Sep 22:00)
+
+**State of the build.** The whole game is built, styled, tested (185 node tests + 22 Python tests), and deployed on every push to main.
+- `docs/CONTRACT.md` — the binding interfaces (file layout, lesson schema, state shape, actions, selectors, coach).
+- `factory/artifacts/IMPLEMENTATION_LOG.md` — one entry per slice with what was built, tests, review outcome.
+- `.superpowers/sdd/PROJECT_PLAN/progress.md` (git-ignored, on disk) — the working ledger with every ruling.
+- Run locally: `npm run serve` then http://localhost:8080/. Gates: `npm run check` (tests + validator + story-phrase scan).
+
+**Three things only the user can do — all still open:**
+1. **Vercel deployment protection is ON**: every URL redirects to a Vercel login. Turn off *Vercel Authentication* in the fineprint project → Settings → Deployment Protection. Until then the link is not judge-clickable. The auto-mode permission classifier refused to change it from this session.
+2. **No Gemini key.** The live coach is built and tested with injected fetch, but never against the real API. Get a key at Google AI Studio, add `GEMINI_API_KEY` and `USE_LIVE_AI=1` as Vercel env vars, and run the one-command smoke test in `docs/COACH_SMOKE.md`. Without it the deterministic coach note shows (invisibly to the reader).
+3. **Coach tone** was ruled as "direct but kind" and isolated as the `TONE` constant in `api/coach-prompt.js`; change it there if you want otherwise.
+
+**What the play looks like.** Study shelf (spines with case numbers, no titles) → vocabulary cards → the read with numbered lines and the book-opens/closes transitions → word lock (brass dial), search the room (object/portrait cards), cite the line (page open, oxblood underline, case notes) with reread / rewind / two nudges → reconstruct (case board: unnamed cameos + name plates, seven clue slips all drawn from lines the reader cited, four pins, culprit portrait with red thread, wax seal) → statement (letterpress tiles set into a handwritten line, signature) → Case Report (verdict stamp, four-rung ladder, three scopes, skill meters, pace last, Inkwell's note with the "never shown the story" line, attribution, Revisit).
+
+**Rulings worth knowing** (full list in the ledger): excerpts cut on paragraph boundaries; lock slip shows word + line number only; finale clues are seven of the ten cited lines (Vera speaks in none — the price of that); mobile is best-effort, desktop 1440×900 is the bar; Codex is unreliable for long runs here (two hung), fine for short read-only reviews.
+
+**Remaining before ship:** final whole-branch review findings (if any); the one-hour human read-through of every item (`.superpowers/sdd/PROJECT_PLAN/task-S5-report.md` has the per-challenge table with answers and decoy reasons — that table is the read-through's input); clean-browser click-through on the production URL once protection is off; demo video; submit.
+
+---
+
+## Original handoff (16–17 Sep), kept for history
+
+
 
 ## Resume with this
 

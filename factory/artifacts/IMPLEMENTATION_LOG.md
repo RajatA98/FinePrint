@@ -1,7 +1,7 @@
 # Implementation Log — Fine Print
 
 **Phase:** 6 of 9 (Implement)
-**Status:** In Progress
+**Status:** Complete (pending final whole-branch review findings)
 **Last Updated:** 2026-09-17
 **Method:** one fresh implementer per slice (Opus or Codex), TDD, an independent reviewer per slice, commit and push on green. Working ledger: `.superpowers/sdd/PROJECT_PLAN/progress.md` (git-ignored). Interfaces: `docs/CONTRACT.md`.
 
@@ -86,3 +86,10 @@
 - **Tests:** 17 new pure-helper cases; 182 total; all four verdicts and the network-down coach path verified in the browser.
 - **Review:** in progress. Controller observation: all cameos share one silhouette; distinct silhouettes required.
 - **Content follow-up:** only one of the ten cited lines was among the finale clues; lesson fix round 4 re-points excerpt V's citation to line 71 so all seven finale clues are lines the reader cited.
+
+## Entry 12 — 2026-09-17 — Fix rounds and content completion
+
+- **S9 fix round:** oxblood confined to the reader's marks, text-decoration underlines on cite slips, lock slip shows word + line number only, dead control removed, strike/selection sync, nudge attribution to the working stage.
+- **S11 fix round:** distinct silhouettes (girl / woman / man) keyed by `people[id].cameo`, shake detector scoped to the finale item, h1 on every screen, cited list rows even, word tray as a type case.
+- **Lesson rounds 4–5:** all seven finale clues are lines the reader cites during the case (proving 71, 106, 119, 132); excerpt V re-authored around line 71 with portrait choices; line 119 filed as narration. Content reviewer: ship as is.
+- **Gates at HEAD:** 185 node tests, validator OK (132 lines / 10 excerpts / 40 challenges), scan OK (49 files).
