@@ -1,0 +1,58 @@
+/* Fine Print — the vocabulary key.
+ * The stage, the palette shades and the shared chrome live in styles/app.css;
+ * this file only dresses the index cards.
+ */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: clamp(1rem, 2.4vw, 1.9rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+  border-radius: 2px;
+  color: var(--ink);
+  background: linear-gradient(162deg, var(--paper) 0%, var(--paper-warm) 58%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+/* index cards, dropped on a desk rather than laid out on a grid */
+.card:nth-child(odd) { transform: rotate(-0.55deg); }
+.card:nth-child(even) { transform: rotate(0.45deg); }
+.card:nth-child(3n) { transform: rotate(0.25deg) translateY(4px); }
+
+.card__word {
+  margin: 0 0 0.35rem;
+  letter-spacing: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+  line-height: 1.15;
+}
+
+.card__gloss {
+  margin: 0 0 1.4rem;
+  font-size: 1.02rem;
+}
+
+.card__line {
+  margin: 0;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.5);
+  color: var(--brass-ink);
+}
+
+/* the desk under the lamp: the cards sit in the middle of the frame */
+.screen--vocabulary {
+  justify-content: center;
+  padding-bottom: clamp(2rem, 6vw, 5rem);
+}

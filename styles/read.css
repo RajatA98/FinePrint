@@ -1,0 +1,258 @@
+/* Fine Print — the read.
+ * The stage, the palette shades and the shared chrome live in styles/app.css;
+ * this file only dresses the open page and the two book transitions.
+ */
+
+.screen--read {
+  padding-top: clamp(0.9rem, 2vw, 1.6rem);
+}
+
+.page {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--measure) + 8ch);
+  margin: 0 auto;
+  padding: clamp(1.3rem, 2.6vw, 2.2rem) clamp(1.1rem, 3.4vw, 3.2rem) clamp(1.8rem, 3.6vw, 2.8rem);
+  border-radius: 2px;
+  color: var(--ink);
+  background: linear-gradient(172deg, var(--paper) 0%, var(--paper-warm) 62%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.1),
+    var(--page-shadow);
+}
+
+/* the lamp falling on the page, from above and slightly right */
+.page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(130% 62% at 58% -14%, rgba(245, 207, 134, 0.38), rgba(245, 207, 134, 0) 60%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 78%, rgba(58, 36, 22, 0.09) 100%);
+}
+
+.page > * {
+  position: relative;
+}
+
+.page-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem 1.5rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.55);
+}
+
+.page-head__excerpt {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2.1vw, 1.6rem);
+}
+
+.page-head__meta {
+  text-align: right;
+  color: var(--brass-ink);
+}
+
+.page-head__book,
+.page-head__lines {
+  margin: 0;
+}
+
+.page-head__lines .label {
+  font-size: 0.7rem;
+  color: var(--ink-mid);
+}
+
+.passage {
+  max-width: var(--measure);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.6;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 3ch 1fr;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.line[data-paragraph="start"] {
+  margin-top: 1.05em;
+}
+
+.line-number {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-align: right;
+  padding-top: 0.45em;
+  color: var(--ink-mid);
+}
+
+.line-text {
+  padding-left: 1rem;
+  border-left: 1px solid rgba(58, 36, 22, 0.2);
+}
+
+/* the page held shut after a reload: the clock kept running, so nothing restarts */
+.page-shut {
+  display: grid;
+  justify-items: start;
+  gap: 1rem;
+  padding: clamp(2rem, 6vw, 4rem) 0 clamp(1rem, 3vw, 2rem);
+}
+
+.page-shut__note {
+  margin: 0;
+  max-width: 44ch;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+.resume {
+  color: var(--paper);
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  border-color: var(--brass);
+}
+
+/* ------------------------------------------------------- the book opens */
+
+.book-open {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: var(--ground-deep);
+  animation: book-open-fade 1.2s ease forwards;
+}
+
+.book-open__card {
+  max-width: 44ch;
+  padding: clamp(2rem, 5vw, 3.6rem) clamp(1.8rem, 6vw, 4.5rem);
+  text-align: center;
+  color: var(--ink);
+  background: linear-gradient(168deg, var(--paper) 0%, var(--paper-warm) 60%, var(--paper-mid) 100%);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  animation: book-open-card 1.2s cubic-bezier(0.2, 0.75, 0.3, 1) forwards;
+}
+
+.book-open__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.1rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.book-open__rule {
+  display: block;
+  width: 7ch;
+  height: 1px;
+  margin: clamp(1rem, 2.4vw, 1.6rem) auto;
+  background: var(--brass);
+}
+
+.book-open__author {
+  margin: 0;
+  color: var(--brass-ink);
+}
+
+.book-open__author .label {
+  font-size: 0.9rem;
+  letter-spacing: 0.2em;
+}
+
+@keyframes book-open-fade {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  74% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes book-open-card {
+  0% { transform: scale(0.94) translateY(12px); }
+  26% { transform: none; }
+  100% { transform: none; }
+}
+
+/* ------------------------------------------------------ the book closes */
+
+.book-close {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background-color: rgba(12, 8, 5, 0);
+  animation: book-close-scrim 1s ease forwards;
+}
+
+.book-close__cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(620px, 74vw);
+  aspect-ratio: 7 / 5;
+  border-radius: 3px 9px 9px 3px;
+  background: linear-gradient(118deg, #5b3c27 0%, var(--mahogany) 52%, #22140b 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(224, 196, 120, 0.2),
+    -9px 0 0 -2px var(--mahogany-dark),
+    0 28px 60px rgba(0, 0, 0, 0.72);
+  animation: book-close-cover 1s cubic-bezier(0.34, 0.06, 0.2, 1) forwards;
+}
+
+.book-close__frame {
+  position: absolute;
+  inset: 7% 6%;
+  border: 1px solid rgba(224, 196, 120, 0.45);
+}
+
+.book-close__frame::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(224, 196, 120, 0.22);
+}
+
+.book-close__mark {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.24em;
+  text-indent: 0.24em;
+  color: var(--gilt);
+}
+
+@keyframes book-close-scrim {
+  0% { background-color: rgba(12, 8, 5, 0); }
+  100% { background-color: rgba(12, 8, 5, 0.94); }
+}
+
+@keyframes book-close-cover {
+  0% { transform: translateX(66%) rotate(7deg); opacity: 0; }
+  35% { opacity: 1; }
+  100% { transform: translateX(0) rotate(-1.2deg); opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .line {
+    grid-template-columns: 2.5ch 1fr;
+    gap: 0.5rem;
+  }
+
+  .line-text {
+    padding-left: 0.7rem;
+  }
+}

@@ -1,7 +1,8 @@
 // The frame every screen shares: element helpers, the Start over control, and the
 // heading block. Screens build DOM through here so the markup stays consistent.
 
-import { UI } from "../ui-strings.js";
+import { UI, SCREEN_LABEL } from "../ui-strings.js";
+import { forgetReadSession } from "./read-session.js";
 
 export function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
@@ -41,24 +42,32 @@ export function button(label, onClick, attrs = {}) {
   return el("button", { type: "button", ...attrs, onclick: onClick }, [label]);
 }
 
+/** A letterpress label: small, tracked, set in the label face by CSS. */
+export function label(text, attrs = {}) {
+  return el("span", { ...attrs, class: ["label", attrs.class].filter(Boolean).join(" "), text });
+}
+
 /**
  * Clear the root, draw the chrome, return the section a screen fills.
  * The Start over control is on every screen: there is always a way back.
  */
-export function screenShell(root, ctx, { heading, label } = {}) {
+export function screenShell(root, ctx, { heading, label: screenName } = {}) {
   root.replaceChildren();
+  const screen = ctx.state.route.screen;
   const header = el("header", { class: "chrome" }, [
-    el("p", { class: "chrome-label", text: label ?? ctx.state.route.screen }),
+    el("p", { class: "wordmark", text: UI.wordmark }),
+    el("p", { class: "chrome-label", text: screenName ?? SCREEN_LABEL[screen] ?? "" }),
     button(
       UI.startOver,
       () => {
+        forgetReadSession();
         ctx.dispatch({ type: "START_OVER" });
         ctx.navigate({ screen: "study", excerpt: 1 });
       },
       { class: "start-over" }
     )
   ]);
-  const section = el("section", { class: "screen" });
+  const section = el("section", { class: `screen screen--${screen}` });
   if (heading !== undefined && heading !== null) {
     section.append(el("h1", { class: "screen-heading", text: heading }));
   }
@@ -79,4 +88,28 @@ export function currentExcerpt(ctx) {
   const asked = Number.isInteger(ctx.state.route.excerpt) ? ctx.state.route.excerpt : 1;
   const index = Math.min(Math.max(asked, 1), excerpts.length || 1);
   return { index, excerpt: excerpts[index - 1], count: excerpts.length };
+}
+
+/** Honour the system setting; every transition in the app checks this first. */
+export function prefersReducedMotion() {
+  try {
+    return globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches === true;
+  } catch {
+    return false;
+  }
+}
+
+// The guide, as a paper-cut silhouette in a gilt oval: a homburg, never a
+// deerstalker, and never a pipe. Path data only — he says nothing here.
+const CAMEO_PATHS =
+  '<path d="M22 40 C22 28, 32 21, 45 21 C58 21, 66 28, 66 38 L70 40 ' +
+  'C72 41, 72 44, 69 44 L20 44 C17 44, 17 41, 22 40 Z"/>' +
+  '<path d="M31 44 C29 52, 29 58, 31 63 L37 65 L33 69 C32 73, 34 76, 38 77 ' +
+  'L36 81 C36 85, 40 88, 45 89 L45 96 C36 98, 26 103, 22 112 L68 112 ' +
+  'C66 100, 58 93, 52 90 C55 83, 56 72, 55 63 C54 52, 48 44, 40 43 Z"/>';
+
+export function cameo() {
+  const oval = el("span", { class: "cameo", "aria-hidden": "true" });
+  oval.innerHTML = `<svg viewBox="0 0 90 118" focusable="false"><g transform="translate(0,6)">${CAMEO_PATHS}</g></svg>`;
+  return oval;
 }

@@ -1,73 +1,202 @@
-/* The spine: legible, unstyled on purpose. Decoration arrives in a later slice. */
+/* Fine Print — the study at night.
+ *
+ * One stage, shallow: a warm near-black ground, a lamp pool falling from the
+ * upper right, a mahogany desk plane along the bottom, and a low paper tooth
+ * over all of it. Every screen is a camera position on that one room; anything
+ * the reader reads sits on paper, lit from above. The six-layer parallax room
+ * is a later slice, and none of this needs undoing to build it.
+ *
+ * Palette and type are pinned in PRODUCT.md and styles/tokens.css. The values
+ * added below are shades of those, never new hues, and oxblood is not among
+ * them: it belongs to the reader's own evidence marks alone.
+ */
+
+:root {
+  --ground: #150e08;
+  --ground-2: #1e160c;
+  --ground-deep: #0c0805;
+  --mahogany-light: #4c3220;
+  --mahogany-dark: #24170d;
+  --paper-warm: #e9dcbc;
+  --paper-mid: #e2d2ac;
+  --paper-deep: #d3bf97;
+  --ink-mid: #3e3223; /* secondary ink, kept at 7:1 even on the page foot */
+  --brass-ink: #5e4708; /* brass dark enough to read on paper */
+  --gilt-dim: rgba(224, 196, 120, 0.42);
+  --hairline: rgba(201, 162, 39, 0.3);
+
+  /* Victorian publisher's book cloth, for the spines. */
+  --cloth-1: #7a3b22;
+  --cloth-2: #2f4034;
+  --cloth-3: #8a6a2f;
+  --cloth-4: #3c3a52;
+  --cloth-5: #4a2e24;
+  --cloth-6: #2e3f48;
+  --cloth-7: #6b5326;
+  --cloth-8: #46402a;
+  --cloth-9: #3b4a3c;
+
+  --step: clamp(1rem, 2.4vw, 1.9rem);
+  --page-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  background: var(--ground);
+}
+
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  min-height: 100vh;
+  color: var(--paper);
   font-family: var(--font-read);
   font-size: clamp(1.05rem, 1.6vw, 1.3rem);
   line-height: 1.6;
+  background: radial-gradient(
+    1200px 820px at 72% 22%,
+    var(--mahogany) 0%,
+    var(--ground-2) 46%,
+    var(--ground) 78%,
+    var(--ground-deep) 100%
+  );
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* the lamp pool and the desk plane */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      720px 500px at 82% 14%,
+      rgba(245, 207, 134, 0.26),
+      rgba(245, 207, 134, 0.09) 36%,
+      rgba(0, 0, 0, 0) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(76, 50, 32, 0) 76%,
+      rgba(58, 36, 22, 0.85) 88%,
+      var(--ground-deep) 100%
+    );
+}
+
+/* the vignette and the paper tooth */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 260px rgba(0, 0, 0, 0.8),
+    inset 0 0 90px rgba(0, 0, 0, 0.45);
+  background-image: radial-gradient(rgba(245, 207, 134, 0.07) 0.5px, rgba(0, 0, 0, 0) 0.6px);
+  background-size: 3px 3px;
 }
 
 #app {
-  max-width: 72ch;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: clamp(1.1rem, 2.6vw, 2.2rem) clamp(1rem, 4vw, 3rem) clamp(2rem, 5vw, 3.5rem);
 }
 
-.measure {
-  max-width: var(--measure);
+::selection {
+  background: var(--oxblood);
+  color: var(--paper);
 }
+
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------------ chrome */
 
 .chrome {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   gap: 1rem;
-  border-bottom: 1px solid var(--mahogany);
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+  letter-spacing: 0.01em;
+  color: var(--gilt);
+}
+
+.chrome-label,
+.label {
+  font-family: var(--font-label);
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
 }
 
 .chrome-label {
-  font-family: var(--font-label);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  margin: 0;
+  margin: 0 auto 0 0;
+  padding-left: clamp(0.8rem, 2vw, 1.6rem);
+  color: rgba(237, 225, 196, 0.55);
 }
 
 .screen {
-  padding-top: 1.5rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(1.4rem, 3.4vw, 2.8rem);
 }
 
 .screen-heading {
+  margin: 0 0 0.4rem;
   font-family: var(--font-display);
   font-weight: 500;
-  margin: 0 0 1rem;
+  font-size: clamp(1.45rem, 2.6vw, 2.1rem);
+  letter-spacing: 0.01em;
+  color: var(--paper);
 }
 
-h2 {
+.screen-note {
+  margin: 0 0 var(--step);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.62);
+}
+
+/* ----------------------------------------------------------------- controls */
+
+button {
   font-family: var(--font-label);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin: 1.5rem 0 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  color: var(--gilt);
+  background: linear-gradient(180deg, rgba(76, 50, 32, 0.9), rgba(36, 23, 13, 0.92));
+  border: 1px solid var(--gilt-dim);
+  border-radius: 2px;
+  padding: 0.6rem 1.25rem;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
 }
 
-button,
-select {
-  font-family: var(--font-read);
-  font-size: 1rem;
-  color: var(--ink);
-  background: transparent;
-  border: 1px solid var(--mahogany);
-  border-radius: 2px;
-  padding: 0.4rem 0.9rem;
-  cursor: pointer;
+button:hover {
+  color: var(--lamplight);
+  border-color: var(--brass);
 }
 
 button:disabled {
@@ -75,56 +204,65 @@ button:disabled {
   cursor: default;
 }
 
-button[aria-pressed="true"] {
-  background: var(--gilt);
-  border-color: var(--oxblood);
+.start-over {
+  flex: none;
+  background: none;
+  border-color: rgba(201, 162, 39, 0.22);
+  color: rgba(237, 225, 196, 0.6);
+  font-size: 0.75rem;
+  padding: 0.35rem 0.8rem;
 }
 
-:focus-visible {
-  outline: 2px solid var(--brass);
-  outline-offset: 2px;
+.onward {
+  margin-top: var(--step);
 }
 
-ul {
+/* ------------------------------------------- screens still in their spine */
+/* Lock, search, cite, reconstruct, statement and report are wired but not yet
+ * dressed (slices S8 and S9). These keep them legible on the stage until then.
+ */
+
+h2:not(.card__word) {
+  font-family: var(--font-label);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin: 1.5rem 0 0.5rem;
+}
+
+ul:not(.cards) {
   list-style: none;
   margin: 0 0 1rem;
   padding: 0;
 }
 
-li {
+ul:not(.cards) li {
   margin: 0.35rem 0;
 }
 
-.vocabulary .word {
-  font-family: var(--font-label);
-  margin-right: 0.75rem;
+select {
+  font-family: var(--font-read);
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--mahogany);
+  border-radius: 2px;
+  padding: 0.4rem 0.9rem;
 }
 
-.passage .line {
-  margin: 0.15rem 0;
-}
-
-.passage .line[data-paragraph="start"] {
-  margin-top: 1rem;
-}
-
-.line-number {
-  display: inline-block;
-  min-width: 3ch;
-  margin-right: 0.75rem;
-  font-family: var(--font-label);
-  font-size: 0.75rem;
-  color: var(--mahogany);
-  text-align: right;
+.measure {
+  max-width: var(--measure);
 }
 
 .challenge {
-  border-top: 1px solid var(--mahogany);
+  border-top: 1px solid var(--hairline);
   margin-top: 1.5rem;
   padding-top: 1rem;
 }
 
-.challenge .prompt {
+.challenge .prompt,
+.choices .choice,
+.picker label,
+.clues li {
   max-width: var(--measure);
 }
 
@@ -132,7 +270,12 @@ li {
   display: block;
   width: 100%;
   text-align: left;
-  max-width: var(--measure);
+}
+
+button[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--gilt);
+  border-color: var(--oxblood);
 }
 
 .outcome {
@@ -141,37 +284,26 @@ li {
   letter-spacing: 0.04em;
 }
 
-.outcome[data-outcome="solved"] {
-  color: var(--mahogany);
-}
+.outcome[data-outcome="solved"] { color: var(--gilt); }
+.outcome[data-outcome="again"] { color: var(--oxblood); }
 
-.outcome[data-outcome="again"] {
-  color: var(--oxblood);
-}
-
-.picker label {
-  display: block;
-  max-width: var(--measure);
-  margin-bottom: 0.35rem;
-}
+.picker label { display: block; margin-bottom: 0.35rem; }
 
 .clues li {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: baseline;
   gap: 0.5rem;
-  max-width: var(--measure);
 }
 
-.whose-words {
+.whose-words,
+.coach-source {
   font-family: var(--font-label);
   font-size: 0.75rem;
-  color: var(--mahogany);
+  color: rgba(224, 196, 120, 0.7);
 }
 
-.statement .slot {
-  margin: 0 0.25rem;
-}
+.statement .slot { margin: 0 0.25rem; }
 
 .figure,
 .clusters li {
@@ -183,24 +315,7 @@ li {
 }
 
 .figure .label,
-.clusters .label {
-  font-family: var(--font-label);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-}
-
-.coach-source {
-  font-family: var(--font-label);
-  font-size: 0.75rem;
-  color: var(--mahogany);
-}
-
-.onward,
-.open-case,
-.close-book,
-.submit {
-  margin-top: 1.5rem;
-}
+.clusters .label { letter-spacing: 0.04em; }
 
 noscript {
   display: block;
@@ -210,11 +325,44 @@ noscript {
 
 body[data-placeholder]::before {
   content: "placeholder lesson";
+  position: relative;
+  z-index: 2;
   display: block;
   padding: 0.25rem 1.25rem;
-  background: var(--mahogany);
-  color: var(--paper);
+  background: var(--mahogany-dark);
+  color: rgba(237, 225, 196, 0.7);
   font-family: var(--font-label);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+
+/* --------------------------------------------------------------- narrower */
+
+@media (max-width: 640px) {
+  .chrome {
+    flex-wrap: wrap;
+    row-gap: 0.4rem;
+  }
+
+  .chrome-label {
+    order: 3;
+    width: 100%;
+    padding-left: 0;
+  }
+}
+
+/* ---------------------------------------------------------- reduced motion */
+/* Every transition also checks this in JS, so the book neither opens nor closes
+ * on an animation the reader asked not to see; this is the belt to that brace.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

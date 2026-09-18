@@ -1,0 +1,218 @@
+/* Fine Print — the study.
+ * The stage, the palette shades and the shared chrome live in styles/app.css;
+ * this file only dresses the shelf and the case on the desk.
+ */
+
+/* the shelf up on the wall, the case on the desk below it */
+.screen--study {
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.shelf {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: clamp(1.4rem, 3vw, 2.4rem) clamp(0.8rem, 2vw, 2rem) 0;
+  border-radius: 3px;
+  background: linear-gradient(104deg, rgba(76, 50, 32, 0.55), rgba(19, 12, 6, 0.92));
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.66);
+}
+
+.shelf__books {
+  display: flex;
+  align-items: flex-end;
+  /* safe: when the shelf overflows, the first spine stays reachable */
+  justify-content: safe center;
+  gap: clamp(5px, 0.9vw, 13px);
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 clamp(4px, 1vw, 16px);
+}
+
+.shelf__books::-webkit-scrollbar {
+  display: none;
+}
+
+.shelf__board {
+  height: 11px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.6);
+}
+
+.spine {
+  flex: none;
+  width: clamp(42px, 5.6vw, 76px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 0.3rem 0.65rem;
+  border: 0;
+  border-radius: 2px 2px 1px 1px;
+  background: linear-gradient(96deg, var(--cloth, var(--cloth-5)), rgba(0, 0, 0, 0.66));
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.5),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.spine[data-height="1"] { height: 186px; }
+.spine[data-height="2"] { height: 208px; }
+.spine[data-height="3"] { height: 226px; }
+
+.spine[data-cloth="1"] { --cloth: var(--cloth-1); }
+.spine[data-cloth="2"] { --cloth: var(--cloth-2); }
+.spine[data-cloth="3"] { --cloth: var(--cloth-3); }
+.spine[data-cloth="4"] { --cloth: var(--cloth-4); }
+.spine[data-cloth="5"] { --cloth: var(--cloth-5); }
+.spine[data-cloth="6"] { --cloth: var(--cloth-6); }
+.spine[data-cloth="7"] { --cloth: var(--cloth-7); }
+.spine[data-cloth="8"] { --cloth: var(--cloth-8); }
+.spine[data-cloth="9"] { --cloth: var(--cloth-9); }
+
+.spine__rule {
+  width: 62%;
+  height: 1px;
+  background: var(--gilt-dim);
+}
+
+.spine__number {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  color: var(--gilt);
+}
+
+.spine__band {
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(224, 196, 120, 0.8);
+}
+
+.spine--inert {
+  opacity: 0.52;
+  filter: saturate(0.8) brightness(0.8);
+}
+
+.spine--live {
+  cursor: pointer;
+  transform: translateY(-14px);
+  height: 240px;
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.35),
+    0 0 0 1px var(--brass),
+    0 0 30px rgba(245, 207, 134, 0.22),
+    0 14px 26px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.spine--live:hover,
+.spine--live:focus-visible {
+  transform: translateY(-24px);
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px var(--lamplight),
+    0 0 40px rgba(245, 207, 134, 0.34),
+    0 18px 30px rgba(0, 0, 0, 0.55);
+}
+
+.plaque {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(1rem, 2.4vw, 1.9rem);
+  align-items: start;
+  max-width: 62ch;
+  width: 100%;
+  padding: clamp(1.1rem, 2.4vw, 1.7rem) clamp(1.1rem, 2.6vw, 1.9rem);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(76, 50, 32, 0.5), rgba(26, 17, 10, 0.68));
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
+}
+
+.plaque__case {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  line-height: 1.05;
+  color: var(--lamplight);
+}
+
+.plaque__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0.5rem 0 0;
+  color: rgba(224, 196, 120, 0.82);
+}
+
+.plaque__divider {
+  width: 1px;
+  height: 0.85em;
+  background: var(--gilt-dim);
+}
+
+.plaque__intro {
+  margin: 0.9rem 0 0;
+  max-width: 44ch;
+  font-size: 1.02rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.86);
+}
+
+.open-case {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 1.2rem;
+}
+
+.cameo {
+  display: block;
+  width: clamp(56px, 7vw, 82px);
+  aspect-ratio: 1 / 1.22;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(60% 55% at 38% 30%, var(--paper) 0%, var(--paper-mid) 55%, var(--paper-deep) 100%);
+  box-shadow:
+    0 0 0 2px var(--brass),
+    0 0 0 5px rgba(58, 36, 22, 0.9),
+    0 3px 14px rgba(0, 0, 0, 0.55);
+}
+
+.cameo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .plaque {
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    max-width: none;
+    padding-right: clamp(1.6rem, 3vw, 2.6rem);
+  }
+
+  .open-case {
+    grid-column: auto;
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .plaque {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spine--live:hover,
+  .spine--live:focus-visible {
+    transform: translateY(-14px);
+  }
+}
