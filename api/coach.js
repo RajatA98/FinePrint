@@ -13,7 +13,8 @@ import { buildCoachPrompt } from "./coach-prompt.js";
 const MODEL = process.env.GEMINI_MODEL || "gemini-flash-lite-latest";
 const TIMEOUT_MS = 4000;
 const MAX_WORDS = 90;
-const BANNED_WORDS = ["fail", "wrong"]; // catches "fail" and "failed" too
+// Whole-word, case-insensitive: "wrongly" and "unfailing" must NOT trip this.
+const BANNED_WORDS_PATTERN = /\b(fail|failed|wrong)\b/i;
 
 const TOP_LEVEL_KEYS = [
   "lessonId",
@@ -28,7 +29,17 @@ const TOP_LEVEL_KEYS = [
 const SCORE_KEYS = ["correct", "total"];
 const MISSED_KEYS = ["challengeId", "skill", "excerpt", "position"];
 const PACE_KEYS = ["overallWpm", "shownNotGraded"];
-const MAX_STRING_LEN = 40;
+
+// id-like fields: bounded, lowercase, digits and hyphens only. This alone is
+// not enough to keep story text out — a short fragment could still fit inside
+// 40 lowercase-and-hyphen characters — so `skill`, cluster keys, `verdict` and
+// `position` also get pinned to a closed enum, below.
+const ID_PATTERN = /^[a-z0-9-]{1,40}$/;
+const VERDICTS = ["master", "closed", "review", "reopened"];
+const SKILLS = ["vocabulary", "detail", "inference", "evidence"];
+const POSITIONS = ["early", "middle", "late"];
+const MIN_EXCERPT = 1;
+const MAX_EXCERPT = 20;
 
 export default async function handler(req, res, deps = {}) {
   res.setHeader("Content-Type", "application/json");
@@ -142,13 +153,16 @@ function isAcceptableMessage(message) {
   if (wordCount > MAX_WORDS) {
     return false;
   }
-  const lower = trimmed.toLowerCase();
-  return !BANNED_WORDS.some((word) => lower.includes(word));
+  return !BANNED_WORDS_PATTERN.test(trimmed);
 }
 
 // --- Shape guard -----------------------------------------------------------
 // The function cannot see the lesson, so it enforces the contract's shape
-// instead: only these keys, only these sub-shapes, no string over 40 chars.
+// instead: only these keys, only these sub-shapes, id-like fields pinned to a
+// closed character set, and the few fields with a known vocabulary (verdict,
+// skill, position) pinned to a closed enum on top of that. A 40-character
+// bound alone would still let a short story fragment ride through a
+// free-text id field, so nothing here accepts free text.
 // This is a product guarantee (story text must never reach the model), not
 // hygiene, so it fails closed on anything it does not recognize.
 
@@ -160,15 +174,20 @@ function onlyKeys(object, allowed) {
   return Object.keys(object).every((key) => allowed.includes(key));
 }
 
-function isBoundedString(value, { nullable = false } = {}) {
-  if (value === null) {
-    return nullable;
-  }
-  return typeof value === "string" && value.length <= MAX_STRING_LEN;
+function isId(value) {
+  return typeof value === "string" && ID_PATTERN.test(value);
+}
+
+function isEnum(value, allowed) {
+  return typeof value === "string" && allowed.includes(value);
 }
 
 function isFiniteNumber(value) {
   return typeof value === "number" && Number.isFinite(value);
+}
+
+function isExcerptIndex(value) {
+  return Number.isInteger(value) && value >= MIN_EXCERPT && value <= MAX_EXCERPT;
 }
 
 function validatePayload(payload) {
@@ -179,8 +198,8 @@ function validatePayload(payload) {
     return false;
   }
   return (
-    isBoundedString(payload.lessonId, { nullable: true }) &&
-    isBoundedString(payload.verdict) &&
+    (payload.lessonId === null || isId(payload.lessonId)) &&
+    isEnum(payload.verdict, VERDICTS) &&
     validateScore(payload.score) &&
     validateMissed(payload.missed) &&
     validateClusters(payload.clusters) &&
@@ -207,10 +226,11 @@ function validateMissed(missed) {
     (item) =>
       isPlainObject(item) &&
       onlyKeys(item, MISSED_KEYS) &&
-      isBoundedString(item.challengeId) &&
-      isBoundedString(item.skill, { nullable: true }) &&
-      isFiniteNumber(item.excerpt) &&
-      isBoundedString(item.position)
+      isId(item.challengeId) &&
+      isId(item.skill) &&
+      isEnum(item.skill, SKILLS) &&
+      isExcerptIndex(item.excerpt) &&
+      isEnum(item.position, POSITIONS)
   );
 }
 
@@ -220,7 +240,8 @@ function validateClusters(clusters) {
   }
   return Object.entries(clusters).every(
     ([skill, value]) =>
-      skill.length <= MAX_STRING_LEN &&
+      isId(skill) &&
+      SKILLS.includes(skill) &&
       isPlainObject(value) &&
       onlyKeys(value, SCORE_KEYS) &&
       isFiniteNumber(value.correct) &&
