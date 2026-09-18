@@ -20,6 +20,7 @@ import { quote, line } from "../lesson.js";
 import { UI, SCREEN_LABEL } from "../ui-strings.js";
 import { el, button, label, cameo, screenShell, nextButton, closedBookMark } from "./chrome.js";
 import { attempted } from "./challenge.js";
+import { FINALE_RECONSTRUCT as ITEM } from "../state/grade.js";
 import {
   citedLines,
   finaleOutcome,
@@ -27,8 +28,6 @@ import {
   openBlank,
   cameoFigure
 } from "./challenge-view.js";
-
-const ITEM = "finale-reconstruct";
 
 // The portrait the reader is naming, and how many times THIS board had been
 // sealed when it was last drawn. Neither is scoring state and neither is

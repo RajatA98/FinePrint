@@ -4,7 +4,7 @@
 import { score, verdict, clusters, pace } from "../state/selectors.js";
 
 export function buildCoachPayload(state, lesson) {
-  const { correct, total } = score(state);
+  const { correct, total } = score(state, lesson);
   return {
     lessonId: state.lessonId ?? lesson?.id ?? null,
     verdict: verdict(state, lesson),

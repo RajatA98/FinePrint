@@ -88,6 +88,11 @@ export const UI = {
   revisitCase: "Revisit the case",
   revisitNote: "Revisiting does not change your score. The first answer is the one already written down.",
 
+  /* when the case file itself will not load */
+  bootFailedTitle: "The case will not open",
+  bootFailedNote: "The case file did not arrive. Check the connection and ask again.",
+  tryAgain: "Try again",
+
   /* counted things */
   findCount(targets) {
     return `Find ${NUMBER_WORD[targets] ?? targets}`;

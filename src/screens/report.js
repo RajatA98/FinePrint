@@ -17,7 +17,7 @@ import { verdict, score, clusters, pace } from "../state/selectors.js";
 import { buildCoachPayload } from "../coach/payload.js";
 import { requestCoach } from "../coach/client.js";
 import { UI, SKILL_LABEL } from "../ui-strings.js";
-import { el, label, cameo, screenShell, startOverButton, closedBookMark } from "./chrome.js";
+import { el, button, label, cameo, screenShell, closedBookMark } from "./chrome.js";
 import { ladderMarks, finaleOutcome, citedEvidence } from "./challenge-view.js";
 
 const SOURCE_URL = "https://www.gutenberg.org/ebooks/269";
@@ -90,7 +90,7 @@ function introLine() {
 /** Solved, the answers given, the evidence — the three scopes of the case. */
 function scopes(ctx) {
   const { state, lesson } = ctx;
-  const counts = score(state);
+  const counts = score(state, lesson);
   const outcome = finaleOutcome(state, lesson);
   const percent = counts.total === 0 ? 0 : Math.round(counts.ratio * 100);
 
@@ -290,7 +290,13 @@ function foot(ctx) {
 
   return el("footer", { class: "report__foot" }, [
     el("div", { class: "revisit" }, [
-      startOverButton(ctx, { label: UI.revisitCase, class: "revisit__go" }),
+      // Revisiting is a walk back through a case that is already written down:
+      // it navigates, it never resets. The first answers stay first, so nothing
+      // the reader does from here can move the figure above. The chrome's
+      // "Start over" is the only control that throws the case away.
+      button(UI.revisitCase, () => ctx.navigate({ screen: "study", excerpt: 1 }), {
+        class: "revisit__go"
+      }),
       el("p", { class: "revisit__note", text: UI.revisitNote })
     ]),
     credits

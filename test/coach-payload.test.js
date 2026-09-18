@@ -59,7 +59,7 @@ test("the payload carries performance data and no story text", () => {
 
   assert.equal(payload.lessonId, "mini");
   assert.equal(payload.verdict, "reopened");
-  assert.deepEqual(payload.score, { correct: 2, total: 5 });
+  assert.deepEqual(payload.score, { correct: 2, total: 10 });
   assert.equal(payload.pace.shownNotGraded, true);
   assert.equal(typeof payload.pace.overallWpm, "number");
   assert.equal(payload.nudgesUsed, 1);
@@ -126,7 +126,7 @@ test("only first attempts count as missed, and the finale items are not listed",
 
   const payload = buildCoachPayload(state, lesson);
   assert.deepEqual(payload.missed.map((item) => item.challengeId), ["c1-lock-apply"]);
-  assert.deepEqual(payload.score, { correct: 1, total: 4 });
+  assert.deepEqual(payload.score, { correct: 1, total: 10 });
 });
 
 test("a run with nothing missed reports an empty list", () => {

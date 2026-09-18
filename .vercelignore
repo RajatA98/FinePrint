@@ -1,0 +1,14 @@
+# What the deployment does not need. The app is index.html, src/, styles/,
+# public/, api/, package.json and vercel.json; everything else here is the
+# workshop — the factory record, the docs, the validator and the test harness.
+# The fixture lesson under test/ is only ever loaded on localhost (src/main.js),
+# so leaving the harness behind cannot change what a reader gets.
+factory/
+docs/
+scripts/
+.superpowers/
+PRODUCT.md
+.claude/
+.impeccable/
+.playwright-mcp/
+test/

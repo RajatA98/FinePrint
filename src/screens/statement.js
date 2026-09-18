@@ -14,9 +14,9 @@ import { quote } from "../lesson.js";
 import { UI } from "../ui-strings.js";
 import { el, button, label, screenShell, nextButton, closedBookMark } from "./chrome.js";
 import { attempted } from "./challenge.js";
+import { FINALE_STATEMENT as ITEM } from "../state/grade.js";
 import { blanksLeft, openBlank } from "./challenge-view.js";
 
-const ITEM = "finale-statement";
 const SLOT = /\{([^{}]+)\}/g;
 
 // The blank the reader is filling. Not scoring state, never persisted: the page

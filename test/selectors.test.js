@@ -38,8 +38,19 @@ const ALL_RIGHT = firstAttemptsFrom({
 
 const SOLVED_FINALE = { ...initialState().finale, clues: ["k1", "k3", "k5", "k7"], culprit: "cora", solved: true };
 
-test("score is empty before anything is attempted", () => {
-  assert.deepEqual(score(initialState()), { correct: 0, total: 0, ratio: 0 });
+// The fixture has eight scored challenges; the two finale items make ten.
+const SCORED_ITEMS = 10;
+
+const authoredLesson = JSON.parse(
+  readFileSync(new URL("../public/lesson.open-window.json", import.meta.url), "utf8")
+);
+
+test("score is nothing out of the whole lesson before anything is attempted", () => {
+  assert.deepEqual(score(initialState(), lesson), {
+    correct: 0,
+    total: SCORED_ITEMS,
+    ratio: 0
+  });
 });
 
 test("score counts first attempts only and ignores the attempt history", () => {
@@ -52,7 +63,40 @@ test("score counts first attempts only and ignores the attempt history", () => {
     ],
     solved: { "c1-lock-apply": true, "c1-search": true }
   });
-  assert.deepEqual(score(state), { correct: 1, total: 2, ratio: 0.5 });
+  assert.deepEqual(score(state, lesson), { correct: 1, total: SCORED_ITEMS, ratio: 0.1 });
+});
+
+// The validator forbids `scored: false` in an authored lesson; the selector
+// still honours it, so a lesson that ever drops an item cannot inflate a score.
+test("the denominator is every scored item in the lesson, not what was attempted", () => {
+  const unscored = structuredClone(lesson);
+  unscored.challenges["c2-cite"].scored = false;
+  const state = stateWith({ firstAttempts: firstAttemptsFrom({ "c1-lock-apply": true }) });
+  assert.deepEqual(score(state, unscored), {
+    correct: 1,
+    total: SCORED_ITEMS - 1,
+    ratio: 1 / (SCORED_ITEMS - 1)
+  });
+});
+
+test("sealing and signing with nothing else attempted is two of forty-two, never master", () => {
+  const proving = authoredLesson.finale.reconstruct.clues
+    .filter((clue) => clue.proving)
+    .map((clue) => clue.id);
+  const state = stateWith({
+    firstAttempts: firstAttemptsFrom({ "finale-reconstruct": true, "finale-statement": true }),
+    finale: {
+      ...initialState().finale,
+      clues: proving,
+      culprit: authoredLesson.finale.reconstruct.culprit.answer,
+      solved: true
+    }
+  });
+  const counts = score(state, authoredLesson);
+  assert.equal(counts.correct, 2);
+  assert.equal(counts.total, 42);
+  assert.notEqual(verdict(state, authoredLesson), "master");
+  assert.equal(verdict(state, authoredLesson), "review");
 });
 
 test("verdict is reopened whenever the finale is unsolved, however good the score", () => {
@@ -70,7 +114,13 @@ test("verdict is closed when the ratio is good but not master-high", () => {
       "c1-lock-apply": true,
       "c1-lock-define": true,
       "c1-search": true,
-      "c1-cite": false
+      "c1-cite": false,
+      "c2-lock-apply": true,
+      "c2-lock-define": true,
+      "c2-search": true,
+      "c2-cite": false,
+      "finale-reconstruct": true,
+      "finale-statement": true
     }),
     finale: SOLVED_FINALE
   });

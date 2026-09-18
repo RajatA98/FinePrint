@@ -225,6 +225,14 @@ def check_challenges(lesson):
     for cid, challenge in challenges.items():
         answers = challenge.get("answer", [])
         ids = choice_ids(challenge)
+        if challenge.get("skill") not in SKILLS:
+            failures.append(
+                fail("challenges", "challenge %s skill must be one of %s" % (cid, sorted(SKILLS)))
+            )
+        # Scored is the report's denominator: an item either counts, or says so
+        # by leaving the key out. Anything else (false, "true", 1) is a typo.
+        if "scored" in challenge and challenge["scored"] is not True:
+            failures.append(fail("challenges", "challenge %s scored must be true when present" % cid))
         if not answers:
             failures.append(fail("answers", "challenge %s answer must be non-empty" % cid))
         for answer in answers:

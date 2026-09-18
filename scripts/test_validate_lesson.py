@@ -271,6 +271,21 @@ class ValidateLessonTests(unittest.TestCase):
         lesson["challenges"]["c1-search"]["choices"][0]["ref"] = "vera"
         self.assertNotIn("challenges", rule_names(lesson))
 
+    def test_challenge_skill_must_be_one_of_the_four(self):
+        lesson = valid_lesson()
+        lesson["challenges"]["c1-search"]["skill"] = "reading"
+        self.assertIn("challenges", rule_names(lesson))
+
+        lesson = valid_lesson()
+        del lesson["challenges"]["c1-search"]["skill"]
+        self.assertIn("challenges", rule_names(lesson))
+
+    def test_scored_must_be_true_when_present(self):
+        for value in (False, "true", 1, None):
+            lesson = valid_lesson()
+            lesson["challenges"]["c1-search"]["scored"] = value
+            self.assertIn("challenges", rule_names(lesson), value)
+
     def test_object_choice_ref_must_be_an_object(self):
         lesson = valid_lesson()
         lesson["challenges"]["c1-search"]["choices"][0]["ref"] = "not-an-object"

@@ -31,7 +31,7 @@ src/lesson.js                    loadLesson(url), quote(id), line(n), excerptLin
 src/router.js                    hash routes ↔ body[data-screen]; parse/build route
 src/state/reducer.js             createReducer(lesson) → (state, action) => state; initialState()
 src/state/grade.js               grade(lesson, challengeId, choiceIds) → {correct, evidenceLine}
-src/state/selectors.js           score(state), verdict(state, lesson), clusters(state, lesson), pace(state, lesson)
+src/state/selectors.js           score(state, lesson), verdict(state, lesson), clusters(state, lesson), pace(state, lesson)
 src/state/store.js               createStore(reducer, {key, storage}) → {getState, dispatch, subscribe}
 src/screens/<id>.js              export function render(root, {state, lesson, dispatch, navigate})
 src/screens/challenge.js         the ONE shared challenge renderer (lock, search, cite, reconstruct)
@@ -151,6 +151,8 @@ Rules the validator enforces (`scripts/validate_lesson.py`, exit 1 on any):
 - Every `evidence`, `clue.line`, `vocabulary.line`, `choice.line` resolves and
   sits inside the excerpt that owns it (finale clues: any excerpt).
 - Every string reference resolves in `strings`; every ID reference resolves.
+- Every challenge's `skill` is one of the four skills, and `scored`, when present,
+  is exactly `true` (an item that does not count simply omits the key).
 - Every challenge has exactly one correct answer set; `search.targets` equals
   `answer.length`; every choice is a real story element (object/person/line/dial
   label present in strings).
@@ -226,7 +228,12 @@ the record regardless.)
 
 ## Selectors — `src/state/selectors.js`
 
-- `score(state)` → `{correct, total, ratio}` over `firstAttempts` only.
+- `score(state, lesson)` → `{correct, total, ratio}`. `correct` counts correct
+  `firstAttempts` only. `total` is the whole case: every lesson challenge whose
+  `scored` is not `false`, plus the two finale items (`finale-reconstruct`,
+  `finale-statement`). The denominator never depends on what was attempted, so
+  skipping to the finale scores 2 of 42, not 2 of 2. With no lesson in hand,
+  `total` is 0.
 - `verdict(state, lesson)` → `"master" | "closed" | "review" | "reopened"`:
   reopened if `!finale.solved`; master if solved ∧ ratio ≥ 0.9 ∧ all four
   proving clues chosen; closed if solved ∧ ratio ≥ 0.7; else review.

@@ -1,17 +1,38 @@
 // Read-only views over state. The score reads `firstAttempts` and nothing else.
 
-export function score(state) {
-  const attempts = Object.values(state.firstAttempts);
-  const total = attempts.length;
-  const correct = attempts.filter((attempt) => attempt.correct).length;
+/** The two finale items, scored alongside the lesson's own challenges. */
+const FINALE_ITEMS = 2;
+
+/**
+ * score(state, lesson) → {correct, total, ratio}
+ *
+ * The denominator is the whole case, not the part of it the reader answered:
+ * every challenge the lesson marks scored, plus the seal and the signature.
+ * Skipping straight to the finale therefore scores two out of all of them, not
+ * two out of two. `correct` still reads `firstAttempts` and nothing else.
+ */
+export function score(state, lesson) {
+  const total = scoredItems(lesson);
+  const correct = Object.values(state.firstAttempts).filter((attempt) => attempt.correct).length;
   return { correct, total, ratio: total === 0 ? 0 : correct / total };
+}
+
+function scoredItems(lesson) {
+  const challenges = lesson?.challenges;
+  if (!challenges) {
+    return 0; // no lesson in hand: nothing can be said about the whole of it
+  }
+  return (
+    Object.values(challenges).filter((challenge) => challenge?.scored !== false).length +
+    FINALE_ITEMS
+  );
 }
 
 export function verdict(state, lesson) {
   if (!state.finale.solved) {
     return "reopened";
   }
-  const { ratio } = score(state);
+  const { ratio } = score(state, lesson);
   if (ratio >= 0.9 && allProvingCluesChosen(state, lesson)) {
     return "master";
   }

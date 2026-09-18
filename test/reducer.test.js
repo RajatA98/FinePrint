@@ -99,7 +99,7 @@ test("case 1 — wrong then right: the first attempt stays wrong, the item becom
   assert.equal(state.solved["c1-lock-apply"], true);
   assert.equal(state.attempts.length, 2);
   assert.deepEqual(state.attempts.map((a) => a.correct), [false, true]);
-  assert.deepEqual(score(state), { correct: 0, total: 1, ratio: 0 });
+  assert.deepEqual(score(state, lesson), { correct: 0, total: 10, ratio: 0 });
 });
 
 test("case 2 — right then wrong: the first attempt stays right", () => {
@@ -107,7 +107,7 @@ test("case 2 — right then wrong: the first attempt stays right", () => {
   assert.equal(state.firstAttempts["c1-lock-apply"].correct, true);
   assert.equal(state.firstAttempts["c1-lock-apply"].at, 10);
   assert.equal(state.attempts.length, 2);
-  assert.deepEqual(score(state), { correct: 1, total: 1, ratio: 1 });
+  assert.deepEqual(score(state, lesson), { correct: 1, total: 10, ratio: 0.1 });
 });
 
 test("case 3 — striking a correct choice costs nothing", () => {
@@ -120,7 +120,7 @@ test("case 3 — striking a correct choice costs nothing", () => {
   assert.deepEqual(after.struck["c1-lock-apply"], ["a"]);
   assert.deepEqual(after.firstAttempts, before.firstAttempts);
   assert.deepEqual(after.attempts, before.attempts);
-  assert.deepEqual(score(after), score(before));
+  assert.deepEqual(score(after, lesson), score(before, lesson));
 });
 
 test("case 4 — a refresh preserves the immutable record", () => {

@@ -1439,3 +1439,19 @@
     line-height: 2.2;
   }
 }
+
+/* ===================================================== honour the setting === */
+/*
+ * Reduced motion takes the movement away, never the outcome: the board simply
+ * does not shake, the thread is already run down the slips, and the stamp is
+ * already down. Each of these animations ends where the element's own rules put
+ * it, so removing the animation leaves the finished state on screen.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  .board[data-shake="once"],
+  .slips[data-thread="true"]::before,
+  .stamp {
+    animation: none;
+  }
+}
