@@ -42,3 +42,24 @@
 - **Phase:** 1.5
 - **Summary:** Vercel project `fineprint` created, stub `api/coach.js` (200-always, never live), auto-deploy from main. Production alias `fineprint-rajata98s-projects.vercel.app`.
 - **Known Issues:** Vercel Authentication is on; the user must switch it off in project settings before the link is public. External verification pending on that.
+
+## Entry 6 — 2026-09-17 — S5 lesson authored (Opus)
+
+- **Phase:** 2B (content gate)
+- **Goal:** the full lesson for "The Open Window": 10 excerpts, 30 vocabulary, 40 challenges, 7 finale clues, 303 authored strings.
+- **Validation:** validator OK, scan OK, 110 tests. Excerpt boundaries re-cut onto other paragraph starts so every excerpt has a concrete searchable object.
+- **Review:** Opus content review, read-only, against the story: fix before ship. Five wording-level defects (apply answers leaking define answers; four object labels answering their own prompt; one invented detail; one grammatical giveaway; no margin notes on searches). Fix round 1 in progress.
+
+## Entry 7 — 2026-09-17 — S6 validator hardening (Sonnet; a Codex run hung and was replaced)
+
+- **Phase:** 2C
+- **Goal:** one shared normaliser, straddle regression test, new rules (speaker, cameo, portrait kind, required verdict/attribution strings, no fail/failed/wrong).
+- **Tests:** 22 unittest cases.
+- **Review:** Codex, read-only. Approved, no findings.
+
+## Entry 8 — 2026-09-17 — S7 Phase 3 screens (Opus)
+
+- **Phase:** 3
+- **Goal:** study shelf, vocabulary cards, the read with numbered lines, book-opens title card, book-closes, resume on refresh.
+- **Tests:** 10 new (read phase helper); 110 total; contrast 9.09:1 worst case.
+- **Review:** in progress.
