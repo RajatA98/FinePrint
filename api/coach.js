@@ -71,7 +71,7 @@ export default async function handler(req, res, deps = {}) {
     }
     res.status(200).json({
       source: "live",
-      message,
+      message: message.trim(),
       ...(nonProduction ? { debug: { reason: "live", status: 200, model: MODEL } } : {})
     });
   } catch (error) {
