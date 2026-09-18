@@ -747,7 +747,12 @@
       "answer": [
         "o-letters"
       ],
-      "evidence": 15
+      "evidence": 15,
+      "margin": {
+        "o-window": "s-c1-search-margin-o-window",
+        "o-spaniel": "s-c1-search-margin-o-spaniel",
+        "o-carpets": "s-c1-search-margin-o-carpets"
+      }
     },
     "c1-cite": {
       "type": "cite",
@@ -902,7 +907,12 @@
       "answer": [
         "o-rectory"
       ],
-      "evidence": 25
+      "evidence": 25,
+      "margin": {
+        "o-letters": "s-c2-search-margin-o-letters",
+        "o-room": "s-c2-search-margin-o-room",
+        "o-marshes": "s-c2-search-margin-o-marshes"
+      }
     },
     "c2-cite": {
       "type": "cite",
@@ -1057,7 +1067,12 @@
       "answer": [
         "o-room"
       ],
-      "evidence": 33
+      "evidence": 33,
+      "margin": {
+        "o-window": "s-c3-search-margin-o-window",
+        "o-letters": "s-c3-search-margin-o-letters",
+        "o-rectory": "s-c3-search-margin-o-rectory"
+      }
     },
     "c3-cite": {
       "type": "cite",
@@ -1212,7 +1227,12 @@
       "answer": [
         "o-white-coat"
       ],
-      "evidence": 59
+      "evidence": 59,
+      "margin": {
+        "o-guns": "s-c4-search-margin-o-guns",
+        "o-spaniel": "s-c4-search-margin-o-spaniel",
+        "o-letters": "s-c4-search-margin-o-letters"
+      }
     },
     "c4-cite": {
       "type": "cite",
@@ -1367,7 +1387,12 @@
       "answer": [
         "o-carpets"
       ],
-      "evidence": 74
+      "evidence": 74,
+      "margin": {
+        "o-window": "s-c5-search-margin-o-window",
+        "o-marshes": "s-c5-search-margin-o-marshes",
+        "o-lawn": "s-c5-search-margin-o-lawn"
+      }
     },
     "c5-cite": {
       "type": "cite",
@@ -1528,7 +1553,12 @@
         "o-birds",
         "o-duck"
       ],
-      "evidence": 77
+      "evidence": 77,
+      "margin": {
+        "o-carpets": "s-c6-search-margin-o-carpets",
+        "o-marshes": "s-c6-search-margin-o-marshes",
+        "o-window": "s-c6-search-margin-o-window"
+      }
     },
     "c6-cite": {
       "type": "cite",
@@ -1683,7 +1713,12 @@
       "answer": [
         "o-tea"
       ],
-      "evidence": 97
+      "evidence": 97,
+      "margin": {
+        "o-carpets": "s-c7-search-margin-o-carpets",
+        "o-duck": "s-c7-search-margin-o-duck",
+        "o-window": "s-c7-search-margin-o-window"
+      }
     },
     "c7-cite": {
       "type": "cite",
@@ -1838,7 +1873,12 @@
       "answer": [
         "o-guns"
       ],
-      "evidence": 106
+      "evidence": 106,
+      "margin": {
+        "o-white-coat": "s-c8-search-margin-o-white-coat",
+        "o-spaniel": "s-c8-search-margin-o-spaniel",
+        "o-stick": "s-c8-search-margin-o-stick"
+      }
     },
     "c8-cite": {
       "type": "cite",
@@ -1964,7 +2004,7 @@
     },
     "c9-search": {
       "type": "search",
-      "skill": "inference",
+      "skill": "detail",
       "scored": true,
       "prompt": "s-c9-search-prompt",
       "targets": 1,
@@ -1993,7 +2033,12 @@
       "answer": [
         "o-window"
       ],
-      "evidence": 119
+      "evidence": 119,
+      "margin": {
+        "o-hall-door": "s-c9-search-margin-o-hall-door",
+        "o-front-gate": "s-c9-search-margin-o-front-gate",
+        "o-gravel-drive": "s-c9-search-margin-o-gravel-drive"
+      }
     },
     "c9-cite": {
       "type": "cite",
@@ -2119,7 +2164,7 @@
     },
     "c10-search": {
       "type": "search",
-      "skill": "inference",
+      "skill": "detail",
       "scored": true,
       "prompt": "s-c10-search-prompt",
       "targets": 1,
@@ -2148,7 +2193,12 @@
       "answer": [
         "o-spaniel"
       ],
-      "evidence": 126
+      "evidence": 126,
+      "margin": {
+        "o-pariah-dogs": "s-c10-search-margin-o-pariah-dogs",
+        "o-birds": "s-c10-search-margin-o-birds",
+        "o-duck": "s-c10-search-margin-o-duck"
+      }
     },
     "c10-cite": {
       "type": "cite",
@@ -2256,9 +2306,9 @@
         },
         {
           "id": "k5",
-          "line": 113,
+          "line": 120,
           "proving": false,
-          "speaker": "narration"
+          "speaker": "mr-sappleton"
         },
         {
           "id": "k6",
@@ -2297,10 +2347,6 @@
             {
               "vocabulary": "v-ghastly",
               "true": false
-            },
-            {
-              "vocabulary": "v-dazed",
-              "true": false
             }
           ]
         },
@@ -2316,7 +2362,7 @@
               "true": false
             },
             {
-              "vocabulary": "v-bolted",
+              "vocabulary": "v-dazed",
               "true": false
             }
           ]
@@ -2333,7 +2379,7 @@
               "true": false
             },
             {
-              "vocabulary": "v-tragedy",
+              "vocabulary": "v-coincidence",
               "true": false
             }
           ]
@@ -2350,26 +2396,26 @@
     "s-role-second-brother": "the second young brother in the shooting party",
     "s-role-sister": "the caller's sister, who sent him with letters",
     "s-role-cyclist": "the rider who swerves off the road",
-    "s-obj-letters": "the letters the caller's sister gave him",
-    "s-obj-rectory": "the rectory where his sister once stayed",
-    "s-obj-room": "the parlour where the caller waits",
-    "s-obj-window": "the tall window standing open to the grass",
+    "s-obj-letters": "a bundle of letters",
+    "s-obj-rectory": "a country rectory",
+    "s-obj-room": "the room where the caller waits",
+    "s-obj-window": "the large window of that room",
     "s-obj-lawn": "the stretch of grass outside that window",
     "s-obj-moor": "the open moor the shooting party crossed",
     "s-obj-bog": "the patch of soft ground that gave way",
     "s-obj-spaniel": "a small brown spaniel",
-    "s-obj-white-coat": "a white coat carried over an arm",
-    "s-obj-guns": "the guns the three men carry",
-    "s-obj-carpets": "the carpets the lady of the house frets over",
+    "s-obj-white-coat": "a white coat",
+    "s-obj-guns": "a gun",
+    "s-obj-carpets": "the carpets of the house",
     "s-obj-marshes": "the marshes where the men shoot",
     "s-obj-birds": "the birds that were scarce that season",
     "s-obj-duck": "the duck expected in the winter",
-    "s-obj-tea": "the tea waiting for the shooting party",
+    "s-obj-tea": "tea",
     "s-obj-stick": "the caller's walking stick",
     "s-obj-hat": "the caller's hat",
-    "s-obj-hall-door": "the hall door the caller goes out by",
-    "s-obj-gravel-drive": "the gravel drive beyond that door",
-    "s-obj-front-gate": "the front gate at the end of the drive",
+    "s-obj-hall-door": "the hall door",
+    "s-obj-gravel-drive": "the gravel drive",
+    "s-obj-front-gate": "the front gate",
     "s-obj-hedge": "the hedge the rider swerves into",
     "s-obj-cemetery": "a graveyard beside a far-off river",
     "s-obj-grave": "a freshly dug grave from her second tale",
@@ -2393,6 +2439,9 @@
     "s-c1-lock-define-d": "Nervous and easily startled.",
     "s-c1-lock-define-margin-d": "That is the opposite of the steadiness the sentence gives her.",
     "s-c1-lock-define-prompt": "Choose the meaning of self-possessed that fits the girl in line 2.",
+    "s-c1-search-margin-o-window": "The window belongs to the house he is visiting. Nobody handed it to him.",
+    "s-c1-search-margin-o-spaniel": "The dog belongs to this household's story, and it has not entered the case yet.",
+    "s-c1-search-margin-o-carpets": "The carpets are his hostess's. His sister gave him nothing of the sort.",
     "s-c1-search-prompt": "The book is closed. His sister promised to hand him something before he left for the country. Which of these was it?",
     "s-c1-cite-margin-L4": "This line is his effort to say the polite thing to the girl; nothing changes hands in it.",
     "s-c1-cite-margin-L9": "This line names the treatment his visits were meant to help, not anything handed to him.",
@@ -2402,7 +2451,7 @@
     "s-gloss-division": "A group that people or things have been sorted into; one part of a larger set.",
     "s-gloss-communion": "Time spent together sharing something. Here, what the two of them share is a silence.",
     "s-gloss-rectory": "The house a country parish gives its clergyman to live in.",
-    "s-c2-lock-apply-a": "It names a group his sister sorted people into, and he wonders whether his hostess belongs to it.",
+    "s-c2-lock-apply-a": "It names something out of his sister's account of the neighbours, and he is testing his hostess against it.",
     "s-c2-lock-apply-b": "It names a quarrel between his sister and the people here.",
     "s-c2-lock-apply-margin-b": "A division can be a split between people, but nothing here is being broken apart; his sister was sorting people into groups.",
     "s-c2-lock-apply-c": "It names a sum he is working out in his head.",
@@ -2418,6 +2467,9 @@
     "s-c2-lock-define-d": "A wall built between two rooms.",
     "s-c2-lock-define-margin-d": "Nothing physical is being divided in this sentence.",
     "s-c2-lock-define-prompt": "Choose the meaning of division that fits line 20.",
+    "s-c2-search-margin-o-letters": "The letters are what she gave him. The question asks for a place she stayed.",
+    "s-c2-search-margin-o-room": "This is where he is sitting now, not where his sister lodged four years ago.",
+    "s-c2-search-margin-o-marshes": "The marshes are where the men shoot. His sister never lodged there.",
     "s-c2-search-prompt": "The book is closed. The caller says his sister stayed near here four years ago. Which place did he name?",
     "s-c2-cite-margin-L18": "This line names the lady of the house he has come to see, and no house of his sister's.",
     "s-c2-cite-margin-L19": "This line is about the letter he is presenting today, not about where his sister lodged.",
@@ -2427,7 +2479,7 @@
     "s-gloss-pursued": "Kept going with something. Here, kept the questions coming.",
     "s-gloss-habitation": "Somebody living in a place; the sign that a place is lived in.",
     "s-gloss-tragedy": "A terrible event, especially one that ends in death.",
-    "s-c3-lock-apply-a": "That the girl keeps the conversation going with another question.",
+    "s-c3-lock-apply-a": "That it is the girl speaking, and the question is hers.",
     "s-c3-lock-apply-b": "That the girl chases the caller across the room.",
     "s-c3-lock-apply-margin-b": "Nobody moves in this scene. The word is attached to what she says, not to how she walks.",
     "s-c3-lock-apply-c": "That the caller is following the girl's story closely.",
@@ -2443,6 +2495,9 @@
     "s-c3-lock-define-d": "Agreed with what had just been said.",
     "s-c3-lock-define-margin-d": "Her line is a question, not an agreement.",
     "s-c3-lock-define-prompt": "Choose the meaning of pursued that fits line 29.",
+    "s-c3-search-margin-o-window": "The girl raises the window herself, and it tells him nothing about a husband.",
+    "s-c3-search-margin-o-letters": "The letters are his own, carried in from outside the house.",
+    "s-c3-search-margin-o-rectory": "The rectory is his sister's old lodging, not this household.",
     "s-c3-search-prompt": "The book is closed. Something made the caller suspect that a man lived in this house. Which of these gave him the idea?",
     "s-c3-cite-margin-L28": "This line describes the tone of his answer, and points at nothing in the house.",
     "s-c3-cite-margin-L31": "This line is what he admits he knows about her: a name and an address.",
@@ -2452,7 +2507,7 @@
     "s-gloss-treacherous": "Dangerous in a way that does not show; likely to give way without warning.",
     "s-gloss-engulfed": "Swallowed up completely by something that closes over you.",
     "s-gloss-dusk": "The dim light at the end of the day, after sunset and before dark.",
-    "s-c4-lock-apply-a": "It warns that the ground looked safe and was not.",
+    "s-c4-lock-apply-a": "It is her account's explanation of how three grown men were lost on ground they were walking over.",
     "s-c4-lock-apply-b": "It says the ground belonged to somebody who betrayed the men.",
     "s-c4-lock-apply-margin-b": "People can be treacherous in that sense, but here the word is attached to a patch of ground.",
     "s-c4-lock-apply-c": "It says the danger could be seen from a long way off.",
@@ -2468,6 +2523,9 @@
     "s-c4-lock-define-d": "Soaked by a rainy summer.",
     "s-c4-lock-define-margin-d": "The wet summer is given as the cause in the next sentence; it is not what the word means.",
     "s-c4-lock-define-prompt": "Choose the meaning of treacherous that fits line 48.",
+    "s-c4-search-margin-o-guns": "The party went out shooting, but the girl never puts a gun in anybody's hands.",
+    "s-c4-search-margin-o-spaniel": "The dog went along with them. It is not something carried over an arm.",
+    "s-c4-search-margin-o-letters": "The letters are the caller's, and belong to no part of her account.",
     "s-c4-search-prompt": "The book is closed. In the girl's account, her aunt's husband went out that morning carrying one thing over his arm. Which?",
     "s-c4-cite-margin-L46": "This line starts her account of the morning they went out; nothing is carried in it.",
     "s-c4-cite-margin-L51": "This line closes her account of the search; nothing is being carried in it.",
@@ -2477,7 +2535,7 @@
     "s-gloss-bustled": "Came in quickly and busily, making a small stir.",
     "s-gloss-briskly": "In a quick, lively, businesslike way.",
     "s-gloss-directly": "Very soon; in a short while. An older British use of the word.",
-    "s-c5-lock-apply-a": "When she expects them: very soon.",
+    "s-c5-lock-apply-a": "When she expects the men back.",
     "s-c5-lock-apply-b": "Which path they will take across the grounds.",
     "s-c5-lock-apply-margin-b": "The word measures time here. The way they come in is said separately in the same sentence.",
     "s-c5-lock-apply-c": "That she is speaking straight to her guest without pausing.",
@@ -2493,6 +2551,9 @@
     "s-c5-lock-define-d": "Exactly, with nothing left out.",
     "s-c5-lock-define-margin-d": "That meaning belongs to sentences about copying or quoting.",
     "s-c5-lock-define-prompt": "Choose the meaning of directly that fits line 72.",
+    "s-c5-search-margin-o-window": "The window is how they come in, not what the mud lands on.",
+    "s-c5-search-margin-o-marshes": "The marshes are where the mud came from.",
+    "s-c5-search-margin-o-lawn": "The grass is what they cross on the way to the house.",
     "s-c5-search-prompt": "The book is closed. The lady of the house says the shooting party will spoil something when they come in. What?",
     "s-c5-cite-margin-L66": "This line brings the lady of the house into the room; her worry about the floor comes later.",
     "s-c5-cite-margin-L68": "This line asks whether her niece has been entertaining the guest.",
@@ -2502,7 +2563,7 @@
     "s-gloss-ghastly": "Horrible; frightful in a way that makes you feel ill.",
     "s-gloss-coincidence": "Two things happening at the same time by chance, with no plan behind it.",
     "s-gloss-delusion": "A belief somebody holds firmly that is not true.",
-    "s-c6-lock-apply-a": "It names the untrue belief he holds: that strangers want to hear about his health.",
+    "s-c6-lock-apply-a": "It names something he takes for granted about strangers: that they want to hear about his health.",
     "s-c6-lock-apply-b": "It names an illness his doctors have given a name to.",
     "s-c6-lock-apply-margin-b": "The sentence is about what he believes, not about anything a doctor found in him.",
     "s-c6-lock-apply-c": "It names a trick the household is playing on him.",
@@ -2518,6 +2579,9 @@
     "s-c6-lock-define-d": "A formal introduction to a stranger.",
     "s-c6-lock-define-margin-d": "The word has nothing to do with being introduced to anybody.",
     "s-c6-lock-define-prompt": "Choose the meaning of delusion that fits line 90.",
+    "s-c6-search-margin-o-carpets": "The carpets came up in her first speech, not in this cheerful run of talk.",
+    "s-c6-search-margin-o-marshes": "The marshes came up in that same first speech.",
+    "s-c6-search-margin-o-window": "Her eyes go to the window. Her talk does not.",
     "s-c6-search-prompt": "The book is closed. Besides the shooting, the lady of the house chattered cheerfully about two things. Pick both.",
     "s-c6-cite-margin-L80": "This line is the guest's effort to steer the talk somewhere less grim.",
     "s-c6-cite-margin-L83": "This line follows her eyes, not her voice.",
@@ -2527,11 +2591,11 @@
     "s-gloss-alert": "Wide awake and watching closely.",
     "s-gloss-comprehension": "Understanding; taking in what something means.",
     "s-gloss-dazed": "Stunned, unable to take in what is in front of you.",
-    "s-c7-lock-apply-a": "The girl's, and it says she looks stunned by what she sees.",
+    "s-c7-lock-apply-a": "The girl's, and it is the look she wears at the window.",
     "s-c7-lock-apply-b": "The caller's, and it says he cannot follow his hostess.",
     "s-c7-lock-apply-margin-b": "The caller turns towards the girl a moment earlier. The stunned look is on her face, and he has not looked out yet.",
     "s-c7-lock-apply-c": "The aunt's, and it says she is tired of the conversation.",
-    "s-c7-lock-apply-margin-c": "The aunt's boredom is two lines above, and this word is attached to the child.",
+    "s-c7-lock-apply-margin-c": "The aunt's boredom comes earlier in this excerpt, and this word is attached to the child.",
     "s-c7-lock-apply-d": "Nobody's; it describes the light outside the window.",
     "s-c7-lock-apply-margin-d": "Light can dazzle, but this word is placed in a person's eyes.",
     "s-c7-lock-apply-prompt": "Line 102 puts the word dazed in somebody's eyes. Whose, and what does it say about them?",
@@ -2543,6 +2607,9 @@
     "s-c7-lock-define-d": "Delighted.",
     "s-c7-lock-define-margin-d": "The line pairs the word with horror, which is the opposite of delight.",
     "s-c7-lock-define-prompt": "Choose the meaning of dazed that fits line 102.",
+    "s-c7-search-margin-o-carpets": "The carpets are what she says they will dirty, not what is waiting for them.",
+    "s-c7-search-margin-o-duck": "The duck came from her chatter about the winter, a page earlier.",
+    "s-c7-search-margin-o-window": "The window is the way they come in.",
     "s-c7-search-prompt": "The book is closed. The lady of the house calls out that the men have arrived. What does she say they are just in time for?",
     "s-c7-cite-margin-L94": "This line is her bored reply, just before she brightens.",
     "s-c7-cite-margin-L99": "This line turns the guest towards the girl; the cry has already gone by.",
@@ -2552,7 +2619,7 @@
     "s-gloss-twilight": "The faint light left after the sun has gone down.",
     "s-gloss-burdened": "Loaded with something to carry.",
     "s-gloss-imminent": "About to happen at any moment.",
-    "s-c8-lock-apply-a": "It says the crash was a second away from happening.",
+    "s-c8-lock-apply-a": "It says how close the crash came to happening.",
     "s-c8-lock-apply-b": "It says the crash happened.",
     "s-c8-lock-apply-margin-b": "The rider turns into the hedge to keep it from happening. The word only says how close it came.",
     "s-c8-lock-apply-c": "It says the crash would have been serious.",
@@ -2568,6 +2635,9 @@
     "s-c8-lock-define-d": "Happening slowly.",
     "s-c8-lock-define-margin-d": "The word points at how near the moment was, and it was very near.",
     "s-c8-lock-define-prompt": "Choose the meaning of imminent that fits line 117.",
+    "s-c8-search-margin-o-white-coat": "Only one of the three carries the coat, and it is slung across one shoulder.",
+    "s-c8-search-margin-o-spaniel": "The dog follows at their heels. It is not carried.",
+    "s-c8-search-margin-o-stick": "The stick is the caller's, snatched up a few lines later.",
     "s-c8-search-prompt": "The book is closed. Three figures crossed the lawn. Pick the one thing every one of them was carrying.",
     "s-c8-cite-margin-L105": "This line sets the light and counts the figures, and names nothing in their hands.",
     "s-c8-cite-margin-L109": "This line follows the dog at their heels, and a dog is not carried.",
@@ -2577,13 +2647,13 @@
     "s-gloss-mackintosh": "A raincoat. The word comes from the man who invented the waterproof cloth.",
     "s-gloss-bolted": "Ran off suddenly, the way a startled horse does.",
     "s-gloss-extraordinary": "Very unusual; far outside what you would expect.",
-    "s-c9-lock-apply-a": "It describes the guest, and says he rushed out of the house.",
+    "s-c9-lock-apply-a": "It describes the guest, and it is the answer to the question being asked.",
     "s-c9-lock-apply-b": "It describes somebody fastening the window shut.",
     "s-c9-lock-apply-margin-b": "A bolt can fasten a door, but this word is about a person who left in a hurry.",
     "s-c9-lock-apply-c": "It describes the dog running ahead of the men.",
     "s-c9-lock-apply-margin-c": "The dog keeps at their heels, and the question is about a person.",
     "s-c9-lock-apply-d": "It describes the lady of the house rising to greet them.",
-    "s-c9-lock-apply-margin-d": "She is still in her chair, and she answers the question rather than being its subject.",
+    "s-c9-lock-apply-margin-d": "She is the one who answers the question, not the person it is about.",
     "s-c9-lock-apply-prompt": "The man at the window asks who bolted as they came up. What is that word doing in line 120?",
     "s-c9-lock-define-a": "Left suddenly and fast.",
     "s-c9-lock-define-b": "Locked something shut.",
@@ -2593,6 +2663,9 @@
     "s-c9-lock-define-d": "Stood still in surprise.",
     "s-c9-lock-define-margin-d": "The man is asking about somebody who went, not somebody who stayed.",
     "s-c9-lock-define-prompt": "Choose the meaning of bolted that fits line 120.",
+    "s-c9-search-margin-o-hall-door": "The hall door is the first stage of the caller's flight outward.",
+    "s-c9-search-margin-o-front-gate": "The front gate is the last stage of that same flight.",
+    "s-c9-search-margin-o-gravel-drive": "The gravel drive lies between the two, and nobody comes in by it.",
     "s-c9-search-prompt": "The book is closed. The man with the coat came into the room by the way the household always used. Which way was it?",
     "s-c9-cite-margin-L118": "This line names him by what he is carrying and stops before the way he came.",
     "s-c9-cite-margin-L122": "This line is the hostess naming the guest who left.",
@@ -2602,7 +2675,7 @@
     "s-gloss-horror": "A strong fear or dread of something.",
     "s-gloss-pariah": "An outcast; a stray animal or person that others keep away from.",
     "s-gloss-romance": "Here, an invented tale told as though it were true. An older meaning of the word.",
-    "s-c10-lock-apply-a": "It names what the girl can produce on demand: a tale made up on the spot.",
+    "s-c10-lock-apply-a": "It names the thing the narrator says she can turn out at a moment's notice.",
     "s-c10-lock-apply-b": "It says the girl has fallen in love.",
     "s-c10-lock-apply-margin-b": "That is the word's usual meaning today. This sentence is about the tales she tells.",
     "s-c10-lock-apply-c": "It names a book somebody in the house was reading.",
@@ -2618,6 +2691,9 @@
     "s-c10-lock-define-d": "A polite apology made in a hurry.",
     "s-c10-lock-define-margin-d": "She offers no apology. She offers a tale.",
     "s-c10-lock-define-prompt": "Choose the meaning of romance that fits that last line.",
+    "s-c10-search-margin-o-pariah-dogs": "Those strays belong to the past she invents for him, not to this lawn.",
+    "s-c10-search-margin-o-birds": "The birds came from her aunt's chatter about the season.",
+    "s-c10-search-margin-o-duck": "The duck came from that same chatter.",
     "s-c10-search-prompt": "The book is closed. The girl gives the company a reason for the guest's sudden flight. Which creature does she blame?",
     "s-c10-cite-margin-L128": "This line belongs to the past she invents for him, far away from this house.",
     "s-c10-cite-margin-L130": "These creatures are part of that invented past, not the animal on the lawn.",
@@ -2627,7 +2703,7 @@
     "s-recon-who-1": "This portrait kept the caller company until her aunt came down, and told him what the window was for. Name her.",
     "s-recon-who-2": "This portrait came in late with apologies, talked cheerfully about shooting, and watched the grass over her guest's shoulder. Name her.",
     "s-recon-who-3": "This portrait walked in out of the dusk with a coat over his shoulders and asked who had just rushed off. Name him.",
-    "s-recon-culprit": "Four lines, taken together, show what really happened in that parlour. Who made it happen?",
+    "s-recon-culprit": "Four lines, taken together, show what really happened in that room. Who made it happen?",
     "s-statement-template": "The girl began her account of the soft ground in a {slot1} voice, the three men came back over the grass with one of them {slot2} under a white coat, and her tale about the dog was one more {slot3} she produced on the spot.",
     "s-coach-vocabulary": "Vocabulary is the thread to pick up next. The glossed words were doing real work in their sentences, and one or two slipped past you. On your next case, try this before you read: say each glossed word aloud inside a sentence of your own. Then, as you read, put a finger on the line where it turns up. One word, one line. That pairing is what makes a meaning stay.",
     "s-coach-detail": "Detail is the thread to pick up next. You had the shape of each scene; it was the small things, and who was holding them, that slipped. On your next case, try this: before the book closes, name three things in the room out loud and say who touched each one. Thirty seconds of that gives your memory something solid to hold.",
@@ -2635,7 +2711,7 @@
     "s-coach-evidence": "Evidence is the thread to pick up next. You knew the answers; pinning each one to a single line is the part to sharpen. On your next case, try this: the moment you settle on an answer, hunt for the one line you would show a doubter. If two lines seem to do the job, take the one that stands on its own.",
     "s-coach-clean": "That was a clean run: vocabulary, detail, inference and evidence all held. On your next case, raise the bar yourself. Read each page once, then answer without reopening it. You already know how to find the line that proves a thing; the next step is trusting your first reading enough to point straight at it.",
     "s-coach-generic": "Good work carrying the case to the end. Vocabulary, detail, inference and evidence each had a turn tonight. On your next case, try one small habit: at the end of every page, say one sentence out loud about what changed, and name the line that told you so. Ten seconds a page, and all four skills sharpen together.",
-    "s-study-intro": "The file is thin, Detective. One afternoon call in the country, one household, one visitor who left in a great hurry. Read each page under the lamp, let the book close, and answer from memory.",
+    "s-study-intro": "The file is thin, Detective. One afternoon call in the country, one household, one visitor with a nervous disposition. Read each page under the lamp, let the book close, and answer from memory.",
     "s-open-title-card": "The Case of the Open Window",
     "s-close-book": "The book is shut. What you carry now is what you remember.",
     "s-report-intro": "The file is complete, Detective. Here is where the evidence stands.",
