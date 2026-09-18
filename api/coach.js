@@ -10,7 +10,7 @@
 
 import { buildCoachPrompt } from "./coach-prompt.js";
 
-const MODEL = process.env.GEMINI_MODEL || "gemini-flash-lite-latest";
+const MODEL = process.env.GEMINI_MODEL || "gemini-3.1-flash-lite";
 const TIMEOUT_MS = 4000;
 const MAX_WORDS = 90;
 // Whole-word, case-insensitive: "wrongly" and "unfailing" must NOT trip this.

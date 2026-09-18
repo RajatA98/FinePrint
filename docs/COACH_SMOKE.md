@@ -16,7 +16,7 @@ USE_LIVE_AI=1 GEMINI_API_KEY=your-key-here node scripts/coach_smoke.mjs
 ```
 
 Optional: set `GEMINI_MODEL` to override the default
-(`gemini-flash-lite-latest`).
+(`gemini-3.1-flash-lite`).
 
 ## What it does
 

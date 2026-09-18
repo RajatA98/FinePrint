@@ -261,7 +261,7 @@ No field may contain story text. `test/coach-payload.test.js` asserts no
 `api/coach.js`: POST, always `200`, body `{source, message, debug?}`;
 `source` ∈ `"live" | "fallback-deterministic" | "fallback-generic"`. Live only
 when `process.env.USE_LIVE_AI === "1"` and `GEMINI_API_KEY` is set. Model
-`gemini-flash-lite-latest` unless `GEMINI_MODEL` overrides. `debug` only when
+`gemini-3.1-flash-lite` unless `GEMINI_MODEL` overrides. `debug` only when
 `process.env.VERCEL_ENV !== "production"`. Message ≤ 90 words.
 
 Client: `requestCoach(payload, {timeoutMs: 4500})`, AbortController; on any
