@@ -60,23 +60,15 @@ export function label(text, attrs = {}) {
  * Clear the root, draw the chrome, return the section a screen fills.
  * The Start over control is on every screen: there is always a way back.
  */
-export function screenShell(root, ctx, { heading, label: screenName } = {}) {
+export function screenShell(root, ctx, { heading, label: screenName, mark } = {}) {
   root.replaceChildren();
   const screen = ctx.state.route.screen;
   const header = el("header", { class: "chrome" }, [
     el("p", { class: "wordmark", text: UI.wordmark }),
     el("p", { class: "chrome-label", text: screenName ?? SCREEN_LABEL[screen] ?? "" }),
+    mark ?? null,
     hasExcerpt(screen) ? progressStrip(ctx, screen) : null,
-    button(
-      UI.startOver,
-      () => {
-        forgetReadSession();
-        forgetChallengeSession();
-        ctx.dispatch({ type: "START_OVER" });
-        ctx.navigate({ screen: "study", excerpt: 1 });
-      },
-      { class: "start-over" }
-    )
+    startOverButton(ctx, { label: UI.startOver, class: "start-over" })
   ]);
   const section = el("section", { class: `screen screen--${screen}` });
   if (heading !== undefined && heading !== null) {
@@ -84,6 +76,40 @@ export function screenShell(root, ctx, { heading, label: screenName } = {}) {
   }
   root.append(header, section);
   return section;
+}
+
+/**
+ * Back to the shelf, with the session scratch forgotten first. One implementation
+ * so the chrome's control and the report's "revisit" are the same gesture, and
+ * the only state either writes is the reducer's own START_OVER.
+ */
+export function startOverButton(ctx, { label: text, class: className } = {}) {
+  return button(
+    text ?? UI.startOver,
+    () => {
+      forgetReadSession();
+      forgetChallengeSession();
+      ctx.dispatch({ type: "START_OVER" });
+      ctx.navigate({ screen: "study", excerpt: 1 });
+    },
+    { class: className ?? "start-over" }
+  );
+}
+
+/**
+ * The shut book, for the screens the reader works from memory. It is a sign in
+ * the chrome, never a control: there is no page to open here.
+ */
+export function closedBookMark() {
+  const mark = el("span", { class: "shut-book" });
+  const glyph = el("span", { class: "shut-book__glyph", "aria-hidden": "true" });
+  glyph.innerHTML =
+    '<svg viewBox="0 0 30 22" focusable="false">' +
+    '<path class="shut-book__board" d="M3.6 2.4 h20.2 a2.6 2.6 0 0 1 2.6 2.6 v12 a2.6 2.6 0 0 1 -2.6 2.6 H3.6 z"/>' +
+    '<path class="shut-book__spine" d="M3.6 2.4 a2.1 2.1 0 0 0 0 17.2 z"/>' +
+    '<path class="shut-book__edge" d="M23.6 5.6 v10.8 M25 6.6 v8.8"/></svg>';
+  mark.append(glyph, label(UI.bookShut, { class: "shut-book__label" }));
+  return mark;
 }
 
 /**

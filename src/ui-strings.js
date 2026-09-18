@@ -21,14 +21,8 @@ export const UI = {
   excerpts: "excerpts",
   takeItDown: "Take the lit case down from the shelf.",
   nothingScored: "Nothing on this page is scored.",
-  choose: "Choose",
   narration: "Narration",
-  whoseWords: "Whose words",
-  score: "Score",
   skills: "Skills",
-  pace: "Words per minute",
-  evidenceReview: "Evidence review",
-  coachNote: "Coaching note",
   coachSource: "Source",
 
   /* the challenges */
@@ -56,6 +50,44 @@ export const UI = {
   pageNudge: "The page, with the region lit",
   pageNothingScored: "Nothing on this page is scored or timed.",
 
+  /* the case board */
+  bookShut: "The book is shut",
+  whoWasHere: "Who was in the house",
+  nameTray: "The names you wrote down",
+  nameSet: "Named",
+  clueSlips: "The slips that prove it",
+  noPinsLeft: "The tin is empty. Take a pin back to move it.",
+  inYourNotes: "You cited this",
+  yourNotes: "Lines you cited during the case",
+  closeTheCase: "Close the case",
+  sealAgain: "The seal will not take. Look at the board again.",
+  sealPartial: "The seal takes, in part: the name holds, the four lines do not yet.",
+  sealClosed: "Case closed",
+
+  /* the closing statement */
+  setTheWords: "Set the words into the line",
+  wordTray: "Your words",
+  chooseBlank: "Choose a blank, then set a word into it.",
+  wordsSet: "Set into the line.",
+  signStatement: "Sign the statement",
+  statementSigned: "Signed",
+  statementAgain: "The line does not hold yet. Change a word and sign again.",
+
+  /* the case report */
+  reportLadder: "The standing",
+  caseSolvedScope: "Case solved",
+  solvedYes: "Yes",
+  solvedPartial: "In part",
+  solvedNo: "Not yet",
+  answersGiven: "The answers you gave",
+  evidence: "Evidence",
+  citedList: "The lines you put your name to",
+  paceShown: "Shown here, not graded.",
+  coachWriting: "Inkwell is writing…",
+  sourceText: "The source text",
+  revisitCase: "Revisit the case",
+  revisitNote: "Revisiting does not change your score. The first answer is the one already written down.",
+
   /* counted things */
   findCount(targets) {
     return `Find ${NUMBER_WORD[targets] ?? targets}`;
@@ -71,6 +103,33 @@ export const UI = {
   },
   lineNumber(n) {
     return `Line ${n}`;
+  },
+  pinsLeft(left, total) {
+    if (left === 0) {
+      return "No pins left";
+    }
+    return `${NUMBER_WORD[left] ?? left} of ${NUMBER_WORD[total] ?? total} pins left`;
+  },
+  blanksLeft(left) {
+    return left === 1 ? "One blank still open" : `${NUMBER_WORD[left] ?? left} blanks still open`;
+  },
+  blankAria(position) {
+    return `Blank ${position}`;
+  },
+  correctOfTotal(correct, total) {
+    return `${correct} correct of ${total}`;
+  },
+  percent(value) {
+    return `${value}%`;
+  },
+  wordsPerMinute(value) {
+    return `${value} words a minute`;
+  },
+  reviewedCount(n) {
+    if (n === 0) {
+      return "No lines sent back for review";
+    }
+    return n === 1 ? "One line sent back for review" : `${n} lines sent back for review`;
   }
 };
 
@@ -82,6 +141,14 @@ export const BAND = {
   first: { shelf: "First cases", spine: "First" },
   longer: { shelf: "Longer cases", spine: "Longer" },
   difficult: { shelf: "Difficult cases", spine: "Difficult" }
+};
+
+/** The four skills, as the report names them. The lesson's ids are never shown. */
+export const SKILL_LABEL = {
+  vocabulary: "Vocabulary",
+  detail: "Detail",
+  inference: "Inference",
+  evidence: "Evidence"
 };
 
 /** What the chrome calls each screen. The route id is never shown to a reader. */

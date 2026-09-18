@@ -1,0 +1,1434 @@
+/* Fine Print — the finale: the case board, the closing statement, the report.
+ *
+ * The stage, the palette shades and the shared chrome live in styles/app.css and
+ * the paper, slip and card language in styles/challenge.css; this file dresses
+ * the last three rooms in that same language so the reader never leaves the
+ * study. Three physical things are built here and nothing else is decorated: a
+ * leather case board with plates, pins and a brass seal; a sheet of paper with
+ * brass-edged gaps and a case of type beside it; and a file with the verdict
+ * stamped across it.
+ *
+ * Oxblood stays the reader's own ink. On this board it appears in exactly three
+ * places — the underline under a slip whose line they cited, the lines they
+ * cited laid out on paper, and the thread they run round the portrait they
+ * accuse. The seal, the plates and the pins are brass, because those are the
+ * room's, not theirs.
+ *
+ * Every state change here redraws the screen, so nothing depends on a CSS
+ * transition to be legible. The two animations are the moments a hand makes: the
+ * seal pressing home and the board refusing it. Both are one-shot, both are
+ * switched off by the reduced-motion rule in styles/app.css, and the layout is
+ * identical with or without them.
+ */
+
+.screen--reconstruct,
+.screen--statement,
+.screen--report {
+  gap: var(--step);
+}
+
+/* the statement is one sheet under the lamp, not a page of a longer document */
+.screen--statement {
+  justify-content: center;
+  padding-bottom: clamp(1.5rem, 5vw, 4rem);
+}
+
+/* ==================================================== the case board ====== */
+
+.board {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+  gap: clamp(1.2rem, 2.6vw, 2.1rem) clamp(1.3rem, 3vw, 2.4rem);
+  padding: clamp(1.3rem, 3vw, 2.3rem);
+  border-radius: 2px;
+  background:
+    repeating-linear-gradient(
+      114deg,
+      rgba(0, 0, 0, 0.05) 0 2px,
+      rgba(255, 255, 255, 0.012) 2px 4px
+    ),
+    linear-gradient(168deg, var(--mahogany-light) 0%, var(--mahogany) 48%, var(--mahogany-dark) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(201, 162, 39, 0.24),
+    inset 0 0 110px rgba(0, 0, 0, 0.55),
+    0 22px 58px rgba(0, 0, 0, 0.6);
+}
+
+/* two tooled corners, the way a blotter is finished — not four, and not a frame */
+.board::before,
+.board::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  border: 2px solid rgba(201, 162, 39, 0.4);
+  pointer-events: none;
+}
+
+.board::before {
+  top: 9px;
+  left: 9px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.board::after {
+  right: 9px;
+  bottom: 9px;
+  border-top: 0;
+  border-left: 0;
+}
+
+.board[data-shake="once"] {
+  animation: board-shake 0.44s ease-in-out 1;
+}
+
+@keyframes board-shake {
+  0%, 100% { transform: translateX(0); }
+  18% { transform: translateX(-6px); }
+  38% { transform: translateX(5px); }
+  58% { transform: translateX(-3px); }
+  78% { transform: translateX(2px); }
+}
+
+.board__names { grid-column: 1; grid-row: 1; }
+.board__culprit { grid-column: 1; grid-row: 2; }
+.board__slips { grid-column: 2; grid-row: 1 / span 2; }
+.board__notes { grid-column: 1 / -1; grid-row: 3; }
+.board__seal { grid-column: 1 / -1; grid-row: 4; }
+
+/* the question the board answers gets the room, not the whole plank */
+.board__culprit,
+.board__notes,
+.board__seal {
+  padding-top: clamp(0.8rem, 1.8vw, 1.2rem);
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.region__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem 1.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.8rem;
+}
+
+.region__title {
+  margin: 0 0 0.8rem;
+}
+
+.region__head .region__title {
+  margin: 0;
+}
+
+.region__title .label {
+  color: rgba(224, 196, 120, 0.72);
+  font-size: 0.74rem;
+}
+
+/* ------------------------------------------------ the portraits and plates */
+
+.cameos {
+  display: flex;
+  gap: clamp(0.5rem, 1.4vw, 1rem);
+}
+
+.cameo-card {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.cameo-card__pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.7rem 0.4rem 0.8rem;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+}
+
+.cameo-card__pick:hover:not(:disabled) {
+  border-color: rgba(201, 162, 39, 0.3);
+}
+
+.cameo-card[data-active="true"] .cameo-card__pick {
+  border-color: rgba(201, 162, 39, 0.55);
+  background: rgba(245, 207, 134, 0.07);
+}
+
+.cameo-card .cameo {
+  width: clamp(54px, 5.6vw, 76px);
+}
+
+/* The plate: a dark engraved groove until a name is set into it, brass after. */
+.plate {
+  display: block;
+  width: 100%;
+  min-height: 1.5rem;
+  padding: 0.2rem 0.35rem;
+  border-radius: 1px;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  background: rgba(12, 8, 5, 0.5);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(201, 162, 39, 0.24);
+}
+
+.plate[data-set="true"] {
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--brass-high) 0%, var(--brass-face) 46%, var(--brass-low) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 245, 214, 0.55), 0 2px 7px rgba(0, 0, 0, 0.55);
+}
+
+.plate__name {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------- the tray */
+
+.tray {
+  margin-top: clamp(0.8rem, 1.8vw, 1.2rem);
+  padding: clamp(0.8rem, 1.8vw, 1.1rem) clamp(0.85rem, 2vw, 1.2rem) clamp(0.9rem, 2vw, 1.2rem);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: rgba(12, 8, 5, 0.34);
+}
+
+.tray__title {
+  margin: 0;
+}
+
+.tray__title .label {
+  color: rgba(224, 196, 120, 0.6);
+  font-size: 0.7rem;
+}
+
+.tray__ask {
+  margin: 0.4rem 0 0.85rem;
+  max-width: 46ch;
+  font-size: 0.97rem;
+  line-height: 1.5;
+  color: rgba(237, 225, 196, 0.86);
+}
+
+.tray__plates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.name-plate {
+  padding: 0.4rem 0.9rem;
+  border-radius: 1px;
+  font-family: var(--font-label);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: rgba(237, 225, 196, 0.82);
+  background: linear-gradient(180deg, rgba(76, 50, 32, 0.9), rgba(36, 23, 13, 0.92));
+  border: 1px solid rgba(201, 162, 39, 0.34);
+}
+
+.name-plate:hover:not(:disabled) {
+  color: var(--lamplight);
+  border-color: var(--brass);
+}
+
+.name-plate[aria-pressed="true"] {
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--brass-high) 0%, var(--brass-face) 46%, var(--brass-low) 100%);
+  border-color: var(--brass);
+  box-shadow: inset 0 1px 0 rgba(255, 245, 214, 0.55), 0 2px 7px rgba(0, 0, 0, 0.55);
+}
+
+/* ------------------------------------------------------- the slips and pins */
+
+.tin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: rgba(12, 8, 5, 0.4);
+}
+
+.tin__pins {
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.tin__pin {
+  width: 0.52rem;
+  height: 0.52rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 30%, var(--brass-high), var(--brass-low));
+  box-shadow: 0 0 7px rgba(245, 207, 134, 0.45);
+}
+
+.tin__pin[data-spent="true"] {
+  background: rgba(237, 225, 196, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.3);
+}
+
+.tin__label {
+  font-size: 0.68rem;
+  color: rgba(224, 196, 120, 0.72);
+}
+
+.tin[data-left="0"] .tin__label {
+  color: rgba(237, 225, 196, 0.5);
+}
+
+.slips {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+  padding-left: 1.6rem;
+}
+
+.slip {
+  position: relative;
+}
+
+.slip__pick {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr);
+  grid-template-areas:
+    "pin head"
+    "pin text";
+  gap: 0.1rem 0.6rem;
+  width: 100%;
+  padding: 0.6rem 0.85rem 0.7rem 0.6rem;
+  text-align: left;
+  border-radius: 2px;
+  font-family: var(--font-read);
+  font-size: 0.97rem;
+  line-height: 1.42;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: linear-gradient(162deg, var(--paper) 0%, var(--paper-warm) 58%, var(--paper-mid) 100%);
+  border: 1px solid rgba(58, 36, 22, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 8px 18px rgba(0, 0, 0, 0.42);
+  transform: rotate(-0.28deg);
+}
+
+/* laid down by hand, not printed on a grid */
+.slip:nth-child(even) .slip__pick { transform: rotate(0.24deg); }
+.slip:nth-child(3n) .slip__pick { transform: rotate(0.14deg) translateY(1px); }
+
+.slip__pick:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: rgba(201, 162, 39, 0.75);
+}
+
+.slip__pin {
+  grid-area: pin;
+  align-self: start;
+  justify-self: center;
+  margin-top: 0.05rem;
+}
+
+.slip__pin svg {
+  display: block;
+  width: 1.3rem;
+  height: auto;
+  opacity: 0;
+}
+
+.slip__pin-shaft {
+  fill: none;
+  stroke: var(--brass-low);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.slip__pin-head {
+  fill: var(--brass-face);
+  stroke: var(--brass-low);
+  stroke-width: 1.2;
+}
+
+.slip__pin-shine {
+  fill: rgba(255, 248, 224, 0.85);
+}
+
+/* Pinned: the pin is in, and the slip lifts off the board onto its head. */
+.slip[data-pinned="true"] .slip__pin svg {
+  opacity: 1;
+}
+
+.slip[data-pinned="true"] .slip__pick {
+  transform: translateY(-4px) rotate(0.18deg);
+  border-color: var(--brass);
+  box-shadow:
+    inset 0 0 0 1px var(--gilt-dim),
+    0 0 0 2px var(--brass),
+    0 16px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* No pins left: the slips that have none simply lie flat and take no more. */
+.slip[data-spare="true"] .slip__pick {
+  opacity: 0.62;
+  cursor: default;
+  box-shadow: none;
+}
+
+.slip__head {
+  grid-area: head;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.7rem;
+}
+
+.slip__line {
+  color: var(--brass-ink);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.slip__whose {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-mid);
+}
+
+/* The reader's own hand on the board: a line they cited, marked as theirs. */
+.slip__mine {
+  font-size: 0.64rem;
+  color: var(--oxblood);
+}
+
+.slip__text {
+  grid-area: text;
+  overflow-wrap: anywhere;
+}
+
+.slip[data-mine="true"] .slip__text {
+  border-bottom: 2px solid var(--oxblood);
+}
+
+.slips__note {
+  margin: 0.7rem 0 0;
+  font-size: 0.84rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.6);
+}
+
+/* Solved: one thread run down the board, knotted onto the four that prove it. */
+.slips[data-thread="true"]::before {
+  content: "";
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 0.42rem;
+  width: 2.5px;
+  background: var(--oxblood);
+  box-shadow: 0 0 7px rgba(110, 36, 51, 0.55);
+  transform-origin: top;
+  animation: thread-run 0.6s ease-out both;
+}
+
+.slips[data-thread="true"] .slip[data-pinned="true"]::before {
+  content: "";
+  position: absolute;
+  top: 1.15rem;
+  left: -1.05rem;
+  width: 1.05rem;
+  height: 2.5px;
+  background: var(--oxblood);
+}
+
+@keyframes thread-run {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* -------------------------------------------------------------- the accused */
+
+.culprit__ask {
+  margin: 0 0 clamp(0.8rem, 1.8vw, 1.2rem);
+  max-width: 40ch;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.22;
+  letter-spacing: 0.005em;
+  color: var(--paper);
+}
+
+.suspects {
+  display: flex;
+  gap: clamp(0.5rem, 1.4vw, 1rem);
+}
+
+.suspect {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.suspect__pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.9rem 0.6rem 1rem;
+  border-radius: 2px;
+  font-family: var(--font-read);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-align: center;
+  color: var(--ink);
+  background: linear-gradient(162deg, var(--paper) 0%, var(--paper-warm) 58%, var(--paper-mid) 100%);
+  border: 1px solid rgba(58, 36, 22, 0.16);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.22),
+    0 10px 22px rgba(0, 0, 0, 0.45);
+}
+
+.suspect__pick:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: rgba(201, 162, 39, 0.75);
+}
+
+.suspect__ring {
+  position: relative;
+  display: block;
+}
+
+/* The reader's claim, wound round the portrait in their own thread: two turns,
+ * neither of them true, because a thread is put on by hand.
+ */
+.suspect[data-accused="true"] .suspect__ring::before,
+.suspect[data-accused="true"] .suspect__ring::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.suspect[data-accused="true"] .suspect__ring::before {
+  inset: -6px;
+  border: 1.5px solid rgba(110, 36, 51, 0.75);
+  transform: rotate(4deg) scale(1.01);
+}
+
+.suspect[data-accused="true"] .suspect__ring::after {
+  inset: -10px;
+  border: 2.5px solid var(--oxblood);
+  transform: rotate(-3deg);
+}
+
+.suspect[data-accused="true"] .suspect__pick {
+  border-color: var(--brass);
+  box-shadow:
+    inset 0 0 0 1px var(--gilt-dim),
+    0 0 0 2px var(--brass),
+    0 16px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* A sealed board is settled, not switched off: what the reader chose stays
+ * bright and the rest steps back, the way an opened strongbox does. A greyed
+ * board would read as a broken control at the very moment they have won.
+ */
+
+.board[data-sealed="true"] .cameo-card__pick:disabled,
+.board[data-sealed="true"] .slip__pick:disabled,
+.board[data-sealed="true"] .suspect__pick:disabled {
+  opacity: 0.62;
+}
+
+.board[data-sealed="true"] .cameo-card[data-named="true"] .cameo-card__pick:disabled,
+.board[data-sealed="true"] .slip[data-pinned="true"] .slip__pick:disabled,
+.board[data-sealed="true"] .suspect[data-accused="true"] .suspect__pick:disabled {
+  opacity: 1;
+}
+
+/* --------------------------------------------- the reader's own lines */
+
+/* On paper, pinned to the board: the reader's ink belongs on a page, not on
+ * leather, and this is the same note stack they wrote during the case.
+ */
+.board__notes {
+  border-top: 0;
+  padding: clamp(0.9rem, 2vw, 1.3rem) clamp(1rem, 2.2vw, 1.5rem);
+  color: var(--ink);
+  background: linear-gradient(168deg, var(--paper-warm) 0%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+.board__notes .region__title .label {
+  color: var(--brass-ink);
+}
+
+.board__notes-empty {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+.board__cited {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0 clamp(1.2rem, 2.6vw, 2rem);
+}
+
+.cited {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(58, 36, 22, 0.16);
+}
+
+.cited__line {
+  color: var(--oxblood);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.cited__text {
+  font-style: italic;
+  color: var(--oxblood);
+  font-size: 0.94rem;
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------- the seal */
+
+.board__seal {
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.4rem;
+  flex-wrap: wrap;
+  padding-top: clamp(0.7rem, 1.6vw, 1.1rem);
+  border-top: 1px solid rgba(201, 162, 39, 0.22);
+}
+
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1.5rem 0.5rem 0.65rem;
+  color: var(--lamplight);
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  border-color: var(--brass);
+}
+
+.seal__word {
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+}
+
+.seal__wax svg {
+  display: block;
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.seal__disc {
+  fill: var(--brass-low);
+  stroke: var(--brass);
+  stroke-width: 1.6;
+}
+
+.seal__rim {
+  fill: none;
+  stroke: rgba(224, 196, 120, 0.55);
+  stroke-width: 1;
+}
+
+.seal__device {
+  fill: var(--gilt);
+}
+
+.seal:hover:not(:disabled) .seal__device {
+  fill: var(--lamplight);
+}
+
+/* Stamped: the case is closed, and the stamp came down once. */
+.stamp {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 1.6rem;
+  border: 2px solid var(--gilt);
+  box-shadow: inset 0 0 0 1px rgba(224, 196, 120, 0.5);
+  transform: rotate(-2.2deg);
+  animation: stamp-press 0.34s cubic-bezier(0.2, 0.8, 0.3, 1) both;
+}
+
+.stamp__word {
+  font-size: 1.05rem;
+  letter-spacing: 0.24em;
+  color: var(--lamplight);
+  text-shadow: 0 0 20px rgba(245, 207, 134, 0.4);
+}
+
+@keyframes stamp-press {
+  from { transform: rotate(-2.2deg) scale(1.45); opacity: 0; }
+  to { transform: rotate(-2.2deg) scale(1); opacity: 1; }
+}
+
+.seal__note {
+  margin: 0;
+  max-width: 46ch;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.72);
+}
+
+.seal__note[data-outcome="partial"] {
+  color: var(--lamplight);
+}
+
+/* ================================================ the closing statement === */
+
+.statement-desk {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem);
+  gap: clamp(1.2rem, 2.8vw, 2.2rem);
+  align-items: start;
+}
+
+.statement {
+  padding: clamp(1.5rem, 3.2vw, 2.6rem);
+  color: var(--ink);
+  background: linear-gradient(168deg, #f2e7cb 0%, var(--paper-warm) 46%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 18px 46px rgba(0, 0, 0, 0.55);
+}
+
+.statement__head {
+  padding-bottom: 0.85rem;
+  margin-bottom: clamp(1.2rem, 2.6vw, 1.9rem);
+  border-bottom: 1px solid rgba(58, 36, 22, 0.22);
+}
+
+.statement__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+  line-height: 1.1;
+  letter-spacing: 0.005em;
+  color: var(--ink);
+}
+
+.statement__line {
+  margin: 0;
+  max-width: 46ch;
+  font-family: var(--font-read);
+  font-size: clamp(1.12rem, 1.7vw, 1.38rem);
+  line-height: 1.95;
+}
+
+/* The gap in the line: brass-edged, shallow, and the word sits down into it. A
+ * blank is a slot cut in a sentence, so it takes the height of the words around
+ * it and not the height of the line they are set on.
+ */
+.blank {
+  display: inline-block;
+  min-width: 8ch;
+  margin: 0 0.16rem;
+  padding: 0.04rem 0.5rem 0.1rem;
+  vertical-align: baseline;
+  font-family: var(--font-read);
+  font-size: inherit;
+  line-height: 1.42;
+  letter-spacing: 0;
+  color: var(--ink);
+  background: rgba(201, 162, 39, 0.1);
+  border: 0;
+  border-bottom: 2px solid var(--brass-ink);
+  border-radius: 1px;
+}
+
+.blank:hover:not(:disabled) {
+  color: var(--ink);
+  background: rgba(245, 207, 134, 0.26);
+}
+
+.blank[data-open="true"] {
+  background: rgba(245, 207, 134, 0.3);
+  box-shadow: 0 0 0 2px var(--brass);
+}
+
+.blank[data-set="true"] {
+  background: linear-gradient(180deg, rgba(224, 196, 120, 0.44), rgba(201, 162, 39, 0.22));
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.55);
+}
+
+.blank[data-set="true"][data-open="true"] {
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.55), 0 0 0 2px var(--brass);
+}
+
+.blank__rule {
+  display: inline-block;
+  width: 7ch;
+}
+
+.blank__word {
+  display: inline-block;
+}
+
+.statement[data-signed="true"] .blank {
+  opacity: 1;
+}
+
+/* -------------------------------------------------------- the case of type */
+
+.words {
+  padding: clamp(0.95rem, 2.2vw, 1.4rem) clamp(1rem, 2.2vw, 1.4rem) clamp(1.1rem, 2.4vw, 1.5rem);
+  border: 1px solid var(--hairline);
+  border-radius: 2px;
+  background: rgba(12, 8, 5, 0.34);
+}
+
+.words__title {
+  margin: 0;
+}
+
+.words__title .label {
+  color: rgba(224, 196, 120, 0.72);
+  font-size: 0.74rem;
+}
+
+.words__note {
+  margin: 0.4rem 0 0.95rem;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.6);
+}
+
+.words__tiles {
+  display: grid;
+  gap: 0.55rem;
+}
+
+/* A slug of type, set face up: it presses down into the line when it is used. */
+.tile {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.95rem;
+  text-align: left;
+  border-radius: 1px;
+  font-family: var(--font-label);
+  font-size: 1.02rem;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  background: linear-gradient(180deg, #f1e6c9 0%, var(--paper-mid) 100%);
+  border: 1px solid rgba(58, 36, 22, 0.3);
+  box-shadow: 0 3px 0 rgba(36, 23, 13, 0.85), 0 8px 16px rgba(0, 0, 0, 0.45);
+}
+
+.tile:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: var(--brass-ink);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 rgba(36, 23, 13, 0.85), 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.tile[aria-pressed="true"] {
+  transform: translateY(3px);
+  border-color: var(--brass);
+  box-shadow: inset 0 0 0 1px var(--brass);
+}
+
+/* set into the line, and settled rather than switched off */
+.tile[aria-pressed="true"]:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+/* ---------------------------------------------------------- the signature */
+
+.statement__foot {
+  margin-top: clamp(1.6rem, 3.4vw, 2.6rem);
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.signature__rule {
+  flex: 1 1 auto;
+  height: 1px;
+  background: rgba(58, 36, 22, 0.4);
+}
+
+.signature[data-state="signed"] .signature__rule {
+  background: var(--oxblood);
+}
+
+.signature__word {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  color: var(--oxblood);
+}
+
+.sign {
+  flex: none;
+  padding: 0.3rem 0.5rem 0.35rem;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid var(--brass-ink);
+  border-radius: 0;
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+  color: var(--brass-ink);
+}
+
+.sign:hover:not(:disabled) {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.sign:disabled {
+  color: var(--ink-mid);
+  border-bottom-color: rgba(58, 36, 22, 0.3);
+}
+
+/* Inkwell writes in the margin here too: a brass hairline, never the reader's ink. */
+.statement__margin {
+  margin: 0.9rem 0 0;
+  max-width: 44ch;
+  padding-left: 0.8rem;
+  border-left: 2px solid rgba(201, 162, 39, 0.45);
+  font-family: var(--font-label);
+  font-size: 0.84rem;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+
+.statement__margin[data-note="again"] {
+  border-left-color: var(--brass-ink);
+  color: var(--ink);
+}
+
+/* ===================================================== the case report === */
+
+.report {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2.3rem);
+}
+
+.report__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.6fr);
+  gap: clamp(1.4rem, 3vw, 2.4rem);
+  align-items: start;
+}
+
+/* ------------------------------------------------------------ the verdict */
+
+.verdict {
+  justify-self: start;
+  padding: clamp(0.7rem, 1.8vw, 1.15rem) clamp(1.1rem, 2.8vw, 2rem);
+  border: 2px solid rgba(201, 162, 39, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.28);
+  transform: rotate(-1.4deg);
+}
+
+.verdict__word {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 4vw, 3.15rem);
+  line-height: 1.04;
+  letter-spacing: 0.005em;
+  color: var(--lamplight);
+  text-shadow: 0 0 26px rgba(245, 207, 134, 0.26);
+}
+
+.report[data-verdict="reopened"] .verdict {
+  border-color: rgba(201, 162, 39, 0.3);
+  box-shadow: none;
+}
+
+.report[data-verdict="reopened"] .verdict__word {
+  color: var(--paper);
+  text-shadow: none;
+}
+
+/* -------------------------------------------------------------- the ladder */
+
+.ladder-plate {
+  padding: clamp(0.9rem, 2vw, 1.25rem) clamp(1rem, 2.2vw, 1.45rem);
+  border-radius: 2px;
+  background: linear-gradient(168deg, rgba(122, 92, 36, 0.42) 0%, rgba(58, 36, 22, 0.62) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(201, 162, 39, 0.4),
+    0 10px 26px rgba(0, 0, 0, 0.5);
+}
+
+.ladder__title {
+  margin: 0;
+}
+
+.ladder__title .label {
+  color: rgba(224, 196, 120, 0.7);
+  font-size: 0.72rem;
+}
+
+.ladder {
+  position: relative;
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
+}
+
+/* the stile the rungs are set into */
+.ladder::before {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  bottom: 0.45rem;
+  left: 0.55rem;
+  width: 1px;
+  background: rgba(201, 162, 39, 0.3);
+}
+
+.rung {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.rung__peg {
+  width: 0.62rem;
+  height: 0.62rem;
+  margin-left: 0.24rem;
+  border-radius: 50%;
+  background: rgba(237, 225, 196, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(201, 162, 39, 0.35);
+}
+
+.rung__name {
+  font-family: var(--font-label);
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+  color: rgba(237, 225, 196, 0.38);
+}
+
+.rung[data-state="passed"] .rung__peg {
+  background: rgba(201, 162, 39, 0.28);
+  box-shadow: inset 0 0 0 1.5px rgba(201, 162, 39, 0.7);
+}
+
+.rung[data-state="passed"] .rung__name {
+  color: rgba(224, 196, 120, 0.6);
+}
+
+.rung[data-state="lit"] .rung__peg {
+  background: radial-gradient(circle at 34% 30%, var(--lamplight), var(--brass));
+  box-shadow: 0 0 14px rgba(245, 207, 134, 0.6);
+}
+
+.rung[data-state="lit"] .rung__name {
+  font-size: 0.94rem;
+  color: var(--lamplight);
+}
+
+/* the rung the reader is standing on, marked the way a shelf label is */
+.rung[data-state="lit"]::before {
+  content: "";
+  position: absolute;
+  inset: -0.3rem -0.55rem;
+  border-left: 2px solid var(--brass);
+  background: rgba(245, 207, 134, 0.09);
+  pointer-events: none;
+}
+
+.rung[data-state="lit"] .rung__peg,
+.rung[data-state="lit"] .rung__name {
+  position: relative;
+}
+
+.report__intro {
+  margin: 0;
+  max-width: 56ch;
+  font-size: 1.04rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.8);
+}
+
+/* -------------------------------------------------------------- the scopes */
+
+.scopes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2.4vw, 1.8rem);
+  align-items: start;
+}
+
+.scope {
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.scope[data-scope="evidence"] {
+  grid-column: 1 / -1;
+}
+
+.scope__title {
+  margin: 0 0 0.45rem;
+}
+
+.scope__title .label {
+  color: rgba(224, 196, 120, 0.7);
+  font-size: 0.74rem;
+}
+
+.scope__figure {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.15;
+  color: var(--paper);
+}
+
+.scope__aside {
+  margin: 0.2rem 0 0;
+  font-size: 0.86rem;
+  color: rgba(237, 225, 196, 0.5);
+}
+
+.cited-block {
+  margin-top: 0.9rem;
+  padding: clamp(0.9rem, 2vw, 1.3rem) clamp(1rem, 2.2vw, 1.4rem);
+  color: var(--ink);
+  background: linear-gradient(168deg, var(--paper-warm) 0%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 10px 24px rgba(0, 0, 0, 0.42);
+}
+
+.cited-block__title {
+  margin: 0 0 0.6rem;
+}
+
+.cited-block__title .label {
+  color: var(--brass-ink);
+  font-size: 0.72rem;
+}
+
+.cited-block__empty {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+.cited-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 0 clamp(1.2rem, 2.6vw, 2rem);
+}
+
+.cited-list .cited {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+/* Whose words a line is, in the margin of the entry. A role can be a long
+ * phrase, so it wraps and is held to a margin's width: it must never crowd the
+ * line itself down to one letter a row.
+ */
+.cited__whose {
+  max-width: 16ch;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+  color: var(--ink-mid);
+  text-align: right;
+}
+
+/* -------------------------------------------------------------- the skills */
+
+.skills {
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.skills__title {
+  margin: 0 0 0.85rem;
+}
+
+.skills__title .label {
+  color: rgba(224, 196, 120, 0.7);
+  font-size: 0.74rem;
+}
+
+.meters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(0.8rem, 1.8vw, 1.4rem);
+}
+
+.meter {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.meter__name {
+  font-size: 0.72rem;
+  color: rgba(237, 225, 196, 0.78);
+}
+
+.meter__track {
+  display: block;
+  height: 0.5rem;
+  border-radius: 1px;
+  background: rgba(12, 8, 5, 0.65);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.7),
+    inset 0 0 0 1px rgba(201, 162, 39, 0.28);
+  overflow: hidden;
+}
+
+.meter__fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brass-low), var(--brass));
+  box-shadow: 0 0 10px rgba(245, 207, 134, 0.35);
+}
+
+.meter__count {
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: rgba(224, 196, 120, 0.72);
+}
+
+.meter[data-empty="true"] .meter__count {
+  color: rgba(237, 225, 196, 0.34);
+}
+
+/* ---------------------------------------------------------------- the pace */
+
+.pace {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  margin: 0;
+  font-size: 0.84rem;
+  color: rgba(237, 225, 196, 0.52);
+}
+
+.watch svg {
+  display: block;
+  width: 1.15rem;
+  height: auto;
+  fill: none;
+  stroke: rgba(224, 196, 120, 0.6);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.pace__figure {
+  font-family: var(--font-label);
+  letter-spacing: 0.06em;
+  color: rgba(224, 196, 120, 0.75);
+}
+
+.pace__note {
+  font-style: italic;
+}
+
+/* --------------------------------------------------------------- the coach */
+
+.coach {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 2.2vw, 1.7rem);
+  align-items: start;
+  padding: clamp(1.2rem, 2.6vw, 1.9rem) clamp(1.2rem, 2.8vw, 2rem);
+  color: var(--ink);
+  background: linear-gradient(168deg, #f1e6ca 0%, var(--paper-warm) 55%, var(--paper-mid) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(58, 36, 22, 0.12),
+    0 16px 38px rgba(0, 0, 0, 0.5);
+}
+
+.coach__cameo {
+  display: block;
+}
+
+.coach__message {
+  margin: 0;
+  max-width: 58ch;
+  font-family: var(--font-read);
+  font-style: italic;
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  line-height: 1.62;
+}
+
+.coach__writing {
+  margin: 0;
+  font-style: italic;
+  color: var(--ink-mid);
+}
+
+.coach__boundary {
+  margin: 0.95rem 0 0;
+  max-width: 64ch;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(58, 36, 22, 0.18);
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+
+.coach__source {
+  margin: 0.55rem 0 0;
+}
+
+.coach__source .label {
+  font-size: 0.64rem;
+  color: rgba(94, 71, 8, 0.7);
+}
+
+/* ---------------------------------------------------------------- the foot */
+
+.report__foot {
+  display: grid;
+  gap: clamp(0.9rem, 2vw, 1.3rem);
+  padding-top: clamp(1rem, 2.2vw, 1.5rem);
+  border-top: 1px solid var(--hairline);
+}
+
+.revisit {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+}
+
+.revisit__go {
+  color: var(--lamplight);
+  background: linear-gradient(180deg, var(--mahogany-light), var(--mahogany-dark));
+  border-color: var(--brass);
+  padding: 0.7rem 1.6rem;
+}
+
+.revisit__note {
+  margin: 0;
+  max-width: 44ch;
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.45);
+}
+
+.credits {
+  margin: 0;
+  max-width: 78ch;
+  font-size: 0.76rem;
+  line-height: 1.6;
+  color: rgba(237, 225, 196, 0.42);
+}
+
+.credits__link {
+  color: rgba(224, 196, 120, 0.75);
+  text-underline-offset: 0.18em;
+}
+
+.credits__link:hover {
+  color: var(--lamplight);
+}
+
+/* ==================================================== narrower ========== */
+/* Best effort, not a second design: one column, nothing clipped, nothing out of
+ * reach, and no sideways scroll.
+ */
+
+@media (max-width: 900px) {
+  .board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .board__names,
+  .board__culprit,
+  .board__slips,
+  .board__notes,
+  .board__seal {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .statement-desk,
+  .report__top,
+  .scopes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scope[data-scope="evidence"] {
+    grid-column: 1;
+  }
+
+  .verdict {
+    justify-self: stretch;
+  }
+
+  .cited-list,
+  .board__cited {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* too narrow for a margin: whose words it is goes under the line instead */
+  .cited-list .cited {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .cited-list .cited__whose {
+    grid-column: 2;
+    max-width: none;
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .cameos,
+  .suspects {
+    flex-wrap: wrap;
+  }
+
+  .cameo-card,
+  .suspect {
+    flex: 1 1 8rem;
+  }
+
+  .coach {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .statement__line {
+    line-height: 2.2;
+  }
+}

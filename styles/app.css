@@ -218,105 +218,58 @@ button:disabled {
   margin-top: var(--step);
 }
 
-/* ------------------------------------------- screens still in their spine */
-/* Lock, search, cite, reconstruct, statement and report are wired but not yet
- * dressed (slices S8 and S9). These keep them legible on the stage until then.
+/* ------------------------------------------------------------------- lists */
+/* Every list in the app is furniture — slips, plates, portraits, rungs — and the
+ * browser's bullets and indents belong to none of them. Each screen sets its own
+ * spacing; this only clears the ground.
  */
 
-h2:not(.card__word) {
-  font-family: var(--font-label);
-  font-size: 0.9rem;
-  letter-spacing: 0.06em;
-  margin: 1.5rem 0 0.5rem;
-}
-
-ul:not(.cards) {
-  list-style: none;
-  margin: 0 0 1rem;
+ul,
+ol {
+  margin: 0;
   padding: 0;
+  list-style: none;
 }
 
-ul:not(.cards) li {
-  margin: 0.35rem 0;
+li {
+  margin: 0;
 }
 
-select {
-  font-family: var(--font-read);
-  font-size: 1rem;
-  color: var(--ink);
-  background: var(--paper);
-  border: 1px solid var(--mahogany);
-  border-radius: 2px;
-  padding: 0.4rem 0.9rem;
+/* The shut book: a sign in the chrome on the screens worked from memory. */
+
+.shut-book {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: none;
 }
 
-.measure {
-  max-width: var(--measure);
-}
-
-.challenge {
-  border-top: 1px solid var(--hairline);
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-}
-
-.challenge .prompt,
-.choices .choice,
-.picker label,
-.clues li {
-  max-width: var(--measure);
-}
-
-.choices .choice {
+.shut-book__glyph svg {
   display: block;
-  width: 100%;
-  text-align: left;
+  width: 1.15rem;
+  height: auto;
 }
 
-button[aria-pressed="true"] {
-  color: var(--ink);
-  background: var(--gilt);
-  border-color: var(--oxblood);
+.shut-book__board {
+  fill: rgba(76, 50, 32, 0.9);
+  stroke: rgba(201, 162, 39, 0.5);
+  stroke-width: 1.3;
 }
 
-.outcome {
-  font-family: var(--font-label);
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
+.shut-book__spine {
+  fill: rgba(201, 162, 39, 0.35);
 }
 
-.outcome[data-outcome="solved"] { color: var(--gilt); }
-.outcome[data-outcome="again"] { color: var(--oxblood); }
-
-.picker label { display: block; margin-bottom: 0.35rem; }
-
-.clues li {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  gap: 0.5rem;
+.shut-book__edge {
+  fill: none;
+  stroke: rgba(224, 196, 120, 0.4);
+  stroke-width: 1;
 }
 
-.whose-words,
-.coach-source {
-  font-family: var(--font-label);
-  font-size: 0.75rem;
-  color: rgba(224, 196, 120, 0.7);
+.shut-book__label {
+  font-size: 0.7rem;
+  color: rgba(224, 196, 120, 0.62);
 }
-
-.statement .slot { margin: 0 0.25rem; }
-
-.figure,
-.clusters li {
-  display: flex;
-  gap: 1rem;
-  max-width: 28ch;
-  justify-content: space-between;
-  margin: 0.2rem 0;
-}
-
-.figure .label,
-.clusters .label { letter-spacing: 0.04em; }
 
 noscript {
   display: block;
