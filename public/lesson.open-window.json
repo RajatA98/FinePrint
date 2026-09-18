@@ -2338,7 +2338,7 @@
           "id": "k6",
           "line": 119,
           "proving": true,
-          "speaker": "mr-sappleton"
+          "speaker": "narration"
         },
         {
           "id": "k7",
@@ -2416,7 +2416,7 @@
     "s-role-vera": "the niece of the house, fifteen years old",
     "s-role-mrs-sappleton": "the lady of the house, who keeps the window open",
     "s-role-mr-sappleton": "the master of the house",
-    "s-role-ronnie": "her young brother, who sings the same song to tease her",
+    "s-role-ronnie": "the lady's young brother, who sings the same song to tease her",
     "s-role-second-brother": "the other young brother of the house",
     "s-role-sister": "the caller's sister, who sent him with letters",
     "s-role-cyclist": "the rider who swerves off the road",
