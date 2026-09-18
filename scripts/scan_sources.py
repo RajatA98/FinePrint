@@ -2,21 +2,15 @@
 """Scan app sources for copied story phrases."""
 
 import pathlib
-import re
 import sys
 
 sys.path.insert(0, "scripts")
 import source  # noqa: E402
+from textnorm import normalize  # noqa: E402
 
 
 DEFAULT_ROOTS = ["index.html", "src", "api", "styles", "test"]
 WINDOW = 13
-
-
-def normalize(text):
-    text = source._plain(text)
-    text = text.replace("---", "-")
-    return re.sub(r"\s+", " ", text).strip()
 
 
 def windows(text, size):
@@ -45,13 +39,31 @@ def iter_files(paths):
             yield child
 
 
-def first_line_for_match(original, match):
-    normalized_so_far = ""
+def _normalize_with_line_map(original):
+    """Normalize text and return (normalized, line_for_offset), where
+    line_for_offset[i] is the 1-based line of `original` that produced the
+    character at normalized[i]. Built line-by-line so a match that straddles
+    a line break can still be attributed to the line it STARTS on."""
+    parts = []
+    line_map = []
     for line_no, line in enumerate(original.splitlines(), 1):
-        normalized_so_far = normalize((normalized_so_far + " " + line).strip())
-        if match in normalized_so_far:
-            return line_no
-    return 1
+        chunk = normalize(line)
+        if not chunk:
+            continue
+        if parts:
+            parts.append(" ")
+            line_map.append(line_no)
+        parts.append(chunk)
+        line_map.extend([line_no] * len(chunk))
+    return "".join(parts), line_map
+
+
+def first_line_for_match(original, match):
+    normalized, line_map = _normalize_with_line_map(original)
+    index = normalized.find(match)
+    if index < 0 or index >= len(line_map):
+        return 1
+    return line_map[index]
 
 
 def display_match(original, match):

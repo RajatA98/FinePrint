@@ -7,6 +7,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
 import lesson_skeleton
 import scan_sources
+import source
 import validate_lesson
 
 
@@ -137,6 +138,11 @@ def valid_lesson():
         "s-coach-evidence": "Tie answers to proof.",
         "s-coach-clean": "Clean casework.",
         "s-coach-generic": "Keep reading closely.",
+        "s-verdict-master": "Master Detective",
+        "s-verdict-closed": "Case Closed",
+        "s-verdict-review": "Case Solved - Evidence Review",
+        "s-verdict-reopened": "Case Reopened",
+        "s-attribution": "Story text: The Open Window by Saki, Project Gutenberg ebook #269.",
     }
     lesson["coach"] = {
         "deterministic": {
@@ -205,6 +211,105 @@ class ValidateLessonTests(unittest.TestCase):
         lesson = valid_lesson()
         lesson["finale"]["statement"]["slots"][0]["options"][1]["true"] = True
         self.assertIn("statement", rule_names(lesson))
+
+    def test_dial_choice_missing_label_produces_one_failure(self):
+        lesson = valid_lesson()
+        del lesson["strings"]["s-lock-b"]
+        failures = validate_lesson.validate(lesson)
+        self.assertEqual(1, len(failures), failures)
+        self.assertTrue(failures[0].startswith("strings:"), failures[0])
+
+    def test_finale_clue_speaker_must_be_narration_or_person(self):
+        lesson = valid_lesson()
+        lesson["finale"]["reconstruct"]["clues"][0]["speaker"] = "narration"
+        self.assertEqual([], validate_lesson.validate(lesson))
+
+        lesson = valid_lesson()
+        lesson["finale"]["reconstruct"]["clues"][0]["speaker"] = "vera"
+        self.assertEqual([], validate_lesson.validate(lesson))
+
+        lesson = valid_lesson()
+        lesson["finale"]["reconstruct"]["clues"][0]["speaker"] = "nobody"
+        self.assertIn("finale", rule_names(lesson))
+
+    def test_finale_reconstruct_person_cameo_must_be_a_person(self):
+        lesson = valid_lesson()
+        lesson["finale"]["reconstruct"]["people"][0]["cameo"] = "not-a-person"
+        self.assertIn("finale", rule_names(lesson))
+
+    def test_strings_must_include_verdict_and_attribution_labels(self):
+        for sid in (
+            "s-verdict-master",
+            "s-verdict-closed",
+            "s-verdict-review",
+            "s-verdict-reopened",
+            "s-attribution",
+        ):
+            lesson = valid_lesson()
+            del lesson["strings"][sid]
+            self.assertIn("strings", rule_names(lesson), sid)
+
+    def test_strings_may_not_contain_forbidden_words(self):
+        for word in ("fail", "failed", "wrong"):
+            lesson = valid_lesson()
+            lesson["strings"]["s-verdict-master"] = "You %s this time" % word
+            self.assertIn("strings", rule_names(lesson), word)
+
+    def test_choice_kind_must_be_one_of_dial_object_portrait_line(self):
+        lesson = valid_lesson()
+        lesson["challenges"]["c1-search"]["choices"][0]["kind"] = "person"
+        self.assertIn("challenges", rule_names(lesson))
+
+    def test_portrait_choice_ref_must_be_a_person(self):
+        lesson = valid_lesson()
+        lesson["challenges"]["c1-search"]["choices"][0]["kind"] = "portrait"
+        lesson["challenges"]["c1-search"]["choices"][0]["ref"] = "not-a-person"
+        self.assertIn("challenges", rule_names(lesson))
+
+        lesson = valid_lesson()
+        lesson["challenges"]["c1-search"]["choices"][0]["kind"] = "portrait"
+        lesson["challenges"]["c1-search"]["choices"][0]["ref"] = "vera"
+        self.assertNotIn("challenges", rule_names(lesson))
+
+    def test_object_choice_ref_must_be_an_object(self):
+        lesson = valid_lesson()
+        lesson["challenges"]["c1-search"]["choices"][0]["ref"] = "not-an-object"
+        self.assertIn("challenges", rule_names(lesson))
+
+
+class NormalizeTests(unittest.TestCase):
+    def test_validate_lesson_and_scan_sources_normalize_match(self):
+        sample = "  “Self-Possessed”—truly   said’s  "
+        self.assertEqual(validate_lesson.normalize(sample), scan_sources.normalize(sample))
+
+
+class SourceStraddleTests(unittest.TestCase):
+    def straddling_phrase(self):
+        tail = source.LINES[0][1][-15:]
+        head = source.LINES[1][1][:15]
+        return tail + " " + head
+
+    def test_straddling_phrase_caught_by_check_source_phrases(self):
+        phrase = self.straddling_phrase()
+        self.assertGreaterEqual(len(phrase), 20)
+        lesson = valid_lesson()
+        lesson["strings"]["s-lock-prompt"] = phrase
+        self.assertIn("source-phrase", rule_names(lesson))
+
+    def test_straddling_phrase_caught_by_scan_paths(self):
+        phrase = self.straddling_phrase()
+        self.assertGreaterEqual(len(phrase), 13)
+        tail, head = phrase.split(" ", 1)
+        with tempfile.TemporaryDirectory() as tmp:
+            root = pathlib.Path(tmp)
+            js = root / "sample.js"
+            # tail ends line 1, head starts line 2: the phrase straddles a
+            # physical line break in the scanned file too, so the reported
+            # line must be where the match STARTS (line 1), not where it ends.
+            js.write_text("alpha beta %s\n%scontinued gamma\n" % (tail, head))
+            failures = scan_sources.scan_paths([root])
+            self.assertEqual(1, len(failures), failures)
+            self.assertIn("sample.js:1", failures[0])
 
 
 class ScanSourcesTests(unittest.TestCase):

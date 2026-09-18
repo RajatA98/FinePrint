@@ -7,6 +7,7 @@ import sys
 
 sys.path.insert(0, "scripts")
 import source  # noqa: E402
+from textnorm import normalize  # noqa: E402
 
 
 SKILLS = {"vocabulary", "detail", "inference", "evidence"}
@@ -20,14 +21,19 @@ STRING_REF_KEYS = {
     "template",
     "generic",
 }
+CHOICE_KINDS = {"dial", "object", "portrait", "line"}
+REQUIRED_STRINGS = {
+    "s-verdict-master",
+    "s-verdict-closed",
+    "s-verdict-review",
+    "s-verdict-reopened",
+    "s-attribution",
+}
+FORBIDDEN_WORDS = re.compile(r"\b(fail|failed|wrong)\b", re.IGNORECASE)
 
 
 def fail(rule, detail):
     return "%s: %s" % (rule, detail)
-
-
-def normalize(text):
-    return re.sub(r"\s+", " ", source._plain(str(text))).strip()
 
 
 def windows(text, size):
@@ -89,8 +95,6 @@ def check_lines(lesson):
     expected = [text for _, text, _ in source.LINES]
     if lesson.get("lines") != expected:
         return [fail("lines", "lesson lines must exactly match scripts/source.py")]
-    if len(lesson.get("lines", [])) != source.TOTAL:
-        return [fail("lines", "line count must be %s" % source.TOTAL)]
     expected_starts = [n for n, _, starts in source.LINES if starts]
     if lesson.get("paragraphStarts") != expected_starts:
         return [fail("lines", "paragraphStarts must match source paragraph starts")]
@@ -213,7 +217,6 @@ def check_challenges(lesson):
     vocabulary = lesson.get("vocabulary", {})
     people = lesson.get("people", {})
     objects = lesson.get("objects", {})
-    strings = lesson.get("strings", {})
 
     for cid in challenges:
         if len(owners.get(cid, [])) != 1:
@@ -244,16 +247,16 @@ def check_challenges(lesson):
 
         for choice in challenge.get("choices", []):
             kind = choice.get("kind")
-            if kind == "object" and choice.get("ref") not in objects:
-                failures.append(fail("refs", "choice %s object ref is missing" % choice.get("id")))
-            elif kind == "person" and choice.get("ref") not in people:
-                failures.append(fail("refs", "choice %s person ref is missing" % choice.get("id")))
+            if kind not in CHOICE_KINDS:
+                failures.append(fail("challenges", "choice %s has unknown kind %s" % (choice.get("id"), kind)))
+            elif kind == "object" and choice.get("ref") not in objects:
+                failures.append(fail("challenges", "choice %s object ref is missing" % choice.get("id")))
+            elif kind == "portrait" and choice.get("ref") not in people:
+                failures.append(fail("challenges", "choice %s portrait ref is missing" % choice.get("id")))
             elif kind == "line" and excerpt_for_line(lesson, choice.get("line")) is None:
                 failures.append(fail("refs", "choice %s line ref is missing" % choice.get("id")))
-            elif kind == "dial" and choice.get("label") not in strings:
-                failures.append(fail("strings", "choice %s label string is missing" % choice.get("id")))
-            elif kind not in {"object", "person", "line", "dial"}:
-                failures.append(fail("refs", "choice %s has unknown kind %s" % (choice.get("id"), kind)))
+            # dial's label is checked generically in check_references' walk
+            # (its "label" key), so it isn't duplicated here (see item 3).
     return failures
 
 
@@ -277,10 +280,18 @@ def check_finale(lesson):
         answer = item.get("answer")
         if answer not in item.get("options", []) or answer not in people:
             failures.append(fail("finale", "person answer %s must be an option and a person" % answer))
+        cameo = item.get("cameo")
+        if cameo not in people:
+            failures.append(fail("finale", "reconstruct person cameo %s must be a person" % cameo))
     culprit = reconstruct.get("culprit", {})
     answer = culprit.get("answer")
     if answer not in culprit.get("options", []) or answer not in people:
         failures.append(fail("finale", "culprit answer %s must be an option and a person" % answer))
+
+    for clue in clues:
+        speaker = clue.get("speaker")
+        if speaker is not None and speaker != "narration" and speaker not in people:
+            failures.append(fail("finale", "clue %s speaker must be narration or a person" % clue.get("id")))
 
     statement = finale.get("statement", {})
     template_id = statement.get("template")
@@ -295,6 +306,18 @@ def check_finale(lesson):
         for option in slot.get("options", []):
             if option.get("vocabulary") not in vocabulary:
                 failures.append(fail("refs", "statement slot %s vocabulary ref is missing" % sid))
+    return failures
+
+
+def check_required_strings(lesson):
+    failures = []
+    strings = lesson.get("strings", {})
+    missing = REQUIRED_STRINGS - set(strings)
+    for sid in sorted(missing):
+        failures.append(fail("strings", "strings must include %s" % sid))
+    for sid, text in strings.items():
+        if FORBIDDEN_WORDS.search(str(text)):
+            failures.append(fail("strings", "string %s must not contain fail/failed/wrong" % sid))
     return failures
 
 
@@ -320,12 +343,22 @@ def validate(lesson):
         check_line_scope,
         check_challenges,
         check_finale,
+        check_required_strings,
         check_source_phrases,
     ]
     failures = []
     for check in checks:
         failures.extend(check(lesson))
-    return failures
+    # The same underlying problem can be flagged by more than one check (a
+    # generic walk plus a more specific per-item check); de-duplicate the
+    # printed failures while preserving the order they were found in.
+    seen = set()
+    deduped = []
+    for failure in failures:
+        if failure not in seen:
+            seen.add(failure)
+            deduped.append(failure)
+    return deduped
 
 
 def load(path):
