@@ -1,7 +1,7 @@
 # Implementation Log — Fine Print
 
 **Phase:** 6 of 9 (Implement)
-**Status:** Complete (pending final whole-branch review findings)
+**Status:** Complete
 **Last Updated:** 2026-09-17
 **Method:** one fresh implementer per slice (Opus or Codex), TDD, an independent reviewer per slice, commit and push on green. Working ledger: `.superpowers/sdd/PROJECT_PLAN/progress.md` (git-ignored). Interfaces: `docs/CONTRACT.md`.
 
@@ -93,3 +93,11 @@
 - **S11 fix round:** distinct silhouettes (girl / woman / man) keyed by `people[id].cameo`, shake detector scoped to the finale item, h1 on every screen, cited list rows even, word tray as a type case.
 - **Lesson rounds 4–5:** all seven finale clues are lines the reader cites during the case (proving 71, 106, 119, 132); excerpt V re-authored around line 71 with portrait choices; line 119 filed as narration. Content reviewer: ship as is.
 - **Gates at HEAD:** 185 node tests, validator OK (132 lines / 10 excerpts / 40 challenges), scan OK (49 files).
+
+## Entry 13 — 2026-09-17 — Final whole-branch review and fix wave
+
+- **Review (Opus, read-only, whole branch):** the founding rule holds end to end (story text only through `line()`/`quote()`, scan covers every served file); scoring is write-once under double dispatch, refresh, Back and retry; verdicts match the PRD table; no dead ends. Verdict: with fixes.
+- **Fix wave (one Opus dispatch, commit 1d687a6):** Revisit the case now navigates to the study without resetting (the note beside it is true); `localStorage` access guarded; `boot()` failure card; fixture-lesson fallback restricted to localhost; `score(state, lesson)` counts every scored item so a typed route cannot reach Master Detective on 2 of 42; validator enforces `skill` and `scored`; reduced-motion block for the finale; favicon; `.vercelignore` keeps planning docs and tests off the deploy.
+- **Gates at HEAD:** 187 node tests, 24 Python tests, validator OK, scan OK. Re-review: all addressed.
+- **Preserved:** `factory/artifacts/LESSON_REVIEW_NOTES.md` — the per-challenge table (answer, evidence line, why each decoy is wrong) plus all five review rounds; it is the input to the Test-QA read-through.
+- **Deferred (not blocking):** router does not clamp excerpt to the lesson; store restore does not check `lessonId`; no focus move on route change; finale partial decided in the view layer; six-portrait grid leaves one card orphaned; no unit test for the report screen's controls.
