@@ -23,8 +23,10 @@ import {
 } from "./chrome.js";
 import {
   selectionAfter,
+  selectionAfterStrike,
   selectionComplete,
   visibleStages,
+  workingStage,
   pageModeAfterAttempt,
   litLines,
   nudgeStatus,
@@ -68,7 +70,10 @@ export function renderChallengeScreen(root, ctx, options) {
   });
 
   const work = el("div", { class: "work" });
-  const active = stages.find((stage) => stage.form === "full") ?? stages[0];
+  // The tools serve the stage the reader is actually working — the last one
+  // still open — so a nudge spent on the define turn is recorded against define
+  // and not against the apply turn still sitting above it after a wrong answer.
+  const active = workingStage(stages);
   let panel = null;
 
   for (const stage of stages) {
@@ -250,6 +255,12 @@ export function renderChallenge(root, ctx) {
       refresh();
     },
     strike(choiceId) {
+      // Ruling a choice out takes it off the desk, so the mark goes with it —
+      // otherwise bringing it back would resurrect a mark the reader never made
+      // again. The session is written before the dispatch, because the dispatch
+      // redraws the screen and reads the session back.
+      selected = selectionAfterStrike(selected, choiceId);
+      setSelection(challengeId, selected);
       // Free, reversible, never scored: the reducer's STRIKE touches nothing else.
       dispatch({ type: "STRIKE", challengeId, choiceId });
     }
@@ -301,7 +312,11 @@ export function renderChallenge(root, ctx) {
       })
     );
   }
-  article.append(el("div", { class: "challenge__act" }, [submit]));
+  if (!solved) {
+    // A solved challenge keeps what the reader won, not a control they can no
+    // longer press: the way on is the Next control, not a dead button.
+    article.append(el("div", { class: "challenge__act" }, [submit]));
+  }
   refresh();
 
   root.append(article);
@@ -360,12 +375,16 @@ function lockStage(challenge, { lesson, hands }) {
   const chosenAt = choices.findIndex((choice) => hands.selected.includes(choice.id));
   const pointerAt = chosenAt >= 0 ? angles[chosenAt] : -90;
 
+  // The slip is a tag on the box, not the page: it names the word and where in
+  // the excerpt it was used, and stops there. Printing the line here would hand
+  // over the evidence for nothing, and a nudge would then buy what the screen
+  // had already given away. Reread, rewind and a nudge remain the ways to the line.
   const box = el("div", { class: "strongbox" }, [
     keyholeMark(),
     entry && Number.isInteger(entry.line)
       ? el("div", { class: "strongbox__slip" }, [
           el("p", { class: "strongbox__from" }, [label(UI.fromLine(entry.line))]),
-          el("p", { class: "strongbox__quote", text: line(entry.line) })
+          el("p", { class: "strongbox__word", text: entry.word })
         ])
       : null
   ]);

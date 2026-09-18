@@ -321,8 +321,10 @@ ul.portraits li {
 }
 
 .strongbox__slip {
-  width: 100%;
+  width: auto;
+  min-width: 14ch;
   max-width: 46ch;
+  text-align: center;
   padding: clamp(1rem, 2.2vw, 1.5rem);
   color: var(--ink);
   background: linear-gradient(168deg, var(--paper) 0%, var(--paper-warm) 62%, var(--paper-mid) 100%);
@@ -341,10 +343,14 @@ ul.portraits li {
   font-size: 0.7rem;
 }
 
-.strongbox__quote {
+/* The word, in the display hand: the key itself, on a tag tied to the box. */
+.strongbox__word {
   margin: 0;
-  font-size: clamp(1.02rem, 1.4vw, 1.16rem);
-  line-height: 1.55;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: 0.01em;
 }
 
 /* the box refuses to open: one short shake, and the page comes back */
@@ -559,7 +565,8 @@ ul.portraits li {
 
 @media (min-width: 1040px) {
   .citation {
-    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+    /* the page keeps its measure: the notes beside it are a margin, not a column */
+    grid-template-columns: minmax(0, 2fr) minmax(0, 0.85fr);
   }
 }
 
@@ -608,14 +615,24 @@ ul.portraits li {
 
 /* A candidate line looks markable before it is marked: a faint ruled underline
  * the reader's own pen can go over. Ink, not oxblood, until they choose it.
+ *
+ * It is a text decoration and not a border, because the line-text is a block in
+ * the grid: a border would draw one rule under the last wrapped row and run it
+ * out past the final word. An underline follows every row and stops at the
+ * glyphs, which is what a pen does.
  */
 .line--slip .line-text {
-  border-bottom: 1px dotted rgba(58, 36, 22, 0.42);
-  transition: border-color 0.2s ease;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(58, 36, 22, 0.42);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.26em;
+  text-decoration-skip-ink: none;
+  transition: text-decoration-color 0.2s ease;
 }
 
 .line--slip .choice:hover:not(:disabled) .line-text {
-  border-bottom-color: var(--brass-ink);
+  text-decoration-color: var(--brass-ink);
 }
 
 /* The reader's mark: an oxblood underline under the line they stand behind. */
@@ -628,7 +645,9 @@ ul.portraits li {
 }
 
 .line--slip[data-selected="true"] .line-text {
-  border-bottom: 2px solid var(--oxblood);
+  text-decoration-style: solid;
+  text-decoration-color: var(--oxblood);
+  text-decoration-thickness: 2px;
 }
 
 .line--slip[data-selected="true"] .line-number {
@@ -637,7 +656,7 @@ ul.portraits li {
 
 /* once it is cited, the lines the reader passed over stop offering themselves */
 .challenge[data-state="open"] .line--slip:not([data-selected="true"]) .line-text {
-  border-bottom-color: transparent;
+  text-decoration-color: transparent;
 }
 
 .line--slip .strike {
@@ -748,6 +767,26 @@ ul.portraits li {
   margin: 0;
   font-size: 0.98rem;
   color: rgba(237, 225, 196, 0.8);
+}
+
+/* ------------------------------------------------------ what a submit said */
+/* A line under the challenge, never a banner: the box opened, or it did not and
+ * the page has already come back open at the line that settles it.
+ */
+
+.outcome {
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.outcome[data-outcome="solved"] {
+  color: var(--gilt);
+}
+
+.outcome[data-outcome="again"] {
+  color: var(--oxblood);
 }
 
 /* ------------------------------------------------------------- page tools */
@@ -895,8 +934,12 @@ ul.portraits li {
     0 0 26px rgba(245, 207, 134, 0.5);
 }
 
+/* The lamp is the system's, so the number it lights is brass, not oxblood: the
+ * reader's ink stays theirs and never stands in for the room's own light.
+ */
 .page--panel .line[data-lit="line"] .line-number {
-  color: var(--oxblood);
+  color: var(--brass-ink);
+  font-weight: 600;
 }
 
 .page--panel .line[data-mark="refused"] .line-text {
@@ -909,7 +952,10 @@ ul.portraits li {
   max-width: 44ch;
   margin: 0.35rem 0 0.7rem calc(3ch + 1.9rem);
   padding-left: 0.8rem;
-  border-left: 2px solid var(--oxblood);
+  /* Inkwell writes in the margin, and Inkwell is not the reader: a brass
+   * hairline holds the note, never the reader's own oxblood.
+   */
+  border-left: 2px solid var(--brass);
   font-family: var(--font-label);
   font-size: 0.84rem;
   line-height: 1.5;

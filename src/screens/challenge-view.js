@@ -25,6 +25,17 @@ export function selectionAfter(selected, choiceId, { targets = 1, struck = [] } 
   return current.length >= targets ? current : [...current, choiceId];
 }
 
+/**
+ * What the selection becomes when a choice is ruled out or brought back.
+ *
+ * Ruling a choice out takes it off the desk, so it cannot still be one of the
+ * marks waiting to be submitted — and because the rule-out is reversible, the
+ * mark must not come back with it when the reader changes their mind.
+ */
+export function selectionAfterStrike(selected, choiceId) {
+  return (selected ?? []).filter((id) => id !== choiceId);
+}
+
 /** The choices still in play: everything the reader has not ruled out. */
 export function selectableIds(choices, struck = []) {
   return (choices ?? []).map((choice) => choice.id).filter((id) => !struck.includes(id));
@@ -61,6 +72,26 @@ export function visibleStages(entries, state) {
 
 export function isAttempted(state, challengeId) {
   return Object.hasOwn(state?.firstAttempts ?? {}, challengeId);
+}
+
+/**
+ * The stage the page tools belong to: the last one still open.
+ *
+ * The tools ask about one challenge at a time, and the nudge they spend is
+ * recorded against that challenge's id. The reader works down the desk, so the
+ * newest thing still unanswered is what they are looking at — not the first
+ * thing on the screen, which may be a retry they have already set aside. With
+ * nothing left open, the tools stay with whichever stage came last rather than
+ * vanishing.
+ */
+export function workingStage(stages) {
+  const list = stages ?? [];
+  for (let position = list.length - 1; position >= 0; position -= 1) {
+    if (list[position].form === "full") {
+      return list[position];
+    }
+  }
+  return list.length > 0 ? list[list.length - 1] : null;
 }
 
 /** A wrong answer reopens the page; a right one leaves the reader with the win. */
@@ -148,4 +179,97 @@ export function dialAngles(count) {
     positions.push(-90 + (i * 360) / count);
   }
   return positions;
+}
+
+/* ------------------------------------------------------------- the finale */
+
+/**
+ * The four standings, worst to best. The report draws them as a ladder and lights
+ * the one the reader is standing on; nothing here decides which that is — the
+ * verdict selector does, and this only fixes the order.
+ */
+export const LADDER = ["reopened", "review", "closed", "master"];
+
+/** Which rung a verdict is. An unknown verdict stands on the bottom one. */
+export function ladderRung(verdict) {
+  const rung = LADDER.indexOf(verdict);
+  return rung < 0 ? 0 : rung;
+}
+
+/** The ladder to draw: the rungs passed, the rung stood on, the rungs above. */
+export function ladderMarks(verdict) {
+  const rung = ladderRung(verdict);
+  return LADDER.map((key, position) => ({
+    key,
+    state: position === rung ? "lit" : position < rung ? "passed" : "ahead"
+  }));
+}
+
+/**
+ * What the seal did, once the reader has pressed it: `solved` when the board
+ * holds, `partial` when they named the right person but the lines behind the
+ * name are not the four that prove it, `again` otherwise, and null before the
+ * seal has been tried at all. Naming the person is never nothing.
+ */
+export function finaleOutcome(state, lesson) {
+  if (!isAttempted(state, "finale-reconstruct")) {
+    return null;
+  }
+  if (state?.finale?.solved === true) {
+    return "solved";
+  }
+  const answer = lesson?.finale?.reconstruct?.culprit?.answer;
+  return state?.finale?.culprit === answer ? "partial" : "again";
+}
+
+/** Pins left in the tin: the count the board shows as pins, not as a number. */
+export function pinsLeft(chosen, required) {
+  return Math.max(0, (required ?? 0) - (chosen ?? []).length);
+}
+
+/**
+ * Every line the reader has put their name to, in reading order: the ones they
+ * cited during the case and the ones they pinned to the board, each with whose
+ * words they are where the lesson says. A line that is both appears once.
+ */
+export function citedEvidence(state, lesson) {
+  const clues = lesson?.finale?.reconstruct?.clues ?? [];
+  const speakerOfLine = new Map(clues.map((clue) => [clue.line, clue.speaker]));
+  const cited = new Set(citedLines(state?.cited));
+  const pinned = new Set();
+  for (const clueId of state?.finale?.clues ?? []) {
+    const clue = clues.find((candidate) => candidate.id === clueId);
+    if (clue) {
+      pinned.add(clue.line);
+    }
+  }
+  return [...new Set([...cited, ...pinned])]
+    .sort((a, b) => a - b)
+    .map((line) => ({
+      line,
+      speaker: speakerOfLine.has(line) ? speakerOfLine.get(line) : null,
+      pinned: pinned.has(line),
+      cited: cited.has(line)
+    }));
+}
+
+/* ---------------------------------------------------------- the statement */
+
+/** How many blanks in the closing line are still empty. */
+export function blanksLeft(slots, chosen) {
+  return (slots ?? []).filter((slot) => !(chosen ?? {})[slot.id]).length;
+}
+
+/**
+ * The blank whose words are on offer: the one the reader pointed at, or else the
+ * first one still empty, or else the first. There is always one, so the tray of
+ * words is never empty while there is a line to fill.
+ */
+export function openBlank(slots, chosen, pointedAt) {
+  const all = slots ?? [];
+  if (all.some((slot) => slot.id === pointedAt)) {
+    return pointedAt;
+  }
+  const empty = all.find((slot) => !(chosen ?? {})[slot.id]);
+  return (empty ?? all[0])?.id ?? null;
 }
