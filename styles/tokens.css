@@ -1,0 +1,6 @@
+:root {
+  --mahogany:#3A2416; --brass:#C9A227; --gilt:#E0C478; --lamplight:#F5CF86;
+  --paper:#EDE1C4; --ink:#2A2017; --oxblood:#6E2433;
+  --font-display:"Bodoni Moda", serif; --font-read:"EB Garamond", serif; --font-label:"IM Fell English SC", serif;
+  --measure: 68ch;
+}

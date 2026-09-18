@@ -67,6 +67,11 @@ export function excerptLines(id) {
   return out;
 }
 
+/** The coach block: {deterministic: {skill: stringId}, generic: stringId}. */
+export function coach() {
+  return loaded().coach ?? {};
+}
+
 export function challenge(id) {
   const found = loaded().challenges?.[id];
   if (!found) {
