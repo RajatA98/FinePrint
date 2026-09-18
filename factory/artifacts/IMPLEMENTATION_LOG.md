@@ -78,3 +78,11 @@
 - **Tests:** 25 in `test/api-coach.test.js`, injected fetch and env; 182 total.
 - **Review:** Sonnet (a Codex run hung and was killed). Approved after one fix round: id-like fields validated against enums and an anchored pattern; banned-word check whole-word.
 - **Known Issues:** the live path is untested against the real API until a key exists; `docs/COACH_SMOKE.md` documents the one-command check.
+
+## Entry 11 — 2026-09-17 — S11 Phase 5 finale and Case Report (Opus)
+
+- **Phase:** 5
+- **Goal:** reconstruct the case as a case board (unnamed cameos, brass name plates, seven clue slips, four pins, red thread, a seal), the statement as letterpress tiles set into a handwritten line, the Case Report as a case file (verdict stamp, four-rung ladder, three scopes, skill meters, pace last, the coach's note with the story-blindness line, attribution). No select, checkbox or form Submit remains, per the user's mid-build direction.
+- **Tests:** 17 new pure-helper cases; 182 total; all four verdicts and the network-down coach path verified in the browser.
+- **Review:** in progress. Controller observation: all cameos share one silhouette; distinct silhouettes required.
+- **Content follow-up:** only one of the ten cited lines was among the finale clues; lesson fix round 4 re-points excerpt V's citation to line 71 so all seven finale clues are lines the reader cited.
