@@ -1578,6 +1578,11 @@
           "line": 80
         },
         {
+          "id": "L81",
+          "kind": "line",
+          "line": 81
+        },
+        {
           "id": "L82",
           "kind": "line",
           "line": 82
@@ -1600,6 +1605,7 @@
       "margin": {
         "L77": "s-c6-cite-margin-L77",
         "L80": "s-c6-cite-margin-L80",
+        "L81": "s-c6-cite-margin-L81",
         "L86": "s-c6-cite-margin-L86",
         "L90": "s-c6-cite-margin-L90"
       }
@@ -2089,7 +2095,7 @@
       "stage": "apply",
       "skill": "vocabulary",
       "scored": true,
-      "vocabulary": "v-romance",
+      "vocabulary": "v-horror",
       "prompt": "s-c10-lock-apply-prompt",
       "choices": [
         {
@@ -2116,7 +2122,7 @@
       "answer": [
         "a"
       ],
-      "evidence": 132,
+      "evidence": 127,
       "margin": {
         "b": "s-c10-lock-apply-margin-b",
         "c": "s-c10-lock-apply-margin-c",
@@ -2128,7 +2134,7 @@
       "stage": "define",
       "skill": "vocabulary",
       "scored": true,
-      "vocabulary": "v-romance",
+      "vocabulary": "v-horror",
       "prompt": "s-c10-lock-define-prompt",
       "choices": [
         {
@@ -2155,7 +2161,7 @@
       "answer": [
         "a"
       ],
-      "evidence": 132,
+      "evidence": 127,
       "margin": {
         "b": "s-c10-lock-define-margin-b",
         "c": "s-c10-lock-define-margin-c",
@@ -2479,12 +2485,12 @@
     "s-gloss-pursued": "Kept going with something. Here, kept the questions coming.",
     "s-gloss-habitation": "Somebody living in a place; the sign that a place is lived in.",
     "s-gloss-tragedy": "A terrible event, especially one that ends in death.",
-    "s-c3-lock-apply-a": "That it is the girl speaking, and the question is hers.",
-    "s-c3-lock-apply-b": "That the girl chases the caller across the room.",
+    "s-c3-lock-apply-a": "It is the verb carrying her speech, and it tells you the exchange did not stop.",
+    "s-c3-lock-apply-b": "It is a verb of chasing, and the girl is crossing the room after him.",
     "s-c3-lock-apply-margin-b": "Nobody moves in this scene. The word is attached to what she says, not to how she walks.",
-    "s-c3-lock-apply-c": "That the caller is following the girl's story closely.",
+    "s-c3-lock-apply-c": "It is the caller's verb: he is the one following her story closely.",
     "s-c3-lock-apply-margin-c": "The word belongs to whoever asked the question, and the question is hers.",
-    "s-c3-lock-apply-d": "That the aunt has come downstairs at last.",
+    "s-c3-lock-apply-d": "It belongs to the aunt, who has come downstairs at last.",
     "s-c3-lock-apply-margin-d": "The aunt is still upstairs here. This line belongs to the girl.",
     "s-c3-lock-apply-prompt": "Line 29 ends with the word pursued. What is it telling you?",
     "s-c3-lock-define-a": "Went on with it; followed it up.",
@@ -2579,15 +2585,16 @@
     "s-c6-lock-define-d": "A formal introduction to a stranger.",
     "s-c6-lock-define-margin-d": "The word has nothing to do with being introduced to anybody.",
     "s-c6-lock-define-prompt": "Choose the meaning of delusion that fits line 90.",
-    "s-c6-search-margin-o-marshes": "That is where the men have been all day, and it is nowhere she could see from her chair.",
+    "s-c6-search-margin-o-marshes": "That is where the men have been all day, and it is not anything in front of her.",
     "s-c6-search-margin-o-carpets": "The carpets are on her mind when she talks. They are not what her eyes are on.",
     "s-c6-search-margin-o-birds": "The birds are a subject of her chatter, not a thing in front of her.",
     "s-c6-search-prompt": "The book is closed. The lady of the house took in only part of what her guest was telling her. From the way the page describes her, pick the two things she was really watching.",
     "s-c6-cite-margin-L77": "This line lists what she was saying, which tells you nothing about where she was looking.",
     "s-c6-cite-margin-L80": "This line is the guest's effort to steer the talk somewhere less grim.",
+    "s-c6-cite-margin-L81": "This line measures how much of her attention he had. It does not say where the rest of it went.",
     "s-c6-cite-margin-L86": "This line is the guest's own announcement about his doctors.",
     "s-c6-cite-margin-L90": "This line describes the belief he labours under, and says nothing of her attention.",
-    "s-c6-cite-prompt": "Open the page. Which line shows that she was only half attending to her guest?",
+    "s-c6-cite-prompt": "Open the page. Which line says where her eyes kept going?",
     "s-gloss-alert": "Wide awake and watching closely.",
     "s-gloss-comprehension": "Understanding; taking in what something means.",
     "s-gloss-dazed": "Stunned, unable to take in what is in front of you.",
@@ -2675,26 +2682,26 @@
     "s-gloss-horror": "A strong fear or dread of something.",
     "s-gloss-pariah": "An outcast; a stray animal or person that others keep away from.",
     "s-gloss-romance": "Here, an invented tale told as though it were true. An older meaning of the word.",
-    "s-c10-lock-apply-a": "It names the thing the narrator says she can turn out at a moment's notice.",
-    "s-c10-lock-apply-b": "It says the girl has fallen in love.",
-    "s-c10-lock-apply-margin-b": "That is the word's usual meaning today. This sentence is about the tales she tells.",
-    "s-c10-lock-apply-c": "It names a book somebody in the house was reading.",
-    "s-c10-lock-apply-margin-c": "No book appears anywhere in the scene; the sentence sums up a habit of hers.",
-    "s-c10-lock-apply-d": "It promises that her account of the dogs was true.",
-    "s-c10-lock-apply-margin-d": "The line is the narrator's verdict on her inventing, not a guarantee of anything she said.",
-    "s-c10-lock-apply-prompt": "The last line of the case is the narrator's verdict on the girl. What is the word romance doing in it?",
-    "s-c10-lock-define-a": "A made-up tale told as though it happened.",
-    "s-c10-lock-define-b": "A love affair.",
-    "s-c10-lock-define-margin-b": "The modern meaning, and nothing in this story turns on love.",
-    "s-c10-lock-define-c": "A true report of events.",
-    "s-c10-lock-define-margin-c": "The point of the line is that what she produces is invented.",
-    "s-c10-lock-define-d": "A polite apology made in a hurry.",
-    "s-c10-lock-define-margin-d": "She offers no apology. She offers a tale.",
-    "s-c10-lock-define-prompt": "Choose the meaning of romance that fits that last line.",
+    "s-c10-lock-apply-a": "It names the feeling she says he carries about dogs.",
+    "s-c10-lock-apply-b": "It describes the look on his face as he went.",
+    "s-c10-lock-apply-margin-b": "The word sits inside her account of what he once told her, not in anything anybody in the room watched him do.",
+    "s-c10-lock-apply-c": "It describes the dogs in the tale she is about to tell.",
+    "s-c10-lock-apply-margin-c": "The dogs get their own words a line or two later. This one names a feeling, and the feeling is his.",
+    "s-c10-lock-apply-d": "It names what the men found waiting when they came home.",
+    "s-c10-lock-apply-margin-d": "The men are indoors and their day is over. The word belongs to her explanation of the guest.",
+    "s-c10-lock-apply-prompt": "Line 127 puts the word horror inside what the girl says about the guest. What is it doing there?",
+    "s-c10-lock-define-a": "A strong dread of something.",
+    "s-c10-lock-define-b": "A dreadful sight.",
+    "s-c10-lock-define-margin-b": "A horror can be a dreadful thing to look at, but this one is followed by the thing it is felt about.",
+    "s-c10-lock-define-c": "A shock that passes in a moment.",
+    "s-c10-lock-define-margin-c": "A dread of this kind is carried about for years; the line offers it as a settled fact about him.",
+    "s-c10-lock-define-d": "A great liking for something.",
+    "s-c10-lock-define-margin-d": "That is the opposite of what she says keeps him away from dogs.",
+    "s-c10-lock-define-prompt": "Choose the meaning of horror that fits line 127.",
     "s-c10-search-margin-mrs-sappleton": "She takes this tale as it comes, the same way she takes everything said under her own roof.",
     "s-c10-search-margin-mr-sappleton": "He has just walked in from a day out of doors and has heard none of what went before.",
     "s-c10-search-margin-framton": "He is out on the road by now, and he is the one the tale is about.",
-    "s-c10-search-prompt": "The book is closed. The tale about the dogs is told to a room that believes it. One person there knew it was made up as it was spoken. Which of them?",
+    "s-c10-search-prompt": "The book is closed. The tale about the dogs is told to a room with no reason to doubt it. One person there knew it was made up as it was spoken. Which of them?",
     "s-c10-cite-margin-L126": "This line is the explanation itself. A claim is not proof of its own truth.",
     "s-c10-cite-margin-L128": "This line is a piece of the past she hands him, and it neither backs her up nor gives her away.",
     "s-c10-cite-margin-L130": "These creatures belong to that same invented past.",
