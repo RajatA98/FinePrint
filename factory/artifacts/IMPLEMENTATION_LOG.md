@@ -63,3 +63,18 @@
 - **Goal:** study shelf, vocabulary cards, the read with numbered lines, book-opens title card, book-closes, resume on refresh.
 - **Tests:** 10 new (read phase helper); 110 total; contrast 9.09:1 worst case.
 - **Review:** in progress.
+
+## Entry 9 — 2026-09-17 — S9 Phase 4 challenges (Opus)
+
+- **Phase:** 4
+- **Goal:** the one shared challenge renderer (dial, object, portrait, line), word lock, search the room, cite the line, the reopened page (reread / rewind / nudge), strike-outs, the excerpt loop, progress strip.
+- **Tests:** 23 new pure-helper cases; 151 total; full ten-excerpt browser run.
+- **Review:** Opus. Mechanics confirmed; three polish items sent back (oxblood borrowed by the interface, evidence underline on wrapped lines, lock slip revealing the evidence line). Ruling: the lock slip shows the word and line number only. Fix round in progress.
+
+## Entry 10 — 2026-09-17 — S13 live coach (Sonnet)
+
+- **Phase:** 6
+- **Goal:** `api/coach.js` behind `USE_LIVE_AI`, schema-constrained Gemini call, 4 s abort, 200-always, three-tier fallback, payload whitelist guard, coach prompt with an isolated tone constant, smoke script.
+- **Tests:** 25 in `test/api-coach.test.js`, injected fetch and env; 182 total.
+- **Review:** Sonnet (a Codex run hung and was killed). Approved after one fix round: id-like fields validated against enums and an anchored pattern; banned-word check whole-word.
+- **Known Issues:** the live path is untested against the real API until a key exists; `docs/COACH_SMOKE.md` documents the one-command check.
