@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Fine Print — a reading comprehension game. Vanilla HTML/CSS/JS, no bundler, no runtime dependencies.",
+  "description": "Fine Print \u2014 a reading comprehension game. Vanilla HTML/CSS/JS, no bundler, no runtime dependencies.",
   "scripts": {
     "test": "node --test \"test/*.test.js\"",
     "validate": "python3 scripts/validate_lesson.py public/lesson.open-window.json",
     "scan": "python3 scripts/scan_sources.py",
     "check": "npm test && npm run validate && npm run scan",
-    "serve": "python3 -m http.server 8080"
+    "serve": "python3 -m http.server 8080",
+    "golden": "playwright test test/e2e"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0"
   }
 }
