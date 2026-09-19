@@ -2,6 +2,7 @@
 // heading block. Screens build DOM through here so the markup stays consistent.
 
 import { UI, SCREEN_LABEL } from "../ui-strings.js";
+import { demoEnabled, skipAhead } from "./demo.js";
 import { hasExcerpt } from "../router.js";
 import { forgetReadSession } from "./read-session.js";
 import { forgetChallengeSession } from "./challenge-session.js";
@@ -68,6 +69,9 @@ export function screenShell(root, ctx, { heading, label: screenName, mark } = {}
     el("p", { class: "chrome-label", text: screenName ?? SCREEN_LABEL[screen] ?? "" }),
     mark ?? null,
     hasExcerpt(screen) ? progressStrip(ctx, screen) : null,
+    demoEnabled() && hasExcerpt(screen)
+      ? button(UI.skipAhead, () => skipAhead(ctx), { class: "start-over demo-skip" })
+      : null,
     startOverButton(ctx, { label: UI.startOver, class: "start-over" })
   ]);
   const section = el("section", { class: `screen screen--${screen}` });

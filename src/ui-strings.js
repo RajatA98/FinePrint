@@ -5,6 +5,7 @@ export const UI = {
   wordmark: "Fine Print",
   openCase: "Open the case",
   startOver: "Start over",
+  skipAhead: "Skip ahead",
   next: "Next",
   readExcerpt: "Read the excerpt",
   closeBook: "Close the book",

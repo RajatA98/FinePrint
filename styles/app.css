@@ -205,6 +205,12 @@ button:disabled {
   cursor: default;
 }
 
+/* the demo skip: same quiet chrome as Start over, a shade of brass to say it is a tool */
+.demo-skip {
+  color: rgba(224, 196, 120, 0.85);
+  border-color: rgba(201, 162, 39, 0.4);
+}
+
 .start-over {
   flex: none;
   background: none;
