@@ -1114,3 +1114,101 @@ ul.portraits li {
     animation-delay: 0s !important;
   }
 }
+
+/* ---------------------------------------------------- the room, searched */
+/*
+ * The search is the one screen where the camera pulls back far enough to show
+ * the study itself: a panelled wall with its picture rail, a shelf of books up
+ * in the lamplight, and the desk filling the near half of the frame. The
+ * evidence tags lie on a leather blotter on that desk. Nothing here is story
+ * content — it is the guide's own room, the stage every screen already claims
+ * to stand on — and every colour is a shade of the pinned palette.
+ */
+body[data-screen="search"] #app::before,
+body[data-screen="search"] #app::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* the wall, the rails, and the desk */
+body[data-screen="search"] #app::before {
+  --desk-edge: min(36%, 330px);
+  inset: 0;
+  background:
+    /* the lamp pool, falling across wall and desk alike */
+    radial-gradient(760px 540px at 80% 12%, rgba(245, 207, 134, 0.3), rgba(245, 207, 134, 0.1) 38%, rgba(0, 0, 0, 0) 74%),
+    /* the desk's front edge and the drop into shadow */
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0 calc(var(--desk-edge) - 3px), rgba(230, 207, 135, 0.22) calc(var(--desk-edge) - 3px) calc(var(--desk-edge) - 1px), rgba(0, 0, 0, 0.5) calc(var(--desk-edge) - 1px) calc(var(--desk-edge) + 6px), rgba(0, 0, 0, 0) calc(var(--desk-edge) + 30px)),
+    /* wood grain on the desk, running across the frame */
+    repeating-linear-gradient(176deg, rgba(0, 0, 0, 0) 0 9px, rgba(0, 0, 0, 0.07) 9px 11px, rgba(0, 0, 0, 0) 11px 31px, rgba(245, 207, 134, 0.02) 31px 32px),
+    /* the desk plane */
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0 var(--desk-edge), var(--mahogany-light) var(--desk-edge), var(--mahogany) 76%, var(--mahogany-dark) 100%),
+    /* the dado rail */
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0 calc(var(--desk-edge) - 12px), rgba(230, 207, 135, 0.14) calc(var(--desk-edge) - 12px) calc(var(--desk-edge) - 10px), rgba(0, 0, 0, 0.45) calc(var(--desk-edge) - 10px) calc(var(--desk-edge) - 6px), rgba(0, 0, 0, 0) calc(var(--desk-edge) - 6px)),
+    /* wainscot stiles between the panels */
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 178px, rgba(0, 0, 0, 0.42) 178px 181px, rgba(230, 207, 135, 0.1) 181px 183px, rgba(0, 0, 0, 0) 183px 196px),
+    /* the picture rail */
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0 12%, rgba(230, 207, 135, 0.12) 12% calc(12% + 2px), rgba(0, 0, 0, 0.5) calc(12% + 2px) calc(12% + 5px), rgba(0, 0, 0, 0) calc(12% + 5px)),
+    /* the wall itself */
+    linear-gradient(180deg, var(--ground-deep) 0%, var(--ground-2) 12%, #2b1b10 var(--desk-edge), #2b1b10 100%);
+  box-shadow: inset 0 0 280px rgba(0, 0, 0, 0.8);
+}
+
+/* the shelf of books up in the lamplight */
+body[data-screen="search"] #app::after {
+  top: calc(12% + 26px);
+  right: 4vw;
+  width: clamp(200px, 22vw, 330px);
+  height: clamp(56px, 5.6vw, 84px);
+  border-bottom: 9px solid var(--mahogany-dark);
+  box-shadow: 0 12px 18px rgba(0, 0, 0, 0.55);
+  background:
+    /* a leaning gap and a paper-bound volume, every so often */
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 118px, rgba(211, 191, 151, 0.5) 118px 130px, rgba(0, 0, 0, 0) 130px 216px),
+    /* short row of books, sitting lower */
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0) 0 18px, #3a2a1d 18px 33px, #1f1710 33px 35px, #4a3020 35px 52px, #1f1710 52px 54px, rgba(0, 0, 0, 0) 54px 92px, #2c2418 92px 108px, #1f1710 108px 110px, rgba(0, 0, 0, 0) 110px 216px),
+    /* tall row of books */
+    repeating-linear-gradient(90deg, #4c3220 0 16px, #1f1710 16px 18px, #5e4708 18px 30px, #1f1710 30px 32px, #3a2416 32px 50px, #1f1710 50px 52px, #2a2017 52px 66px, #1f1710 66px 68px, #6d5411 68px 78px, #1f1710 78px 80px, #3a2a1d 80px 96px, #1f1710 96px 98px, #4c3220 98px 116px, #1f1710 116px 118px, rgba(0, 0, 0, 0) 118px 130px, #2c2418 130px 148px, #1f1710 148px 150px, #5e4708 150px 160px, #1f1710 160px 162px, #3a2416 162px 182px, #1f1710 182px 184px, #4c3220 184px 202px, #1f1710 202px 204px, #2a2017 204px 216px);
+  background-size: 100% 100%, 100% 72%, 100% 100%;
+  background-position: 0 0, 0 100%, 0 0;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  /* the lamp catches the top of the row */
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), #000 40%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), #000 40%);
+  opacity: 0.85;
+}
+
+/* the blotter on the desk, where the evidence lies */
+.screen--search .objects {
+  position: relative;
+  padding: clamp(1.6rem, 3vw, 2.4rem) clamp(1.2rem, 2.6vw, 2rem) clamp(1.2rem, 2.4vw, 1.8rem);
+  border-radius: 3px;
+  background:
+    /* brass corners */
+    linear-gradient(135deg, var(--brass-face) 0 14px, rgba(0, 0, 0, 0) 14px) 0 0 / 30px 30px no-repeat,
+    linear-gradient(225deg, var(--brass-face) 0 14px, rgba(0, 0, 0, 0) 14px) 100% 0 / 30px 30px no-repeat,
+    linear-gradient(45deg, var(--brass-face) 0 14px, rgba(0, 0, 0, 0) 14px) 0 100% / 30px 30px no-repeat,
+    linear-gradient(315deg, var(--brass-face) 0 14px, rgba(0, 0, 0, 0) 14px) 100% 100% / 30px 30px no-repeat,
+    /* the leather, worn paler where the lamp reaches it */
+    radial-gradient(70% 90% at 70% 0%, rgba(245, 207, 134, 0.1), rgba(0, 0, 0, 0) 70%),
+    linear-gradient(180deg, #2a2017 0%, #1f1710 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(230, 207, 135, 0.14),
+    inset 0 0 0 7px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 8px rgba(230, 207, 135, 0.06),
+    0 20px 34px rgba(0, 0, 0, 0.55),
+    0 2px 0 rgba(230, 207, 135, 0.08);
+}
+
+/* the question is written on the wall's light, not on the desk */
+.screen--search .challenge__ask .prompt {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 900px) {
+  body[data-screen="search"] #app::after {
+    display: none;
+  }
+}
