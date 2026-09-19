@@ -360,7 +360,8 @@ function promptBlock(challenge, { lesson, hands }) {
       made.textContent = UI.chosenCount(selected.length, targets);
     });
     block.append(
-      el("p", { class: "count" }, [label(UI.findCount(targets)), made])
+      el("p", { class: "count" }, [label(UI.findCount(targets)), made]),
+      el("p", { class: "how", text: UI.searchHow(targets) })
     );
   }
   return block;

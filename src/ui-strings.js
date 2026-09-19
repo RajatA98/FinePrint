@@ -95,6 +95,10 @@ export const UI = {
   tryAgain: "Try again",
 
   /* counted things */
+  searchHow(targets) {
+    const thing = targets > 1 ? "the things the question is about" : "the thing the question is about";
+    return `Pick ${thing} and report the find. The × crosses off anything you can rule out; that is free and never scored.`;
+  },
   findCount(targets) {
     return `Find ${NUMBER_WORD[targets] ?? targets}`;
   },

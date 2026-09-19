@@ -112,6 +112,15 @@
   color: rgba(237, 225, 196, 0.55);
 }
 
+/* how the search works, said once, in words: pick, report, cross off for free */
+.how {
+  margin: 0;
+  max-width: 52ch;
+  font-size: 0.98rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.72);
+}
+
 /* ------------------------------------------------------- a single choice */
 
 .choice-slot {
@@ -222,6 +231,10 @@ ul.portraits li {
   background: none;
   opacity: 0.32;
   transition: opacity 0.18s ease;
+}
+
+.objects .strike {
+  opacity: 0.62;
 }
 
 .strike:hover,
