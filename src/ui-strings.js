@@ -33,6 +33,7 @@ export const UI = {
   bringBack: "Bring this one back",
   ruledOut: "Ruled out",
   askInkwell: "Ask Inkwell",
+  askHint: "Try again from memory, or ask Inkwell for a hint.",
   reread: "Reread the page",
   backToChallenge: "Back to the challenge",
   boxOpens: "The box opens.",

@@ -27,7 +27,6 @@ import {
   selectionComplete,
   visibleStages,
   workingStage,
-  pageModeAfterAttempt,
   litLines,
   nudgeStatus,
   citedLines,
@@ -108,7 +107,12 @@ export function renderChallengeScreen(root, ctx, options) {
     }
   }
 
-  const tools = active ? pageTools(ctx, { stage: active, excerpt, redraw }) : null;
+  // The signal fires for any open turn the reader has been refused on, not
+  // only the newest: a missed apply turn still sits above the define turn.
+  const refusedAny = stages.some(
+    (stage) => stage.form === "full" && isAttempted(ctx.state, stage.challengeId) && !ctx.state.solved[stage.challengeId]
+  );
+  const tools = active ? pageTools(ctx, { stage: active, excerpt, redraw, refused: refusedAny }) : null;
   const forward = onward(ctx, { entries, route: nextRoute(index) });
   section.append(work, tools, forward);
 
@@ -127,7 +131,7 @@ export function renderChallengeScreen(root, ctx, options) {
 }
 
 /** The page is always within reach, and asking for help never costs a mark. */
-function pageTools(ctx, { stage, excerpt, redraw }) {
+function pageTools(ctx, { stage, excerpt, redraw, refused = false }) {
   const { challengeId, challenge } = stage;
   const status = nudgeStatus(ctx.state.nudges, challengeId);
 
@@ -163,7 +167,11 @@ function pageTools(ctx, { stage, excerpt, redraw }) {
   );
   ask.disabled = !status.available;
 
-  return el("div", { class: "tools" }, [
+  // After a refused try Inkwell is the signposted way on: the button is lit and
+  // says so, once, in words. Nothing is opened for the reader.
+  const signal = refused && status.available;
+
+  return el("div", { class: "tools", dataset: { signal: String(signal) } }, [
     reread,
     el("span", { class: "tools__ask" }, [
       ask,
@@ -288,12 +296,11 @@ export function renderChallenge(root, ctx) {
     () => {
       const choiceIds = [...selected];
       const result = grade(lesson, challengeId, choiceIds);
-      const mode = pageModeAfterAttempt(result);
-      if (mode) {
-        // The page comes back with the proving line lit. Marked before the
-        // dispatch because the dispatch redraws this screen from scratch.
-        reveal(challengeId, [challenge.evidence].filter(Number.isInteger), "line");
-        openPage(challengeId, mode, { choiceId: choiceIds[0] });
+      if (!result.correct) {
+        // Refused, and left at the desk to try again. Nothing opens on its
+        // own: the marks just refused are cleared so the next try is fresh, and
+        // the tools row below points at Inkwell for a hint.
+        clearSelection(challengeId);
       }
       dispatch({ type: "SUBMIT_ATTEMPT", challengeId, choiceIds, at: Date.now() });
     },
@@ -302,7 +309,14 @@ export function renderChallenge(root, ctx) {
 
   article.append(promptBlock(challenge, { lesson, hands }), stage);
   if (refused) {
-    article.append(el("p", { class: "outcome", dataset: { outcome: "again" }, text: UI.notYet }));
+    // The refusal and the way on sit together, beside the turn that missed:
+    // the tools row with Inkwell's button may be a screen further down.
+    article.append(
+      el("div", { class: "outcome-block" }, [
+        el("p", { class: "outcome", dataset: { outcome: "again" }, text: UI.notYet }),
+        el("p", { class: "outcome__hint", text: UI.askHint })
+      ])
+    );
   }
   if (solved) {
     article.append(

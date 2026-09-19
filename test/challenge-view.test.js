@@ -13,7 +13,6 @@ import {
   selectionComplete,
   visibleStages,
   workingStage,
-  pageModeAfterAttempt,
   paragraphRange,
   litLines,
   nudgeStatus,
@@ -194,13 +193,6 @@ test("with everything solved the tools stay with whichever stage came last", () 
 test("a screen with no challenges has no working stage", () => {
   assert.equal(workingStage([]), null);
   assert.equal(workingStage(undefined), null);
-});
-
-// ------------------------------------------------------------------ page mode
-
-test("a wrong attempt reopens the page; a right one does not", () => {
-  assert.equal(pageModeAfterAttempt({ correct: false }), "rewind");
-  assert.equal(pageModeAfterAttempt({ correct: true }), null);
 });
 
 // --------------------------------------------------------------- lit evidence

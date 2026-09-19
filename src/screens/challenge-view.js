@@ -94,10 +94,12 @@ export function workingStage(stages) {
   return list.length > 0 ? list[list.length - 1] : null;
 }
 
-/** A wrong answer reopens the page; a right one leaves the reader with the win. */
-export function pageModeAfterAttempt({ correct } = {}) {
-  return correct ? null : "rewind";
-}
+/*
+ * A wrong answer never opens the page by itself. The reader is refused, told to
+ * try again, and Inkwell is signposted as the way to a hint; the page is only
+ * ever reopened by their own hand, through Reread or a nudge. So there is no
+ * "mode after an attempt" to compute here.
+ */
 
 /**
  * The paragraph a line belongs to, clamped to the excerpt on screen. With no

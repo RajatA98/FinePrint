@@ -871,6 +871,25 @@ ul.portraits li {
   color: var(--oxblood);
 }
 
+.outcome-block .outcome {
+  color: var(--paper);
+}
+
+.outcome-block {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.7rem 0.9rem;
+  border-left: 2px solid var(--oxblood);
+  background: rgba(110, 36, 51, 0.1);
+}
+
+.outcome__hint {
+  margin: 0;
+  font-size: 0.98rem;
+  font-style: italic;
+  color: rgba(237, 225, 196, 0.86);
+}
+
 /* ------------------------------------------------------------- page tools */
 
 .tools {
@@ -898,6 +917,29 @@ ul.portraits li {
   color: rgba(237, 225, 196, 0.5);
   font-size: 0.7rem;
 }
+
+/* After a refused try, Inkwell is the signposted way on: the button takes the
+ * lamp and the row says so once in words. The glow answers the reader's own
+ * miss and settles as soon as they act. */
+.tools[data-signal="true"] .tool--ask {
+  color: var(--lamplight);
+  border-color: var(--brass);
+  background: rgba(245, 207, 134, 0.08);
+  box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.35), 0 0 22px rgba(245, 207, 134, 0.28);
+  animation: ask-glow 1.6s ease-in-out 3;
+}
+
+@keyframes ask-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.35), 0 0 22px rgba(245, 207, 134, 0.28); }
+  50% { box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.7), 0 0 34px rgba(245, 207, 134, 0.5); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tools[data-signal="true"] .tool--ask {
+    animation: none;
+  }
+}
+
 
 .challenge__act {
   margin-top: clamp(1.1rem, 2.4vw, 1.7rem);
