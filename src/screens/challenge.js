@@ -29,6 +29,7 @@ import {
   workingStage,
   litLines,
   nudgeStatus,
+  dealt,
   citedLines,
   dialAngles,
   isAttempted,
@@ -386,7 +387,7 @@ function stageFor(challenge, context) {
 
 function lockStage(challenge, { lesson, hands }) {
   const entry = lesson.vocabulary?.[challenge.vocabulary];
-  const choices = challenge.choices ?? [];
+  const choices = dealt(challenge.choices, challenge.prompt);
   const angles = dialAngles(choices.length);
   const chosenAt = choices.findIndex((choice) => hands.selected.includes(choice.id));
   const pointerAt = chosenAt >= 0 ? angles[chosenAt] : -90;
@@ -492,7 +493,7 @@ function keyholeMark() {
 
 function chooserStage(challenge, { lesson, hands }, className) {
   const list = el("ul", { class: className });
-  for (const choice of challenge.choices ?? []) {
+  for (const choice of dealt(challenge.choices, challenge.prompt)) {
     const isPortrait = choice.kind === "portrait";
     list.append(
       choiceSlot(choice, hands, {
@@ -500,7 +501,10 @@ function chooserStage(challenge, { lesson, hands }, className) {
         content: isPortrait
           ? [
               cameo(cameoFigure(lesson.people[choice.ref].cameo)),
-              el("span", { class: "choice__label", text: quote(lesson.people[choice.ref].role) })
+              el("span", { class: "choice__label" }, [
+                el("span", { class: "choice__name", text: lesson.people[choice.ref].name }),
+                el("span", { class: "choice__role", text: quote(lesson.people[choice.ref].role) })
+              ])
             ]
           : [tagMark(), el("span", { class: "choice__label", text: quote(lesson.objects[choice.ref].label) })]
       })
@@ -668,7 +672,7 @@ function plainLabel(choice, lesson) {
     case "object":
       return quote(lesson.objects[choice.ref].label);
     case "portrait":
-      return quote(lesson.people[choice.ref].role);
+      return lesson.people[choice.ref].name;
     case "line":
       return `${UI.lineNumber(choice.line)} — ${line(choice.line)}`;
     default:

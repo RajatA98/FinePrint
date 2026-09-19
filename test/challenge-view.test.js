@@ -14,6 +14,7 @@ import {
   visibleStages,
   workingStage,
   paragraphRange,
+  dealt,
   litLines,
   nudgeStatus,
   progressMarks,
@@ -432,4 +433,16 @@ test("only the three cuts are ever asked for by a portrait", () => {
       .map(cameoFigure)
   );
   assert.deepEqual([...asked].sort(), ["girl", "man", "woman"]);
+});
+
+// ------------------------------------------------------------------ the deal
+
+test("dealt keeps the items, fixes the order per seed, and moves the first one", () => {
+  const items = ["a", "b", "c", "d"];
+  const once = dealt(items, "s-c1-lock-apply-prompt");
+  assert.deepEqual([...once].sort(), items);
+  assert.deepEqual(dealt(items, "s-c1-lock-apply-prompt"), once);
+  assert.notDeepEqual(dealt(items, "s-c2-lock-apply-prompt"), once);
+  assert.deepEqual(dealt(undefined, "x"), []);
+  assert.deepEqual(items, ["a", "b", "c", "d"]);
 });

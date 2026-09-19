@@ -26,7 +26,8 @@ import {
   finaleOutcome,
   pinsLeft,
   openBlank,
-  cameoFigure
+  cameoFigure,
+  dealt
 } from "./challenge-view.js";
 
 // The portrait the reader is naming, and how many times THIS board had been
@@ -157,7 +158,7 @@ function namePlate(name) {
 function plateTray(ctx, { prompt, chosen, dispatch }) {
   const { lesson } = ctx;
   const plates = el("ul", { class: "tray__plates" });
-  for (const personId of prompt.options ?? []) {
+  for (const personId of dealt(prompt.options, prompt.prompt)) {
     plates.append(
       el("li", { class: "tray__slot" }, [
         button(
@@ -274,7 +275,7 @@ function culpritRegion(ctx, { culprit, sealed }) {
   const accused = state.finale.culprit ?? null;
 
   const row = el("ul", { class: "suspects" });
-  for (const personId of culprit.options ?? []) {
+  for (const personId of dealt(culprit.options, "culprit")) {
     const isAccused = personId === accused;
     const pick = button(null, () => dispatch({ type: "FINALE_CULPRIT", personId }), {
       class: "suspect__pick",
@@ -285,6 +286,7 @@ function culpritRegion(ctx, { culprit, sealed }) {
       el("span", { class: "suspect__ring" }, [
         cameo(cameoFigure(lesson.people[personId].cameo))
       ]),
+      el("span", { class: "suspect__name", text: lesson.people[personId].name }),
       el("span", { class: "suspect__role", text: quote(lesson.people[personId].role) })
     );
     row.append(

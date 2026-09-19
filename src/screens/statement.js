@@ -15,7 +15,7 @@ import { UI } from "../ui-strings.js";
 import { el, button, label, screenShell, nextButton, closedBookMark } from "./chrome.js";
 import { attempted } from "./challenge.js";
 import { FINALE_STATEMENT as ITEM } from "../state/grade.js";
-import { blanksLeft, openBlank } from "./challenge-view.js";
+import { blanksLeft, openBlank, dealt } from "./challenge-view.js";
 
 const SLOT = /\{([^{}]+)\}/g;
 
@@ -143,7 +143,7 @@ function wordTray(ctx, { slots, active, chosen, signed }) {
   }
 
   const tiles = el("ul", { class: "words__tiles" });
-  for (const option of slot.options ?? []) {
+  for (const option of dealt(slot.options, slot.id)) {
     const set = chosen[slot.id] === option.vocabulary;
     const tile = button(
       lesson.vocabulary[option.vocabulary].word,

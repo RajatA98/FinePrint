@@ -94,7 +94,7 @@ test("a full case with every answer right ends as Master Detective", async ({ pa
       await page.locator("button.slip__pick").nth(i).click();
     }
   }
-  await page.locator("ul.suspects .suspect__pick").nth(culprit.options.indexOf(culprit.answer)).click();
+  await page.locator("ul.suspects .suspect__pick", { hasText: lesson.people[culprit.answer].name }).click();
   await page.locator("button.seal").click();
   await expect(page.locator('.stamp[data-state="closed"]')).toBeVisible();
   await next(page);

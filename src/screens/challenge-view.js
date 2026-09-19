@@ -300,3 +300,33 @@ const FIGURE_OF_CAMEO = {
 export function cameoFigure(cameoKey) {
   return FIGURE_OF_CAMEO[cameoKey] ?? "guide";
 }
+
+/* ------------------------------------------------------------- the order */
+
+/**
+ * dealt(items, seed) — the same items in an order that is fixed for the seed
+ * and different from the lesson file's. The lesson lists the right answer
+ * first so an author can read it; a reader must never be able to. A string
+ * seed (the challenge's prompt key, a slot id) keeps the order stable across
+ * redraws and reloads, so a plate the reader chose does not move under them.
+ */
+export function dealt(items, seed) {
+  const list = [...(items ?? [])];
+  let h = 2166136261;
+  for (const ch of String(seed ?? "")) {
+    h ^= ch.charCodeAt(0);
+    h = Math.imul(h, 16777619) >>> 0;
+  }
+  const next = () => {
+    h = (h + 0x6d2b79f5) >>> 0;
+    let t = h;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+  for (let i = list.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(next() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+}

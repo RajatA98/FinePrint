@@ -647,7 +647,21 @@ ul.portraits li {
 
 .portraits .choice__label {
   flex: 0 0 auto;
+  display: grid;
+  gap: 0.2rem;
   font-size: 0.98rem;
+}
+
+.choice__name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+}
+
+.choice__role {
+  font-size: 0.88rem;
+  color: rgba(42, 32, 23, 0.72);
 }
 
 /* ------------------------------------------------------------ citing a line */
